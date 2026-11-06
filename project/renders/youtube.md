@@ -1,12 +1,12 @@
-# YouTube upload pack: From Merchants to Masters
+# YouTube upload pack: From Merchants to Masters (1600–1947)
 
 ## Title
-From Merchants to Masters: How the English Took Root in India (1600–1717) | Animated History
+From Merchants to Masters: The English in India, 1600–1947 | Animated History
 
 ## Description
-In 1690, envoys of the English East India Company bowed before Emperor Aurangzeb, paid a fine of 1,50,000 rupees and begged for a pardon. They had lost a war against the Mughal Empire. Less than seventy years later, the same company was choosing who ruled Bengal. How did traders on their knees end up making kings?
+In 1690, envoys of the English East India Company bowed before Emperor Aurangzeb, paid a fine of 1,50,000 rupees and begged for a pardon. Less than seventy years later, the same company was choosing who ruled Bengal, and by 1858 the British Crown ruled India. On 15 August 1947, India became free.
 
-This paper-cut animated history follows the English from Queen Elizabeth's charter of 1600 to Farrukhsiyar's farmans of 1717: Surat, Madras, Bombay and Calcutta, the Golden Farman, a £10 rent, a war they lost, and the "Magna Carta" that changed everything. Useful for UPSC and school revision (Modern India: the advent of the Europeans).
+This paper-cut animated history follows the English in India from Queen Elizabeth's charter of 1600 to independence and Partition in 1947: the farmans and the three forts, Plassey and Buxar, the Diwani, the Company's wars, the revolt of 1857, the Raj, Congress, Swadeshi, Gandhi, the Salt March, Quit India and freedom at midnight. Useful for UPSC and school revision (Modern Indian History).
 
 Chapters
 0:00 Cold open: 1690, before Aurangzeb
@@ -18,6 +18,14 @@ Chapters
 3:16 1690: Three Villages
 4:02 1717: The Company's Magna Carta
 4:43 1757: Next, the French
+5:07 1757: Battle of Plassey
+6:02 1765: Buxar and the Diwani
+6:51 1799: The Company Conquers
+7:38 1857: The Great Revolt
+8:24 1858: The Crown Takes Over
+8:59 1885: A Voice for India
+9:31 1919: Gandhi's India
+10:09 1947: Freedom at Midnight
 
 Sources
 - Rajiv Ahir, A Brief History of Modern India, ch. 3 'Advent of the Europeans in India', section on the English (Golden Farman 1632 and 500 pagodas; Shah Shuja's 1651 farman, Rs 3,000; Roe's factories at Agra, Ahmedabad, Broach; three villages bought for Rs 1,200 in 1698; Fort William 1700; the 1717 farmans as the Company's 'Magna Carta'; Bombay coins valid across the empire)
@@ -30,16 +38,16 @@ Sources
 - Wikipedia, 'Battle of Swally' (29-30 November 1612, Best's ships against a larger Portuguese force)
 - Wikipedia, 'Fort William, India' (begun 1696, named after William III in 1700); 'Farrukhsiyar' (1717 farman, duty-free trade in Bengal, dastaks)
 - GKToday and Banglapedia (Hawkins at Agra 1609-1611; Sobha Singh's revolt of 1696 let the English fortify; 9 November 1698 deed for the three villages; Bombay headquarters from 1687)
+- Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India
 - Map: Natural Earth 1:50m land and 1:10m rivers (public domain)
 
-Narration: synthetic voice (Kokoro, bm_george). Animation drawn entirely in code; no AI-generated images or video. Map data: Natural Earth (public domain).
+Narration: synthetic voice (Kokoro, bm_george). Animation drawn entirely in code; no AI-generated images or video. Map data: Natural Earth (public domain). Battles, the 1770 famine, Jallianwala Bagh and Partition are shown without depicting violence.
 
-Next episode: The French in India.
-
-#ModernIndianHistory #EastIndiaCompany #UPSC #MughalEmpire #AnimatedHistory #IndianHistory #Aurangzeb #Calcutta
+#ModernIndianHistory #EastIndiaCompany #UPSC #IndianIndependence #AnimatedHistory #IndianHistory #1857 #BritishRaj
 
 ## Upload settings
-- Audience: "No, it's not made for kids" (as you asked; change only if you decide otherwise).
-- Altered or synthetic content: on YouTube's rules as reported in 2026 secondary sources, a generic text-to-speech narrator that imitates no real person, over clearly stylised cut-paper animation, does not require the "altered or synthetic content" disclosure. YouTube's own Help page was NOT checked here; confirm in YouTube Studio before publishing. The description above already says the voice is synthetic.
-- End screen: the bottom-right 420x260 area is kept clear for the last 20 s (from 4:49).
+- Audience: "No, it's not made for kids".
+- Altered or synthetic content: secondary sources (2026) say a generic text-to-speech narrator over clearly stylised animation does not need the disclosure. YouTube's own Help page was NOT checked; confirm in YouTube Studio. The description already says the voice is synthetic.
+- Sensitive history: the video covers the 1770 famine, Jallianwala Bagh and Partition. No graphic imagery is shown, so it should not need an age restriction, but that is your call.
+- End screen: the bottom-right 420x260 area is kept clear for the last 20 s (from 10:44).
 - Thumbnail: renders/thumbnail.jpg (1280x720).
