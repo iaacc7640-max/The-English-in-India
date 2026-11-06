@@ -1,67 +1,595 @@
 {
- "duration": 40.924,
+ "duration": 318.772,
  "voice": "bm_george",
- "speed": 1.0,
+ "speed": 0.93,
  "lines": [
   {
    "i": 0,
-   "text": "In sixteen sixty-six, a tiny bakery fire burned down most of London.",
-   "start": 0.4,
-   "end": 5.46
+   "text": "In sixteen ninety,",
+   "start": 0.6,
+   "end": 1.75
   },
   {
    "i": 1,
-   "text": "It started just after midnight, in Thomas Farriner's bakery on Pudding Lane.",
-   "start": 5.76,
-   "end": 10.791
+   "text": "envoys of the English East India Company",
+   "start": 2.15,
+   "end": 5.047
   },
   {
    "i": 2,
-   "text": "London was packed with wooden houses, and a strong wind was blowing,",
-   "start": 11.091,
-   "end": 15.321
+   "text": "stood before the court of Emperor Orungzeb,",
+   "start": 5.047,
+   "end": 7.93
   },
   {
    "i": 3,
-   "text": "so the flames jumped from roof to roof.",
-   "start": 15.671,
-   "end": 17.947
+   "text": "bowed to the ground,",
+   "start": 7.93,
+   "end": 8.85
   },
   {
    "i": 4,
-   "text": "The Lord Mayor was woken up, but he shrugged it off.",
-   "start": 18.247,
-   "end": 21.175
+   "text": "paid a heavy fine,",
+   "start": 9.32,
+   "end": 10.43
   },
   {
    "i": 5,
-   "text": "For four days, the city burned.",
-   "start": 21.475,
-   "end": 23.636
+   "text": "and begged for a pardon.",
+   "start": 10.76,
+   "end": 12.199
   },
   {
    "i": 6,
-   "text": "Thirteen thousand houses, eighty-seven churches, and St Paul's Cathedral were gone.",
-   "start": 23.936,
-   "end": 29.306
+   "text": "They had just lost a war against the Mughal Empire.",
+   "start": 12.559,
+   "end": 16.018
   },
   {
    "i": 7,
-   "text": "In the end, they blew up whole streets to stop it spreading.",
-   "start": 29.606,
-   "end": 32.797
+   "text": "Yet less than seventy years later,",
+   "start": 16.378,
+   "end": 18.278
   },
   {
    "i": 8,
-   "text": "And when London was rebuilt, it was built in brick and stone.",
-   "start": 33.097,
-   "end": 36.797
+   "text": "the same company would be choosing who ruled Bengal.",
+   "start": 18.698,
+   "end": 22.176
   },
   {
    "i": 9,
-   "text": "All because of one small bakery.",
-   "start": 37.097,
-   "end": 39.624
+   "text": "So how did a group of traders on their knees",
+   "start": 22.536,
+   "end": 24.956
+  },
+  {
+   "i": 10,
+   "text": "end up making kings?",
+   "start": 25.306,
+   "end": 26.751
+  },
+  {
+   "i": 11,
+   "text": "It began in London, full of confidence.",
+   "start": 29.051,
+   "end": 31.899
+  },
+  {
+   "i": 12,
+   "text": "Francis Drake had sailed around the world,",
+   "start": 32.259,
+   "end": 34.659
+  },
+  {
+   "i": 13,
+   "text": "and in fifteen eighty-eight England had beaten the Spanish Armada.",
+   "start": 35.099,
+   "end": 39.401
+  },
+  {
+   "i": 14,
+   "text": "English merchants heard how rich the Portuguese had grown in the East,",
+   "start": 39.761,
+   "end": 44.121
+  },
+  {
+   "i": 15,
+   "text": "and wanted a share.",
+   "start": 44.521,
+   "end": 45.609
+  },
+  {
+   "i": 16,
+   "text": "So on the last day of the year sixteen hundred,",
+   "start": 45.969,
+   "end": 48.639
+  },
+  {
+   "i": 17,
+   "text": "Queen Elizabeth the First gave a group of London merchants a charter,",
+   "start": 49.059,
+   "end": 53.599
+  },
+  {
+   "i": 18,
+   "text": "and the sole right to trade with the East Indies.",
+   "start": 54.089,
+   "end": 57.22
+  },
+  {
+   "i": 19,
+   "text": "The Dutch already held the Spice Islands,",
+   "start": 57.58,
+   "end": 59.92
+  },
+  {
+   "i": 20,
+   "text": "so the English turned to India,",
+   "start": 60.23,
+   "end": 61.96
+  },
+  {
+   "i": 21,
+   "text": "and its cloth.",
+   "start": 62.29,
+   "end": 63.211
+  },
+  {
+   "i": 22,
+   "text": "The first steps were humbling.",
+   "start": 65.111,
+   "end": 67.067
+  },
+  {
+   "i": 23,
+   "text": "Captain William Hawkins reached Emperor Jahaangeer's court in sixteen-oh-nine,",
+   "start": 67.427,
+   "end": 72.497
+  },
+  {
+   "i": 24,
+   "text": "but the Portuguese blocked him,",
+   "start": 72.967,
+   "end": 74.447
+  },
+  {
+   "i": 25,
+   "text": "and he left with nothing.",
+   "start": 74.807,
+   "end": 76.188
+  },
+  {
+   "i": 26,
+   "text": "Then, in sixteen twelve, Captain Thomas Best beat a Portuguese fleet off Soo-rut,",
+   "start": 76.548,
+   "end": 81.91
+  },
+  {
+   "i": 27,
+   "text": "and an impressed Jahaangeer",
+   "start": 81.91,
+   "end": 84.098
+  },
+  {
+   "i": 28,
+   "text": "let the English open a factory there.",
+   "start": 84.418,
+   "end": 86.659
+  },
+  {
+   "i": 29,
+   "text": "In sixteen fifteen, King James sent a proper ambassador, Sir Thomas Roe.",
+   "start": 87.019,
+   "end": 92.293
+  },
+  {
+   "i": 30,
+   "text": "He never got the treaty he wanted,",
+   "start": 92.653,
+   "end": 94.473
+  },
+  {
+   "i": 31,
+   "text": "but he won the right to set up factories",
+   "start": 94.913,
+   "end": 97.013
+  },
+  {
+   "i": 32,
+   "text": "at Agra, Ah-mud-a-baad and Brohch.",
+   "start": 97.083,
+   "end": 99.847
+  },
+  {
+   "i": 33,
+   "text": "On the east coast,",
+   "start": 101.747,
+   "end": 102.917
+  },
+  {
+   "i": 34,
+   "text": "the Sultan of Golconda gave them a golden farmaan in sixteen thirty-two:",
+   "start": 103.277,
+   "end": 108.13
+  },
+  {
+   "i": 35,
+   "text": "free trade in his ports for five hundred gold pagodas a year.",
+   "start": 108.38,
+   "end": 112.876
+  },
+  {
+   "i": 36,
+   "text": "Then, in sixteen thirty-nine,",
+   "start": 113.236,
+   "end": 115.166
+  },
+  {
+   "i": 37,
+   "text": "a Company merchant named Francis Day",
+   "start": 115.586,
+   "end": 117.976
+  },
+  {
+   "i": 38,
+   "text": "got a local Naayuk ruler to grant a strip of sandy coast.",
+   "start": 118.356,
+   "end": 122.507
+  },
+  {
+   "i": 39,
+   "text": "There, the English built Fort Saint George.",
+   "start": 122.867,
+   "end": 125.415
+  },
+  {
+   "i": 40,
+   "text": "Around it grew a town called Madras.",
+   "start": 125.775,
+   "end": 128.59
+  },
+  {
+   "i": 41,
+   "text": "In the west, the luck came through a wedding.",
+   "start": 130.49,
+   "end": 133.165
+  },
+  {
+   "i": 42,
+   "text": "In sixteen sixty-two, King Charles the Second married a Portuguese princess,",
+   "start": 133.525,
+   "end": 139.145
+  },
+  {
+   "i": 43,
+   "text": "Catherine of Braganza,",
+   "start": 139.555,
+   "end": 140.995
+  },
+  {
+   "i": 44,
+   "text": "and the islands of Bombay came as part of her dowry.",
+   "start": 141.385,
+   "end": 144.425
+  },
+  {
+   "i": 45,
+   "text": "Charles had little use for them,",
+   "start": 144.785,
+   "end": 146.505
+  },
+  {
+   "i": 46,
+   "text": "so in sixteen sixty-eight, he rented Bombay to the Company",
+   "start": 146.895,
+   "end": 150.575
+  },
+  {
+   "i": 47,
+   "text": "for just ten pounds a year.",
+   "start": 150.735,
+   "end": 152.384
+  },
+  {
+   "i": 48,
+   "text": "By sixteen eighty-seven, Bombay had replaced Soo-rut",
+   "start": 152.744,
+   "end": 156.314
+  },
+  {
+   "i": 49,
+   "text": "as the Company's western headquarters.",
+   "start": 156.674,
+   "end": 158.842
+  },
+  {
+   "i": 50,
+   "text": "Bengal was the richest prize of all.",
+   "start": 160.742,
+   "end": 163.368
+  },
+  {
+   "i": 51,
+   "text": "From sixteen fifty-one, the Company traded there",
+   "start": 163.728,
+   "end": 167.378
+  },
+  {
+   "i": 52,
+   "text": "for a flat three thousand rupees a year,",
+   "start": 167.528,
+   "end": 169.418
+  },
+  {
+   "i": 53,
+   "text": "but local officials kept demanding tolls.",
+   "start": 169.858,
+   "end": 172.784
+  },
+  {
+   "i": 54,
+   "text": "In London, the Company's governor, Josiah Child,",
+   "start": 173.144,
+   "end": 176.604
+  },
+  {
+   "i": 55,
+   "text": "decided to fight.",
+   "start": 176.844,
+   "end": 178.038
+  },
+  {
+   "i": 56,
+   "text": "It was a disaster.",
+   "start": 178.398,
+   "end": 180.039
+  },
+  {
+   "i": 57,
+   "text": "In sixteen eighty-six, fighting broke out at Hoogly,",
+   "start": 180.399,
+   "end": 183.999
+  },
+  {
+   "i": 58,
+   "text": "and the English were driven out of the town.",
+   "start": 184.369,
+   "end": 186.671
+  },
+  {
+   "i": 59,
+   "text": "Soon a Mughal admiral, Siddi Yaakoob,",
+   "start": 187.031,
+   "end": 189.491
+  },
+  {
+   "i": 60,
+   "text": "blockaded Bombay",
+   "start": 189.911,
+   "end": 190.941
+  },
+  {
+   "i": 61,
+   "text": "until famine forced the English to give in.",
+   "start": 191.231,
+   "end": 193.712
+  },
+  {
+   "i": 62,
+   "text": "Peace came at a price:",
+   "start": 194.072,
+   "end": 195.541
+  },
+  {
+   "i": 63,
+   "text": "a fine of one hundred and fifty thousand rupees,",
+   "start": 195.791,
+   "end": 198.861
+  },
+  {
+   "i": 64,
+   "text": "a public apology, and a promise to behave.",
+   "start": 199.221,
+   "end": 202.226
+  },
+  {
+   "i": 65,
+   "text": "Orungzeb forgave them, and trade resumed.",
+   "start": 204.126,
+   "end": 207.263
+  },
+  {
+   "i": 66,
+   "text": "In August sixteen ninety, the Company agent Job Charnock",
+   "start": 207.623,
+   "end": 211.523
+  },
+  {
+   "i": 67,
+   "text": "came back to a riverside village called Sootanootee.",
+   "start": 211.733,
+   "end": 215.146
+  },
+  {
+   "i": 68,
+   "text": "When a local zameendaar, Shobha Singh, rebelled in sixteen ninety-six,",
+   "start": 215.506,
+   "end": 220.266
+  },
+  {
+   "i": 69,
+   "text": "the English used it as an excuse to build walls.",
+   "start": 220.696,
+   "end": 223.973
+  },
+  {
+   "i": 70,
+   "text": "Two years later they bought the rights to three villages,",
+   "start": 224.333,
+   "end": 227.573
+  },
+  {
+   "i": 71,
+   "text": "Sootanootee, Gobindapoor and Kalikata,",
+   "start": 227.893,
+   "end": 230.793
+  },
+  {
+   "i": 72,
+   "text": "for twelve hundred rupees.",
+   "start": 231.183,
+   "end": 232.802
+  },
+  {
+   "i": 73,
+   "text": "By seventeen hundred, the walls had a name, Fort William,",
+   "start": 233.162,
+   "end": 236.902
+  },
+  {
+   "i": 74,
+   "text": "and the town around it became Calcutta.",
+   "start": 237.342,
+   "end": 239.7
+  },
+  {
+   "i": 75,
+   "text": "Charnock is often called its founder,",
+   "start": 240.06,
+   "end": 242.07
+  },
+  {
+   "i": 76,
+   "text": "though in two thousand and three, the Calcutta High Court ruled",
+   "start": 242.52,
+   "end": 246.51
+  },
+  {
+   "i": 77,
+   "text": "that a thriving settlement was already there before him.",
+   "start": 246.81,
+   "end": 249.967
+  },
+  {
+   "i": 78,
+   "text": "Back in England, a rival company had been set up,",
+   "start": 251.867,
+   "end": 254.927
+  },
+  {
+   "i": 79,
+   "text": "but it flopped, and in seventeen-oh-eight the two merged into one.",
+   "start": 255.407,
+   "end": 259.522
+  },
+  {
+   "i": 80,
+   "text": "Then, in seventeen fifteen, a Company mission led by John Surman",
+   "start": 259.882,
+   "end": 264.562
+  },
+  {
+   "i": 81,
+   "text": "reached the court of Emperor Furrookh seeyaar.",
+   "start": 264.732,
+   "end": 267.609
+  },
+  {
+   "i": 82,
+   "text": "The mission's surgeon, William Hamilton,",
+   "start": 267.969,
+   "end": 270.499
+  },
+  {
+   "i": 83,
+   "text": "even treated the emperor's illness.",
+   "start": 270.829,
+   "end": 272.973
+  },
+  {
+   "i": 84,
+   "text": "In seventeen seventeen, Furrookh seeyaar issued farmaans so generous",
+   "start": 273.333,
+   "end": 278.223
+  },
+  {
+   "i": 85,
+   "text": "that the Company called them its Magna Carta:",
+   "start": 278.653,
+   "end": 281.405
+  },
+  {
+   "i": 86,
+   "text": "almost no customs duties in Bengal,",
+   "start": 281.655,
+   "end": 284.245
+  },
+  {
+   "i": 87,
+   "text": "its own transit passes,",
+   "start": 284.705,
+   "end": 286.165
+  },
+  {
+   "i": 88,
+   "text": "more land around Calcutta,",
+   "start": 286.545,
+   "end": 288.155
+  },
+  {
+   "i": 89,
+   "text": "and Bombay-minted coins valid across the empire.",
+   "start": 288.535,
+   "end": 291.974
+  },
+  {
+   "i": 90,
+   "text": "Madras, Bombay and Calcutta,",
+   "start": 293.874,
+   "end": 296.044
+  },
+  {
+   "i": 91,
+   "text": "three small forts on three coasts,",
+   "start": 296.394,
+   "end": 298.494
+  },
+  {
+   "i": 92,
+   "text": "would become the three pillars of British India.",
+   "start": 298.884,
+   "end": 301.489
+  },
+  {
+   "i": 93,
+   "text": "But first, the English had one more rival to beat:",
+   "start": 301.849,
+   "end": 305.134
+  },
+  {
+   "i": 94,
+   "text": "the French.",
+   "start": 305.384,
+   "end": 306.26
+  },
+  {
+   "i": 95,
+   "text": "And in seventeen fifty-seven, at Plassey,",
+   "start": 306.62,
+   "end": 309.51
+  },
+  {
+   "i": 96,
+   "text": "the traders who once knelt before the Mughals",
+   "start": 310.01,
+   "end": 312.4
+  },
+  {
+   "i": 97,
+   "text": "would put their own man on the throne of Bengal.",
+   "start": 312.58,
+   "end": 316.012
   }
  ]
 }
