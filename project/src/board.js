@@ -28,6 +28,19 @@ const BOARDS = {
     K.moneybag(1060, 850, 0.6, '1,50,000'); K.receipt(1330, 790, 0.7, -0.05); K.riceJar(1560, 860, 0.7, 0.2); K.cushion(1780, 860, 0.45, true, 0);
     K.royalSeal(1180, 520, 0.5, 'mughal'); K.royalSeal(1300, 520, 0.5, 'golconda'); K.seal(1420, 520, 0.5, 'E');
   },
+  thumb() {
+    K.mughalCourt({ pan: 40, throne: 'aurangzeb' });
+    K.layer(40, 0.6, () => { K.envoy(0, { x: 560, y: 800, h: 430, bow: 1 }); K.envoy(1, { x: 760, y: 800, h: 440, bow: 0.95 }); K.moneybag(960, 800, 0.55, '1,50,000'); });
+    ctx.save(); ctx.fillStyle = 'rgba(30,20,12,0.35)'; ctx.fillRect(0, 0, W, H); ctx.restore();
+    // the three-forts map on a paper card, right side
+    ctx.save(); ctx.translate(1180, 120); ctx.rotate(0.03); K.cut(K.P_rr(0, 0, 680, 820, 8), '#E9DCBC', { shadow: 1.4, edge: 8 });
+    ctx.beginPath(); ctx.rect(20, 20, 640, 780); ctx.clip(); ctx.translate(-570, -60); ctx.scale(0.95, 0.95);
+    const tv = { lon: 80.5, lat: 20.5, k: 30 }, tp = K.realMap({ view: tv, rings: { madras: 1, bombay: 1, calcutta: 1 }, compass: false, glowRings: 0.8, ringLabels: false });
+    for (const [id, dx, dy] of [['bombay', 110, 40], ['calcutta', -40, 70], ['madras', 100, 0]]) { const p = K.PLACES[id], [x, y] = tp(p.lon, p.lat); K.tag(p.n, x + dx, y + dy, 0.95, x, y); }
+    ctx.restore();
+    K.ribbon('1690', 420, 190, 1.25, 120);
+    K.slip('FROM MERCHANTS TO MASTERS', 600, 930, 1.05, -0.02, 76);
+  },
   card() { K.chapterCard(1.4, '1686', 'The War They Lost', 5); K.eraBar(YEARS, 4, 0.571); },
   cast() {
     K.parchment(21);
