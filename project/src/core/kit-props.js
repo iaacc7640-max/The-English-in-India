@@ -27,6 +27,11 @@ function flagFace(kind, fw, fh) {
   if (kind === 'spain') { f(P.crimson, 0, 0, fw, fh); ctx.strokeStyle = P.gold; ctx.lineWidth = 14; ctx.beginPath(); ctx.moveTo(fw * 0.2, fh * 0.1); ctx.lineTo(fw * 0.8, fh * 0.9); ctx.moveTo(fw * 0.8, fh * 0.1); ctx.lineTo(fw * 0.2, fh * 0.9); ctx.stroke(); }
   if (kind === 'france') { f(CREAM, 0, 0, fw, fh); fleur(fw * 0.5, fh * 0.52, 0.9, P.gold); }
   if (kind === 'white') f(CREAM, 0, 0, fw, fh);
+  if (kind === 'union') { f(P.royal, 0, 0, fw, fh); ctx.strokeStyle = CREAM; ctx.lineWidth = 22; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(fw, fh); ctx.moveTo(fw, 0); ctx.lineTo(0, fh); ctx.stroke(); ctx.strokeStyle = P.crimson; ctx.lineWidth = 8; ctx.stroke(); ctx.fillStyle = CREAM; ctx.fillRect(fw * 0.42, -10, fw * 0.16, fh + 20); ctx.fillRect(0, fh * 0.36, fw, fh * 0.28); ctx.fillStyle = P.crimson; ctx.fillRect(fw * 0.46, -10, fw * 0.08, fh + 20); ctx.fillRect(0, fh * 0.42, fw, fh * 0.16); }
+  if (kind === 'india') { f('#D9822B', 0, 0, fw, fh / 3); f(CREAM, 0, fh / 3, fw, fh / 3); f('#3F7A3A', 0, 2 * fh / 3, fw, fh / 3); ctx.strokeStyle = P.royal; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(fw / 2, fh / 2, fh * 0.13, 0, TAU); for (let i = 0; i < 24; i++) { const a = i / 24 * TAU; ctx.moveTo(fw / 2, fh / 2); ctx.lineTo(fw / 2 + Math.cos(a) * fh * 0.13, fh / 2 + Math.sin(a) * fh * 0.13); } ctx.stroke(); }
+  if (kind === 'maratha') { f('#D9822B', 0, 0, fw, fh); }
+  if (kind === 'tiger') { f(P.gold, 0, 0, fw, fh); ctx.fillStyle = P.ink; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.ellipse(20 + i * 32, fh / 2 + (i % 2 ? -14 : 14), 8, 30, 0.3, 0, TAU); ctx.fill(); } }
+  if (kind === 'sikh') { f('#D9822B', 0, 0, fw, fh); ctx.fillStyle = P.royal; ctx.beginPath(); ctx.arc(fw / 2, fh / 2, fh * 0.2, 0, TAU); ctx.fill(); }
 }
 /** gold sun disc with rays (the Mughal seal motif) */
 export function sun(x, y, r, c = P.gold, n = 12) {
@@ -62,7 +67,10 @@ export const FARMANS = {
   aurangzeb: { year: '1691', by: 'AURANGZEB', seal: 'mughal', paper: CREAM },
   farrukhsiyar: { year: '1717', by: 'FARRUKHSIYAR', seal: 'mughal', paper: '#EBCB7E' },
 };
-export const FARMAN_ORDER = ['jahangir', 'golconda', 'shuja', 'aurangzeb', 'farrukhsiyar'];
+FARMANS.diwani = { year: '1765', by: 'DIWANI', seal: 'mughal', paper: '#EBCB7E' };
+FARMANS.act1858 = { year: '1858', by: 'ACT 1858', seal: 'english', paper: '#F3E9D2' };
+FARMANS.act1947 = { year: '1947', by: 'ACT 1947', seal: 'english', paper: '#F3E9D2' };
+export const FARMAN_ORDER = ['jahangir', 'golconda', 'shuja', 'aurangzeb', 'farrukhsiyar', 'diwani', 'act1858', 'act1947'];
 /** an open farman: centred at (x, y), full width w, height h. p = unroll 0..1, stamp = 0..1 (seal drops in), lines = text lines (optional) */
 export function farman(id, x, y, w, h, p = 1, stamp = 0, lines = null) {
   const F = FARMANS[id], ww = Math.max(40, w * eo(clamp(p)));
@@ -92,7 +100,7 @@ export const STACK = { x: 1712, y: 152, dy: 38 };
 export function farmanStack(n) {
   const full = Math.floor(n + 1e-6);
   if (full <= 0) return;
-  for (let i = 0; i < Math.min(full, 5); i++) rolledFarman(FARMAN_ORDER[i], STACK.x, STACK.y + i * STACK.dy, 170, 1, (rnd(i + 3) - 0.5) * 0.06);
+  for (let i = 0; i < Math.min(full, 8); i++) rolledFarman(FARMAN_ORDER[i], STACK.x, STACK.y + i * STACK.dy, 170, 1, (rnd(i + 3) - 0.5) * 0.06);
 }
 /** a farman flying from an open position to its slot on the stack: p 0..1 */
 export function farmanFly(idx, p, from = [960, 470], fromScale = 3.5) {
@@ -105,7 +113,7 @@ export function farmanFly(idx, p, from = [960, 470], fromScale = 3.5) {
 export function chapterCard(lt, year, title, n = 1) {
   parchment(40 + n);
   ctx.save(); ctx.strokeStyle = 'rgba(62,44,30,0.25)'; ctx.lineWidth = 3; ctx.strokeRect(70, 60, W - 140, H - 120); ctx.restore();
-  label('CHAPTER ' + ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'][n - 1], 960, 250, 34, P.sepia);
+  label('CHAPTER ' + ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN', 'ELEVEN', 'TWELVE', 'THIRTEEN', 'FOURTEEN', 'FIFTEEN', 'SIXTEEN'][n - 1], 960, 250, 34, P.sepia);
   ribbon(year, 960, 380, eob(seg(lt, 0.1, 0.45)), 120);
   const ts = eob(seg(lt, 0.35, 0.7)); if (ts > 0) slip(title, 960, 580, ts, -0.02, 72);
   const ss = seg(lt, 0.7, 0.85); if (ss > 0) { ctx.save(); ctx.globalAlpha = clamp(ss * 3); seal(1340, 650, lerp(1.6, 0.62, eo(ss)), 'E'); ctx.restore(); }

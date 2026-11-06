@@ -28,6 +28,10 @@ const BOARDS = {
     K.moneybag(1060, 850, 0.6, '1,50,000'); K.receipt(1330, 790, 0.7, -0.05); K.riceJar(1560, 860, 0.7, 0.2); K.cushion(1780, 860, 0.45, true, 0);
     K.royalSeal(1180, 520, 0.5, 'mughal'); K.royalSeal(1300, 520, 0.5, 'golconda'); K.seal(1420, 520, 0.5, 'E');
   },
+  cast2() {
+    K.parchment(23); K.label('THE CAST · PART TWO (1717–1947)', 960, 52, 34);
+    K.CAST_ORDER2.forEach((id, i) => { const r = Math.floor(i / 9), c = i % 9, x = 120 + c * 210, y = 480 + r * 470; K.cast(id, { x, y, h: 330, arm: 15 }); const nm = K.CAST[id].name.toUpperCase().split(' '), half = Math.ceil(nm.length / 2); if (nm.join(' ').length > 13 && nm.length > 1) { K.label(nm.slice(0, half).join(' '), x, y + 30, 16); K.label(nm.slice(half).join(' '), x, y + 52, 16); } else K.label(nm.join(' '), x, y + 30, 16); });
+  },
   thumb() {
     K.mughalCourt({ pan: 40, throne: 'aurangzeb' });
     K.layer(40, 0.6, () => { K.envoy(0, { x: 560, y: 800, h: 430, bow: 1 }); K.envoy(1, { x: 760, y: 800, h: 440, bow: 0.95 }); K.moneybag(960, 800, 0.55, '1,50,000'); });

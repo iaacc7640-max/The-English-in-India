@@ -7,7 +7,7 @@ const { P } = K;
 /** the 1690 court two-shot: envoys at ex (walk-in done at k=1), bow 0..1; used again in CH5 */
 export function courtShot(lt, t, o = {}) {
   const pan = o.pan ?? 0;
-  K.mughalCourt({ pan, throne: 'aurangzeb', dim: o.dim || 0 });
+  K.mughalCourt({ pan, throne: 'aurangzeb', dim: o.dim || 0, courtiers: o.courtiers });
   K.layer(pan, 0.6, () => {
     const walk = o.walkK ?? 1, bow = o.bow || 0;
     K.envoy(0, { x: lerp(-200, 640, walk), y: 800, h: 360, bow, walk: walk < 1 ? t * 7 : null, arm: bow ? 10 : 0 });
@@ -64,9 +64,9 @@ export function build(add, cue) {
     draw: (lt, d, t) => { K.mughalCourt({ pan: 40, throne: 'aurangzeb', dim: 0.35 }); K.layer(40, 0.6, () => { K.envoy(0, { x: 640, y: 800, h: 300, bow: 1 }); K.envoy(1, { x: 800, y: 800, h: 310, bow: 1 }); }); K.courtForeground(40); } });
   // 10 · end up making kings? — TITLE: ribbon 1600 -> 1717, slip FROM MERCHANTS TO MASTERS, wax seal (holds into the gap)
   { const s0 = at(10);
-    add({ id: '0.11', at: s0, note: 'TITLE: 1600 -> 1717, FROM MERCHANTS TO MASTERS', draw: (lt, d, t) => {
+    add({ id: '0.11', at: s0, note: 'TITLE: 1600 -> 1947, FROM MERCHANTS TO MASTERS', draw: (lt, d, t) => {
       K.parchment(12); K.cushion(960, 790, 0.62, true, 0); ctx.save(); ctx.globalAlpha = 0.2; ctx.fillStyle = P.ink; ctx.fillRect(-400, -400, W + 800, H + 800); ctx.restore();
-      const rs = eob(seg(lt, 0.15, 0.55)); K.ribbon('1600        1717', 960, 300, rs, 104); if (rs > 0) { ctx.save(); ctx.translate(960, 306); ctx.scale(rs, rs); K.cut(K.P_poly([[-60, -10], [30, -10], [30, -30], [70, 0], [30, 30], [30, 10], [-60, 10]]), P.ink, { shadow: 0, edge: 0 }); ctx.restore(); }
+      const rs = eob(seg(lt, 0.15, 0.55)); K.ribbon('1600        1947', 960, 300, rs, 104); if (rs > 0) { ctx.save(); ctx.translate(960, 306); ctx.scale(rs, rs); K.cut(K.P_poly([[-60, -10], [30, -10], [30, -30], [70, 0], [30, 30], [30, 10], [-60, 10]]), P.ink, { shadow: 0, edge: 0 }); ctx.restore(); }
       K.slip('FROM MERCHANTS TO MASTERS', 960, 500, eob(seg(lt, 0.5, 0.9)), -0.015, 76);
       const ss = seg(lt, 0.95, 1.15); if (ss > 0) { ctx.save(); ctx.globalAlpha = clamp(ss * 3); K.seal(1420, 590, lerp(1.6, 0.7, eo(ss)), 'E'); ctx.restore(); }
       K.label('THE ENGLISH IN INDIA', 960, 640, 40, P.sepia);

@@ -1,5 +1,5 @@
 {
- "duration": 309.708,
+ "duration": 664.128,
  "voice": "bm_george",
  "speed": 0.95,
  "lines": [
@@ -590,6 +590,408 @@
    "text": "would put their own man on the throne of Bengal.",
    "start": 303.853,
    "end": 307.238
+  },
+  {
+   "i": 98,
+   "text": "First, though, the English had to deal with the French.",
+   "start": 308.888,
+   "end": 311.982
+  },
+  {
+   "i": 99,
+   "text": "In the seventeen-forties and fifties, the two companies fought three wars in the south,",
+   "start": 312.252,
+   "end": 317.412
+  },
+  {
+   "i": 100,
+   "text": "the Carnatic Wars,",
+   "start": 317.852,
+   "end": 319.022
+  },
+  {
+   "i": 101,
+   "text": "and after a defeat at Wandiwash, the French lost Pondi-cherry in seventeen sixty-one.",
+   "start": 319.422,
+   "end": 324.832
+  },
+  {
+   "i": 102,
+   "text": "Meanwhile in Bengal, a young Nawab, Siraj ood-Dowla,",
+   "start": 325.102,
+   "end": 329.312
+  },
+  {
+   "i": 103,
+   "text": "was angry that the English were fortifying Calcutta without his permission.",
+   "start": 329.732,
+   "end": 334.148
+  },
+  {
+   "i": 104,
+   "text": "In seventeen fifty-six, he seized the town.",
+   "start": 334.418,
+   "end": 337.687
+  },
+  {
+   "i": 105,
+   "text": "Robert Clive sailed up from Madras and took it back.",
+   "start": 337.957,
+   "end": 341.486
+  },
+  {
+   "i": 106,
+   "text": "Then, on the twenty-third of June, seventeen fifty-seven, the two armies met at Plassey.",
+   "start": 341.756,
+   "end": 347.561
+  },
+  {
+   "i": 107,
+   "text": "But Clive had made a secret deal with the Nawab's commander, Meer Jaafar.",
+   "start": 347.831,
+   "end": 352.463
+  },
+  {
+   "i": 108,
+   "text": "Meer Jaafar's troops stood aside, and the battle was over in a single day.",
+   "start": 352.733,
+   "end": 357.939
+  },
+  {
+   "i": 109,
+   "text": "Meer Jaafar was made Nawab, and the Company collected a fortune.",
+   "start": 358.209,
+   "end": 362.679
+  },
+  {
+   "i": 110,
+   "text": "The next Nawab, Meer Kassim, tried to rule on his own.",
+   "start": 364.329,
+   "end": 367.948
+  },
+  {
+   "i": 111,
+   "text": "He joined the Nawab of Uh-wudh and the Mughal emperor, Shah Alam the Second,",
+   "start": 368.218,
+   "end": 373.288
+  },
+  {
+   "i": 112,
+   "text": "but in seventeen sixty-four, the Company defeated all three at Buxar.",
+   "start": 373.768,
+   "end": 378.37
+  },
+  {
+   "i": 113,
+   "text": "The next year, at Allahabad, the emperor granted the Company the Deewaani",
+   "start": 378.64,
+   "end": 383.35
+  },
+  {
+   "i": 114,
+   "text": "of Bengal, Bihar and Orissa: the right to collect their land revenue.",
+   "start": 383.41,
+   "end": 388.19
+  },
+  {
+   "i": 115,
+   "text": "The traders were now tax collectors for one of the richest regions on earth.",
+   "start": 388.46,
+   "end": 393.577
+  },
+  {
+   "i": 116,
+   "text": "In seventeen seventy, famine struck Bengal.",
+   "start": 393.847,
+   "end": 397.081
+  },
+  {
+   "i": 117,
+   "text": "Between seven and ten million people are thought to have died, and the Company did not reduce its taxes.",
+   "start": 397.351,
+   "end": 404.356
+  },
+  {
+   "i": 118,
+   "text": "In seventeen seventy-three, Parliament stepped in, and Warren Hastings became Governor-General of Bengal.",
+   "start": 404.626,
+   "end": 411.889
+  },
+  {
+   "i": 119,
+   "text": "From Calcutta, the Company now marched outward.",
+   "start": 413.539,
+   "end": 416.818
+  },
+  {
+   "i": 120,
+   "text": "In the south, it fought four wars against Mysore,",
+   "start": 417.088,
+   "end": 420.278
+  },
+  {
+   "i": 121,
+   "text": "until Tipu Sultan fell at Seringapatam in seventeen ninety-nine.",
+   "start": 420.748,
+   "end": 425.143
+  },
+  {
+   "i": 122,
+   "text": "Governor-General Wellsley pushed Indian rulers into a subsidiary alliance:",
+   "start": 425.413,
+   "end": 430.589
+  },
+  {
+   "i": 123,
+   "text": "a Company army in your state, paid for by you.",
+   "start": 430.839,
+   "end": 433.993
+  },
+  {
+   "i": 124,
+   "text": "The Marathas, the last great Indian power, were broken in eighteen eighteen,",
+   "start": 434.263,
+   "end": 439.263
+  },
+  {
+   "i": 125,
+   "text": "and the Sikh kingdom of Punjab fell in eighteen forty-nine.",
+   "start": 439.703,
+   "end": 443.26
+  },
+  {
+   "i": 126,
+   "text": "Lord Dalhousie took over states whose rulers died without a natural heir:",
+   "start": 443.53,
+   "end": 448.397
+  },
+  {
+   "i": 127,
+   "text": "the Doctrine of Lapse.",
+   "start": 448.647,
+   "end": 450.417
+  },
+  {
+   "i": 128,
+   "text": "He also brought railways: India's first passenger train ran from Bombay to Thane in eighteen fifty-three.",
+   "start": 450.687,
+   "end": 458.307
+  },
+  {
+   "i": 129,
+   "text": "But anger had been building: over lost kingdoms, heavy taxes, and new rifle cartridges",
+   "start": 459.957,
+   "end": 465.943
+  },
+  {
+   "i": 130,
+   "text": "rumoured to be greased with cow and pig fat.",
+   "start": 465.943,
+   "end": 468.863
+  },
+  {
+   "i": 131,
+   "text": "On the tenth of May, eighteen fifty-seven, soldiers at Meerut rose up and marched to Delhi.",
+   "start": 469.133,
+   "end": 475.175
+  },
+  {
+   "i": 132,
+   "text": "They proclaimed the old emperor, Bahadur Shah Zafar, their leader.",
+   "start": 475.445,
+   "end": 479.631
+  },
+  {
+   "i": 133,
+   "text": "The revolt spread across the north: to Kanpur, Lucknow and Jhansi,",
+   "start": 479.901,
+   "end": 484.481
+  },
+  {
+   "i": 134,
+   "text": "where Rani Lukshmee-bai, who had lost her kingdom to the Doctrine of Lapse, became one of its leaders.",
+   "start": 484.851,
+   "end": 490.461
+  },
+  {
+   "i": 135,
+   "text": "It took the British more than a year to crush the revolt, and both sides committed atrocities against civilians.",
+   "start": 490.731,
+   "end": 498.058
+  },
+  {
+   "i": 136,
+   "text": "Bahadur Shah Zafar was exiled to Rangoon, and the Mughal dynasty came to an end.",
+   "start": 498.328,
+   "end": 504.351
+  },
+  {
+   "i": 137,
+   "text": "In eighteen fifty-eight, Parliament took India away from the East India Company.",
+   "start": 506.001,
+   "end": 510.997
+  },
+  {
+   "i": 138,
+   "text": "India was now ruled directly by the British Crown.",
+   "start": 511.267,
+   "end": 515.077
+  },
+  {
+   "i": 139,
+   "text": "That November, the British offered a pardon to all rebels not involved in murder.",
+   "start": 515.347,
+   "end": 520.617
+  },
+  {
+   "i": 140,
+   "text": "The old company itself was finally dissolved in eighteen seventy-four.",
+   "start": 520.887,
+   "end": 525.898
+  },
+  {
+   "i": 141,
+   "text": "In eighteen seventy-seven, Victoria was declared Empress of India.",
+   "start": 526.168,
+   "end": 531.235
+  },
+  {
+   "i": 142,
+   "text": "Railways and ports spread, but thinkers like Dadabhai Naoroji argued that India's wealth was being drained to Britain.",
+   "start": 531.505,
+   "end": 539.813
+  },
+  {
+   "i": 143,
+   "text": "In eighteen eighty-five, educated Indians founded the Indian National Congress in Bombay.",
+   "start": 541.463,
+   "end": 548.122
+  },
+  {
+   "i": 144,
+   "text": "At first, it asked for reforms with petitions and resolutions.",
+   "start": 548.392,
+   "end": 552.616
+  },
+  {
+   "i": 145,
+   "text": "Then, in nineteen-oh-five, Viceroy Curzon split Bengal in two,",
+   "start": 552.886,
+   "end": 557.356
+  },
+  {
+   "i": 146,
+   "text": "and Bengal rose in protest.",
+   "start": 557.726,
+   "end": 559.777
+  },
+  {
+   "i": 147,
+   "text": "People boycotted British goods and bought Indian-made ones: Swadeshi.",
+   "start": 560.047,
+   "end": 565.064
+  },
+  {
+   "i": 148,
+   "text": "In nineteen eleven, the partition was reversed, and the capital moved from Calcutta to Delhi.",
+   "start": 565.334,
+   "end": 571.574
+  },
+  {
+   "i": 149,
+   "text": "In nineteen fifteen, Mohandas Gandhi came home from South Africa.",
+   "start": 573.225,
+   "end": 577.835
+  },
+  {
+   "i": 150,
+   "text": "In April nineteen nineteen, at Jallianwala Bagh in Amritsar,",
+   "start": 578.105,
+   "end": 582.045
+  },
+  {
+   "i": 151,
+   "text": "British troops fired on an unarmed crowd, and hundreds were killed.",
+   "start": 582.515,
+   "end": 586.536
+  },
+  {
+   "i": 152,
+   "text": "In nineteen twenty, Gandhi answered with non-violent non-cooperation:",
+   "start": 586.806,
+   "end": 591.846
+  },
+  {
+   "i": 153,
+   "text": "Indians gave up foreign cloth, returned British titles and resigned from their posts.",
+   "start": 592.096,
+   "end": 597.915
+  },
+  {
+   "i": 154,
+   "text": "In nineteen thirty, he walked about two hundred and forty miles to the sea at Daandee, to make salt and break the salt law.",
+   "start": 598.185,
+   "end": 606.268
+  },
+  {
+   "i": 155,
+   "text": "Newspapers around the world reported it.",
+   "start": 606.538,
+   "end": 609.523
+  },
+  {
+   "i": 156,
+   "text": "In nineteen forty-two, during the Second World War, Congress told the British: Quit India.",
+   "start": 611.173,
+   "end": 617.263
+  },
+  {
+   "i": 157,
+   "text": "Almost all its leaders were jailed, while Subhaash Chandra Bose led the Indian National Army against the British from South-East Asia.",
+   "start": 617.533,
+   "end": 626.683
+  },
+  {
+   "i": 158,
+   "text": "In July nineteen forty-seven, the British Parliament passed the Indian Independence Act.",
+   "start": 626.953,
+   "end": 633.079
+  },
+  {
+   "i": 159,
+   "text": "British India was divided into two countries, India and Pakistan.",
+   "start": 633.349,
+   "end": 638.547
+  },
+  {
+   "i": 160,
+   "text": "At midnight on the fifteenth of August, nineteen forty-seven, India became free.",
+   "start": 638.817,
+   "end": 644.204
+  },
+  {
+   "i": 161,
+   "text": "Partition drove between twelve and twenty million people from their homes.",
+   "start": 644.474,
+   "end": 649.337
+  },
+  {
+   "i": 162,
+   "text": "Three hundred and forty-seven years after a queen signed a charter for London merchants,",
+   "start": 649.607,
+   "end": 654.817
+  },
+  {
+   "i": 163,
+   "text": "the story that began with traders on their knees",
+   "start": 655.337,
+   "end": 658.167
+  },
+  {
+   "i": 164,
+   "text": "ended with a free India choosing its own way.",
+   "start": 658.527,
+   "end": 661.658
   }
  ]
 }

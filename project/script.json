@@ -1,5 +1,5 @@
 {
- "title": "From Merchants to Masters: The English in India, 1600-1717",
+ "title": "From Merchants to Masters: The English in India, 1600-1947",
  "voice": "bm_george",
  "speed": 0.95,
  "lead": 0.4,
@@ -50,6 +50,46 @@
   [
    8,
    "1757: Next, the French",
+   "bed"
+  ],
+  [
+   9,
+   "1757: Battle of Plassey",
+   "tension"
+  ],
+  [
+   10,
+   "1765: Buxar and the Diwani",
+   "bed"
+  ],
+  [
+   11,
+   "1799: The Company Conquers",
+   "bed"
+  ],
+  [
+   12,
+   "1857: The Great Revolt",
+   "tension"
+  ],
+  [
+   13,
+   "1858: The Crown Takes Over",
+   "bed"
+  ],
+  [
+   14,
+   "1885: A Voice for India",
+   "bed"
+  ],
+  [
+   15,
+   "1919: Gandhi's India",
+   "tension"
+  ],
+  [
+   16,
+   "1947: Freedom at Midnight",
    "build"
   ]
  ],
@@ -64,6 +104,7 @@
   "Wikipedia, 'Battle of Swally' (29-30 November 1612, Best's ships against a larger Portuguese force)",
   "Wikipedia, 'Fort William, India' (begun 1696, named after William III in 1700); 'Farrukhsiyar' (1717 farman, duty-free trade in Bengal, dastaks)",
   "GKToday and Banglapedia (Hawkins at Agra 1609-1611; Sobha Singh's revolt of 1696 let the English fortify; 9 November 1698 deed for the three villages; Bombay headquarters from 1687)",
+  "Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India",
   "Map: Natural Earth 1:50m land and 1:10m rivers (public domain)"
  ],
  "lines": [
@@ -571,7 +612,356 @@
   {
    "chapter": 8,
    "text": "would put their own man on the throne of Bengal.",
-   "caps": "their own *man | on the *throne."
+   "caps": "their own *man | on the *throne.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 9,
+   "text": "First, though, the English had to deal with the French.",
+   "caps": "deal with the *French."
+  },
+  {
+   "chapter": 9,
+   "text": "In the seventeen-forties and fifties, the two companies fought three wars in the south,",
+   "caps": "three *wars | in the *south,"
+  },
+  {
+   "chapter": 9,
+   "text": "the Carnatic Wars,",
+   "caps": "the *Carnatic Wars,"
+  },
+  {
+   "chapter": 9,
+   "text": "and after a defeat at Wandiwash, the French lost Pondi-cherry in seventeen sixty-one.",
+   "caps": "after *Wandiwash, | Pondicherry, *1761."
+  },
+  {
+   "chapter": 9,
+   "text": "Meanwhile in Bengal, a young Nawab, Siraj ood-Dowla,",
+   "caps": "a young *Nawab, | *Siraj-ud-Daulah,"
+  },
+  {
+   "chapter": 9,
+   "text": "was angry that the English were fortifying Calcutta without his permission.",
+   "caps": "fortifying *Calcutta | without *permission."
+  },
+  {
+   "chapter": 9,
+   "text": "In seventeen fifty-six, he seized the town.",
+   "caps": "In *1756, | he *seized the town."
+  },
+  {
+   "chapter": 9,
+   "text": "Robert Clive sailed up from Madras and took it back.",
+   "caps": "Robert *Clive | took it *back."
+  },
+  {
+   "chapter": 9,
+   "text": "Then, on the twenty-third of June, seventeen fifty-seven, the two armies met at Plassey.",
+   "caps": "23 June *1757, | at *Plassey."
+  },
+  {
+   "chapter": 9,
+   "text": "But Clive had made a secret deal with the Nawab's commander, Meer Jaafar.",
+   "caps": "a *secret deal | with Mir *Jafar."
+  },
+  {
+   "chapter": 9,
+   "text": "Meer Jaafar's troops stood aside, and the battle was over in a single day.",
+   "caps": "Mir Jafar's *troops | stood *aside,"
+  },
+  {
+   "chapter": 9,
+   "text": "Meer Jaafar was made Nawab, and the Company collected a fortune.",
+   "caps": "Mir *Jafar | made *Nawab, | a *fortune.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 10,
+   "text": "The next Nawab, Meer Kassim, tried to rule on his own.",
+   "caps": "Mir *Qasim | tried to rule *alone."
+  },
+  {
+   "chapter": 10,
+   "text": "He joined the Nawab of Uh-wudh and the Mughal emperor, Shah Alam the Second,",
+   "caps": "the Nawab of *Awadh, | Emperor *Shah Alam"
+  },
+  {
+   "chapter": 10,
+   "text": "but in seventeen sixty-four, the Company defeated all three at Buxar.",
+   "caps": "In *1764, | at *Buxar."
+  },
+  {
+   "chapter": 10,
+   "text": "The next year, at Allahabad, the emperor granted the Company the Deewaani",
+   "caps": "at *Allahabad, | the *Diwani"
+  },
+  {
+   "chapter": 10,
+   "text": "of Bengal, Bihar and Orissa: the right to collect their land revenue.",
+   "caps": "Bengal, Bihar, *Orissa: | the right to *collect"
+  },
+  {
+   "chapter": 10,
+   "text": "The traders were now tax collectors for one of the richest regions on earth.",
+   "caps": "the *traders | were now *tax collectors"
+  },
+  {
+   "chapter": 10,
+   "text": "In seventeen seventy, famine struck Bengal.",
+   "caps": "In *1770, | *famine"
+  },
+  {
+   "chapter": 10,
+   "text": "Between seven and ten million people are thought to have died, and the Company did not reduce its taxes.",
+   "caps": "seven to ten *million | *died, | taxes not *reduced."
+  },
+  {
+   "chapter": 10,
+   "text": "In seventeen seventy-three, Parliament stepped in, and Warren Hastings became Governor-General of Bengal.",
+   "caps": "In *1773, | Warren *Hastings, | *Governor-General of Bengal.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 11,
+   "text": "From Calcutta, the Company now marched outward.",
+   "caps": "the *Company | marched *outward."
+  },
+  {
+   "chapter": 11,
+   "text": "In the south, it fought four wars against Mysore,",
+   "caps": "four *wars | against *Mysore,"
+  },
+  {
+   "chapter": 11,
+   "text": "until Tipu Sultan fell at Seringapatam in seventeen ninety-nine.",
+   "caps": "Tipu *Sultan | in *1799."
+  },
+  {
+   "chapter": 11,
+   "text": "Governor-General Wellsley pushed Indian rulers into a subsidiary alliance:",
+   "caps": "a subsidiary *alliance:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 11,
+   "text": "a Company army in your state, paid for by you.",
+   "caps": "a Company *army, | paid for by *you."
+  },
+  {
+   "chapter": 11,
+   "text": "The Marathas, the last great Indian power, were broken in eighteen eighteen,",
+   "caps": "the *Marathas | in *1818,"
+  },
+  {
+   "chapter": 11,
+   "text": "and the Sikh kingdom of Punjab fell in eighteen forty-nine.",
+   "caps": "the Sikh *kingdom | in *1849."
+  },
+  {
+   "chapter": 11,
+   "text": "Lord Dalhousie took over states whose rulers died without a natural heir:",
+   "caps": "Lord *Dalhousie | without an *heir:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 11,
+   "text": "the Doctrine of Lapse.",
+   "caps": "the Doctrine of *Lapse."
+  },
+  {
+   "chapter": 11,
+   "text": "He also brought railways: India's first passenger train ran from Bombay to Thane in eighteen fifty-three.",
+   "caps": "first *train | Bombay to *Thane, | in *1853.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 12,
+   "text": "But anger had been building: over lost kingdoms, heavy taxes, and new rifle cartridges",
+   "caps": "lost *kingdoms, | heavy *taxes,"
+  },
+  {
+   "chapter": 12,
+   "text": "rumoured to be greased with cow and pig fat.",
+   "caps": "*rumoured | to be *greased"
+  },
+  {
+   "chapter": 12,
+   "text": "On the tenth of May, eighteen fifty-seven, soldiers at Meerut rose up and marched to Delhi.",
+   "caps": "10 May *1857, | marched to *Delhi."
+  },
+  {
+   "chapter": 12,
+   "text": "They proclaimed the old emperor, Bahadur Shah Zafar, their leader.",
+   "caps": "Bahadur Shah *Zafar | their *leader."
+  },
+  {
+   "chapter": 12,
+   "text": "The revolt spread across the north: to Kanpur, Lucknow and Jhansi,",
+   "caps": "Kanpur, *Lucknow, | and *Jhansi,"
+  },
+  {
+   "chapter": 12,
+   "text": "where Rani Lukshmee-bai, who had lost her kingdom to the Doctrine of Lapse, became one of its leaders.",
+   "caps": "Rani *Lakshmibai, | one of its *leaders."
+  },
+  {
+   "chapter": 12,
+   "text": "It took the British more than a year to crush the revolt, and both sides committed atrocities against civilians.",
+   "caps": "more than a *year, | atrocities on both *sides."
+  },
+  {
+   "chapter": 12,
+   "text": "Bahadur Shah Zafar was exiled to Rangoon, and the Mughal dynasty came to an end.",
+   "caps": "exiled to *Rangoon, | the Mughal dynasty *ended.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 13,
+   "text": "In eighteen fifty-eight, Parliament took India away from the East India Company.",
+   "caps": "In *1858, | from the *Company."
+  },
+  {
+   "chapter": 13,
+   "text": "India was now ruled directly by the British Crown.",
+   "caps": "ruled by the British *Crown."
+  },
+  {
+   "chapter": 13,
+   "text": "That November, the British offered a pardon to all rebels not involved in murder.",
+   "caps": "a *pardon | for the *rebels."
+  },
+  {
+   "chapter": 13,
+   "text": "The old company itself was finally dissolved in eighteen seventy-four.",
+   "caps": "*dissolved | in *1874."
+  },
+  {
+   "chapter": 13,
+   "text": "In eighteen seventy-seven, Victoria was declared Empress of India.",
+   "caps": "In *1877, | *Empress of India."
+  },
+  {
+   "chapter": 13,
+   "text": "Railways and ports spread, but thinkers like Dadabhai Naoroji argued that India's wealth was being drained to Britain.",
+   "caps": "Dadabhai *Naoroji: | wealth *drained | to *Britain.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 14,
+   "text": "In eighteen eighty-five, educated Indians founded the Indian National Congress in Bombay.",
+   "caps": "In *1885, | the Indian National *Congress"
+  },
+  {
+   "chapter": 14,
+   "text": "At first, it asked for reforms with petitions and resolutions.",
+   "caps": "*petitions | and *resolutions."
+  },
+  {
+   "chapter": 14,
+   "text": "Then, in nineteen-oh-five, Viceroy Curzon split Bengal in two,",
+   "caps": "In *1905, | Curzon *split Bengal"
+  },
+  {
+   "chapter": 14,
+   "text": "and Bengal rose in protest.",
+   "caps": "Bengal rose in *protest."
+  },
+  {
+   "chapter": 14,
+   "text": "People boycotted British goods and bought Indian-made ones: Swadeshi.",
+   "caps": "*boycotted | British *goods: | *Swadeshi."
+  },
+  {
+   "chapter": 14,
+   "text": "In nineteen eleven, the partition was reversed, and the capital moved from Calcutta to Delhi.",
+   "caps": "In *1911, | capital to *Delhi.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 15,
+   "text": "In nineteen fifteen, Mohandas Gandhi came home from South Africa.",
+   "caps": "In *1915, | Mohandas *Gandhi"
+  },
+  {
+   "chapter": 15,
+   "text": "In April nineteen nineteen, at Jallianwala Bagh in Amritsar,",
+   "caps": "April *1919, | Jallianwala *Bagh"
+  },
+  {
+   "chapter": 15,
+   "text": "British troops fired on an unarmed crowd, and hundreds were killed.",
+   "caps": "an *unarmed crowd, | *hundreds killed."
+  },
+  {
+   "chapter": 15,
+   "text": "In nineteen twenty, Gandhi answered with non-violent non-cooperation:",
+   "caps": "In *1920, | *non-cooperation:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 15,
+   "text": "Indians gave up foreign cloth, returned British titles and resigned from their posts.",
+   "caps": "foreign *cloth, | British *titles, | their *posts."
+  },
+  {
+   "chapter": 15,
+   "text": "In nineteen thirty, he walked about two hundred and forty miles to the sea at Daandee, to make salt and break the salt law.",
+   "caps": "In *1930, | to the sea at *Dandi, | to make *salt."
+  },
+  {
+   "chapter": 15,
+   "text": "Newspapers around the world reported it.",
+   "caps": "around the *world.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 16,
+   "text": "In nineteen forty-two, during the Second World War, Congress told the British: Quit India.",
+   "caps": "In *1942, | *Quit India."
+  },
+  {
+   "chapter": 16,
+   "text": "Almost all its leaders were jailed, while Subhaash Chandra Bose led the Indian National Army against the British from South-East Asia.",
+   "caps": "leaders *jailed, | Subhas Chandra *Bose"
+  },
+  {
+   "chapter": 16,
+   "text": "In July nineteen forty-seven, the British Parliament passed the Indian Independence Act.",
+   "caps": "July *1947: | the Independence *Act."
+  },
+  {
+   "chapter": 16,
+   "text": "British India was divided into two countries, India and Pakistan.",
+   "caps": "*divided | into India and *Pakistan."
+  },
+  {
+   "chapter": 16,
+   "text": "At midnight on the fifteenth of August, nineteen forty-seven, India became free.",
+   "caps": "15 August *1947, | India became *free."
+  },
+  {
+   "chapter": 16,
+   "text": "Partition drove between twelve and twenty million people from their homes.",
+   "caps": "12 to 20 *million | from their *homes."
+  },
+  {
+   "chapter": 16,
+   "text": "Three hundred and forty-seven years after a queen signed a charter for London merchants,",
+   "caps": "*347 years | after a *charter,"
+  },
+  {
+   "chapter": 16,
+   "text": "the story that began with traders on their knees",
+   "caps": "traders on their *knees"
+  },
+  {
+   "chapter": 16,
+   "text": "ended with a free India choosing its own way.",
+   "caps": "a *free India | its own *way."
   }
  ]
 }

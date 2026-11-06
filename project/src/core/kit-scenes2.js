@@ -70,7 +70,7 @@ export function suratHarbour(o = {}) {
     cut(P_rr(1080, 690, 1200, 120, 0), '#C9B48C', { shadow: 0.6, edge: 4 });
     cut(P_rr(1200, 470, 420, 220, 4), MARBLE, { shadow: 0.7, edge: 4 }); cut(() => { ctx.beginPath(); ctx.arc(1410, 470, 110, Math.PI, TAU); ctx.closePath(); }, MARBLE, { shadow: 0.5, edge: 4 }); circle(1410, 352, 12, P.gold);
     for (let i = 0; i < 4; i++) cut(() => { ctx.beginPath(); const x = 1250 + i * 100; ctx.moveTo(x, 690); ctx.lineTo(x, 580); ctx.arc(x + 30, 580, 30, Math.PI, TAU); ctx.lineTo(x + 60, 690); ctx.closePath(); }, '#3E2C1E', { shadow: 0, edge: 2 });
-    flag('mughal', 1620, 470, 200, 0.6, t); slip('CUSTOMS HOUSE', 1410, 300, 0.6, -0.02, 36);
+    flag('mughal', 1210, 480, 220, 0.6, t); slip('CUSTOMS HOUSE', 1410, 300, 0.6, -0.02, 36);
   });
 }
 /** JHAROKHA: Jahangir at a carved balcony window high on a red sandstone wall; a figure below. o = { open 0..1, door 0..1 (a side door swings shut) } */
@@ -84,7 +84,7 @@ export function jharokha(o = {}) {
     cut(P_rr(x - 200, y - 200, 400, 320, 6), '#B5765A', { shadow: 0.7, edge: 4 });
     cut(() => { ctx.beginPath(); ctx.moveTo(x - 230, y - 200); ctx.quadraticCurveTo(x, y - 330, x + 230, y - 200); ctx.closePath(); }, MARBLE, { shadow: 0.6, edge: 4 }); circle(x, y - 285, 14, P.gold);
     cut(P_rr(x - 160, y - 170, 320, 270, 4), '#5A3226', { shadow: 0, edge: 3 });
-    cast('jahangir', { x: x + 10, y: y + 310, h: 420, dir: -1, arm: o.arm || 0 });
+    if (o.who !== null) cast(o.who || 'jahangir', { x: x + 10, y: y + 310, h: 420, dir: -1, arm: o.arm || 0 });
     cut(P_rr(x - 200, y + 40, 400, 80, 4), MARBLE, { shadow: 0.6, edge: 4 }); for (let i = 0; i < 7; i++) cut(P_rr(x - 180 + i * 55, y + 52, 30, 56, 12), '#D9C9A6', { shadow: 0, edge: 2 });
     // the side door
     const dx = 360; cut(P_rr(dx - 90, 520, 180, 280, 6), '#3E2C1E', { shadow: 0.3, edge: 3 });

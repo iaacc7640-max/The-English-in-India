@@ -69,6 +69,12 @@ export function person(o) {
   if (o.beard === 'full' || o.beard === 'grey') cut(() => { ctx.beginPath(); ctx.moveTo(-30, -530); ctx.quadraticCurveTo(-20, -455, 30, -462); ctx.quadraticCurveTo(70, -470, 64, -515); ctx.lineTo(-30, -530); ctx.closePath(); }, bc, { shadow: 0, edge: 3 });
   if (o.beard === 'goatee') cut(P_poly([[30, -505], [62, -508], [52, -470], [38, -470]]), bc, { shadow: 0, edge: 2 });
   if (o.beard === 'mous' || o.beard === 'goatee') cut(P_poly([[34, -522], [72, -522], [80, -512], [40, -514]]), bc, { shadow: 0, edge: 2 });
+  if (o.hair === 'short') cut(() => { ctx.beginPath(); ctx.arc(0, -552, 66, Math.PI * 1.02, TAU * 0.98); ctx.closePath(); }, o.hairC || '#4A3426', { shadow: 0, edge: 3 });
+  if (o.hair === 'bald') { ctx.fillStyle = 'rgba(62,44,30,0.25)'; ctx.beginPath(); ctx.arc(-30, -540, 26, Math.PI * 0.6, Math.PI * 1.4); ctx.fill(); }
+  if (o.specs) { ctx.strokeStyle = BLACK; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(32, -550, 14, 0, TAU); ctx.moveTo(18, -552); ctx.lineTo(-20, -556); ctx.stroke(); }
+  if (o.shawl) cut(P_poly([[-70, -470], [60, -470], [80, -380], [-40, -300], [-78, -330]]), '#EFE4CC', { shadow: 0.4, edge: 3 });
+  if (o.stripes) { ctx.save(); ctx.fillStyle = 'rgba(43,32,25,0.75)'; for (let i = 0; i < 5; i++) ctx.fillRect(-60, -450 + i * 36, 50 + (i % 2) * 30, 9); ctx.restore(); }
+  if (o.rose) circle(36, -430, 12, P.crimson);
   hat(o);
   // front arm + prop in hand
   arm(30, fr, coatC, 220, o.cuff);
@@ -153,6 +159,27 @@ export const CAST = {
   hamilton: { name: 'William Hamilton', legs: 'hose', coat: 'long', coatC: BLACK, trim: '#4A3426', buttons: 1, collar: 'band', hair: 'wig', hairC: '#BDB09A', hat: 'tricorne', prop: 'bag' },
   farrukhsiyar: { name: 'Farrukhsiyar', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.wine, trim: P.gold, patka: P.gold, beard: 'mous', hat: 'turban', hatC: P.gold, jewel: P.crimson, plume: WHITE, pearls: 1 },
 };
+Object.assign(CAST, {
+  clive: { name: 'Robert Clive', legs: 'hose', legC: '#F5EEDD', coat: 'long', coatC: P.crimson, trim: P.gold, buttons: 1, collar: 'band', hair: 'wig', hairC: '#E9E2D2', hat: 'tricorne' },
+  siraj: { name: 'Siraj-ud-Daulah', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: '#E9CF8E', patka: P.crimson, beard: 'mous', hat: 'turban', hatC: P.wine, jewel: P.gold, plume: WHITE, pearls: 1 },
+  mirjafar: { name: 'Mir Jafar', skin: SKIN.in2, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: '#3F6B45', patka: P.gold, beard: 'grey', hat: 'turban', hatC: WHITE },
+  mirqasim: { name: 'Mir Qasim', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.royal, patka: P.gold, beard: 'full', hat: 'turban', hatC: '#E9CF8E' },
+  shahalam: { name: 'Shah Alam II', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.wine, patka: P.gold, beard: 'full', hat: 'turban', hatC: P.gold, jewel: P.crimson, plume: WHITE, pearls: 1 },
+  hastings: { name: 'Warren Hastings', legs: 'hose', coat: 'long', coatC: BLACK, trim: '#4A3426', buttons: 1, collar: 'band', hair: 'wig', hairC: '#E9E2D2' },
+  tipu: { name: 'Tipu Sultan', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: '#D9A441', patka: P.ink, beard: 'mous', hat: 'turban', hatC: '#D9A441', band: P.ink, stripes: 1 },
+  wellesley: { name: 'Lord Wellesley', legs: 'hose', legC: '#F5EEDD', coat: 'long', coatC: P.crimson, trim: P.gold, buttons: 1, collar: 'band', hair: 'short', hairC: '#7A6248', sash: P.royal },
+  dalhousie: { name: 'Lord Dalhousie', legs: 'hose', legC: BLACK, coat: 'long', coatC: '#2C3E5A', trim: P.gold, buttons: 1, collar: 'band', hair: 'short', hairC: '#4A3426' },
+  sepoy: { name: 'A sepoy', skin: SKIN.in2, legs: 'trousers', legC: '#F5EEDD', coat: 'doublet', coatC: P.crimson, trim: '#F5EEDD', beard: 'mous', hat: 'turban', hatC: '#F5EEDD' },
+  zafar: { name: 'Bahadur Shah Zafar', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: WHITE, patka: P.gold, beard: 'grey', hat: 'turban', hatC: WHITE, jewel: P.gold },
+  lakshmibai: { name: 'Rani Lakshmibai', skin: SKIN.in, legs: 'trousers', legC: '#F5EEDD', coat: 'jama', coatC: P.wine, patka: P.gold, hat: 'turban', hatC: '#D9822B' },
+  victoria: { name: 'Queen Victoria', legs: 'gown', coat: 'gown', coatC: BLACK, trim: P.gold, hair: 'long', hairC: '#7A6248', hat: 'crown', pearls: 1, sash: P.royal },
+  naoroji: { name: 'Dadabhai Naoroji', skin: SKIN.in, legs: 'trousers', legC: '#F5EEDD', coat: 'long', coatC: BLACK, trim: BLACK, beard: 'grey', hat: 'cap', hatC: BLACK, prop: 'ledger' },
+  curzon: { name: 'Lord Curzon', legs: 'hose', coat: 'long', coatC: BLACK, trim: P.gold, buttons: 1, collar: 'band', hair: 'short', hairC: '#7A6248' },
+  gandhi: { name: 'Mohandas Gandhi', skin: SKIN.in2, legs: 'robe', coat: 'robe', coatC: WHITE, trim: WHITE, shawl: 1, hair: 'bald', specs: 1, prop: 'stick' },
+  bose: { name: 'Subhas Chandra Bose', skin: SKIN.in, legs: 'trousers', legC: '#7A7A5A', coat: 'doublet', coatC: '#7A7A5A', trim: '#4A3426', buttons: 1, hat: 'cap', hatC: '#7A7A5A', specs: 1 },
+  nehru: { name: 'Jawaharlal Nehru', skin: SKIN.in, legs: 'trousers', legC: WHITE, coat: 'long', coatC: '#E9DCC0', trim: '#E9DCC0', buttons: 1, hat: 'cap', hatC: WHITE, rose: 1 },
+});
+export const CAST_ORDER2 = ['clive', 'siraj', 'mirjafar', 'mirqasim', 'shahalam', 'hastings', 'tipu', 'wellesley', 'dalhousie', 'sepoy', 'zafar', 'lakshmibai', 'victoria', 'naoroji', 'curzon', 'gandhi', 'bose', 'nehru'];
 export const CAST_ORDER = ['elizabeth', 'merchant', 'hawkins', 'best', 'jahangir', 'roe', 'day', 'nayak', 'charles', 'catherine', 'child', 'aurangzeb', 'sidi', 'charnock', 'sobha', 'surman', 'hamilton', 'farrukhsiyar'];
 /** draw a cast member on model: cast('roe', { x, y, h, dir, bow, arm, walk, seated, prop }) (o overrides the pose, never the costume colours) */
 export function cast(id, o) { const c = CAST[id]; if (!c) throw new Error('no cast member ' + id); person({ ...c, ...o }); }

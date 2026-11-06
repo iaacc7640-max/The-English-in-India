@@ -26,6 +26,12 @@ export const PLACES = {
   plassey: { n: 'Plassey', lon: 88.25, lat: 23.80, lx: -76, ly: -4 },
   patna: { n: 'Patna', lon: 85.14, lat: 25.59, lx: 0, ly: -28 },
   spice: { n: 'Spice Islands', lon: 127.8, lat: -2.5, lx: 0, ly: -46 },
+  wandiwash: { n: 'Wandiwash', lon: 79.6, lat: 12.5, lx: -100, ly: -10 }, murshidabad: { n: 'Murshidabad', lon: 88.27, lat: 24.18, lx: -110, ly: -20 },
+  buxar: { n: 'Buxar', lon: 83.98, lat: 25.56, lx: 0, ly: -30 }, allahabad: { n: 'Allahabad', lon: 81.85, lat: 25.44, lx: 0, ly: 30 },
+  seringapatam: { n: 'Seringapatam', lon: 76.68, lat: 12.42, lx: -120, ly: 0 }, thane: { n: 'Thane', lon: 72.98, lat: 19.2, lx: 80, ly: -20 },
+  meerut: { n: 'Meerut', lon: 77.7, lat: 28.98, lx: 90, ly: -10 }, kanpur: { n: 'Kanpur', lon: 80.33, lat: 26.45, lx: 0, ly: 30 }, lucknow: { n: 'Lucknow', lon: 80.95, lat: 26.85, lx: 90, ly: -10 },
+  jhansi: { n: 'Jhansi', lon: 78.57, lat: 25.45, lx: -80, ly: 10 }, amritsar: { n: 'Amritsar', lon: 74.87, lat: 31.63, lx: 0, ly: -30 }, sabarmati: { n: 'Sabarmati', lon: 72.58, lat: 23.06, lx: 110, ly: -10 },
+  dandi: { n: 'Dandi', lon: 72.8, lat: 20.89, lx: -70, ly: 10 }, punjab: { n: 'Punjab', lon: 75, lat: 31, lx: 0, ly: 0 }, mysore: { n: 'Mysore', lon: 76.64, lat: 12.3, lx: 0, ly: 30 },
   london: { n: 'London', lon: -0.13, lat: 51.51, lx: 0, ly: -30 },
 };
 export const FORTS = ['madras', 'bombay', 'calcutta'];
@@ -33,7 +39,7 @@ export const FORTS = ['madras', 'bombay', 'calcutta'];
 export const VIEWS = {
   india: { lon: 80.5, lat: 20.2, k: 29 },
   west: { lon: 74.5, lat: 22.5, k: 62 }, east: { lon: 82, lat: 15.5, k: 52 }, bengal: { lon: 87.5, lat: 23.6, k: 92 },
-  north: { lon: 76.5, lat: 25, k: 52 }, asia: { lon: 92, lat: 12, k: 11.5 }, world: { lon: 60, lat: 18, k: 6.4 },
+  north: { lon: 76.5, lat: 25, k: 52 }, gangetic: { lon: 83, lat: 25.5, k: 58 }, south: { lon: 78, lat: 13.5, k: 62 }, gujarat: { lon: 72.6, lat: 22, k: 120 }, asia: { lon: 92, lat: 12, k: 11.5 }, world: { lon: 60, lat: 18, k: 6.4 },
 };
 const CX = 960, CY = 485, COS = Math.cos(20 * Math.PI / 180);
 export const lerpView = (a, b, p) => ({ lon: lerp(a.lon, b.lon, p), lat: lerp(a.lat, b.lat, p), k: a.k * Math.pow(b.k / a.k, p) });
@@ -100,9 +106,19 @@ export function fortIcon(x, y, s = 1) {
   ctx.fillStyle = P.ink; ctx.beginPath(); ctx.arc(0, 40, 16, Math.PI, TAU); ctx.fill();
   ctx.restore();
 }
+/** rough region centres for soft washes (lon, lat, radius lon, radius lat): simplified, not borders */
+export const REGIONS = { bengal: [87.8, 23.6, 3.2, 2.6], india: [79, 22, 13, 12], gujarat: [72, 22.5, 3, 2.2], biharorissa: [85.5, 23, 4.5, 3.5],
+  carnatic: [79.2, 12.5, 2.6, 3], mysore: [76.5, 13, 2.6, 2.4], maratha: [75.5, 19, 4.5, 3.5], punjab: [74.5, 31, 3, 2.4], awadh: [81, 26.8, 2.6, 1.8], north: [79, 27, 5, 3] };
+/** washes: [[region, a 0..1, colour]] drawn in order */
+export function washes(pr, list) { for (const [region, a, color] of list) if (a > 0) tintRegion({ region, a, color }, pr); }
+/** PARTITION 1947: simplified dashed crimson lines (west and east), drawn on with p 0..1 */
+export const PARTITION = { west: [[74.6, 36], [74.4, 32.6], [74.6, 31.1], [73.9, 30.1], [72.5, 28.5], [70.3, 27.6], [70.7, 25.2], [71.1, 24.4], [68.4, 23.6]],
+  east: [[88.1, 26.5], [88.7, 25.2], [88.2, 24.2], [88.9, 22.9], [89.0, 21.7], [92.1, 21.2], [92.6, 23.7], [91.9, 24.4], [92.3, 25.1], [89.8, 25.9], [88.1, 26.5]] };
+export function partitionLines(pr, p = 1) { for (const k of ['west', 'east']) { const pts = PARTITION[k].map(([lo, la]) => pr(lo, la)); dashedRouteLocal(pts, p); } }
+function dashedRouteLocal(pts, p) { let tot = 0; const L = []; for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); L.push(l); tot += l; } let left = tot * clamp(p); ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length && left > 0; i++) { const k = Math.min(1, left / L[i - 1]); ctx.lineTo(lerp(pts[i - 1][0], pts[i][0], k), lerp(pts[i - 1][1], pts[i][1], k)); left -= L[i - 1]; } ctx.setLineDash([18, 12]); ctx.strokeStyle = P.crimson; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.stroke(); ctx.setLineDash([]); }
 /** a soft colour wash over a region (Bengal glow, Mughal green) */
 function tintRegion(t, pr) {
-  const R = { bengal: [87.8, 23.6, 3.2, 2.6], india: [79, 22, 13, 12], gujarat: [72, 22.5, 3, 2.2] }[t.region]; if (!R) return;
+  const R = REGIONS[t.region]; if (!R) return;
   const [x, y] = pr(R[0], R[1]), [x2] = pr(R[0] + R[2], R[1]), [, y2] = pr(R[0], R[1] + R[3]);
   const g = ctx.createRadialGradient(x, y, 0, x, y, Math.max(Math.abs(x2 - x), Math.abs(y2 - y)));
   g.addColorStop(0, t.color || 'rgba(200,149,47,0.55)'); g.addColorStop(1, 'rgba(200,149,47,0)');

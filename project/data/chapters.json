@@ -1,5 +1,5 @@
 {
- "duration": 309.708,
+ "duration": 664.128,
  "chapters": [
   {
    "chapter": 0,
@@ -53,7 +53,55 @@
    "chapter": 8,
    "start": 283.935,
    "title": "1757: Next, the French",
-   "end": 309.708
+   "end": 307.288
+  },
+  {
+   "chapter": 9,
+   "start": 307.288,
+   "title": "1757: Battle of Plassey",
+   "end": 362.729
+  },
+  {
+   "chapter": 10,
+   "start": 362.729,
+   "title": "1765: Buxar and the Diwani",
+   "end": 411.939
+  },
+  {
+   "chapter": 11,
+   "start": 411.939,
+   "title": "1799: The Company Conquers",
+   "end": 458.357
+  },
+  {
+   "chapter": 12,
+   "start": 458.357,
+   "title": "1857: The Great Revolt",
+   "end": 504.401
+  },
+  {
+   "chapter": 13,
+   "start": 504.401,
+   "title": "1858: The Crown Takes Over",
+   "end": 539.863
+  },
+  {
+   "chapter": 14,
+   "start": 539.863,
+   "title": "1885: A Voice for India",
+   "end": 571.624
+  },
+  {
+   "chapter": 15,
+   "start": 571.624,
+   "title": "1919: Gandhi's India",
+   "end": 609.573
+  },
+  {
+   "chapter": 16,
+   "start": 609.573,
+   "title": "1947: Freedom at Midnight",
+   "end": 664.128
   }
  ],
  "music": [
@@ -95,6 +143,38 @@
   },
   {
    "t": 283.935,
+   "kind": "bed"
+  },
+  {
+   "t": 307.288,
+   "kind": "tension"
+  },
+  {
+   "t": 362.729,
+   "kind": "bed"
+  },
+  {
+   "t": 411.939,
+   "kind": "bed"
+  },
+  {
+   "t": 458.357,
+   "kind": "tension"
+  },
+  {
+   "t": 504.401,
+   "kind": "bed"
+  },
+  {
+   "t": 539.863,
+   "kind": "bed"
+  },
+  {
+   "t": 571.624,
+   "kind": "tension"
+  },
+  {
+   "t": 609.573,
    "kind": "build"
   }
  ]

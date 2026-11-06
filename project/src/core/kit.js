@@ -164,3 +164,4 @@ export * from './kit-map.js';
 export * from './kit-props.js';
 export * from './kit-scenes.js';
 export * from './kit-scenes2.js';
+export * from './kit-scenes3.js';

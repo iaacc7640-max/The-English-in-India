@@ -5,7 +5,10 @@ from pathlib import Path
 PH = [(r"\bJahangir", "Jahaangeer"), (r"\bSurat\b", "Soo-rut"), (r"\bBroach\b", "Brohch"), (r"\bAhmedabad\b", "Ah-mud-a-baad"),
       (r"\bfarmans\b", "farmaans"), (r"\bfarman\b", "farmaan"), (r"\bNayak\b", "Naayuk"), (r"\bHooghly\b", "Hoogly"), (r"\bSidi Yaqub\b", "Siddi Yaakoob"),
       (r"\bAurangzeb\b", "Orungzeb"), (r"\bSutanuti\b", "Sootanootee"), (r"\bGobindapur\b", "Gobindapoor"), (r"\bzamindar\b", "zameendaar"),
-      (r"\bSobha Singh\b", "Shobha Singh"), (r"\bFarrukhsiyar\b", "Furrookh seeyaar")]
+      (r"\bSobha Singh\b", "Shobha Singh"), (r"\bFarrukhsiyar\b", "Furrookh seeyaar"),
+      (r"\bSiraj-ud-Daulah\b", "Siraj ood-Dowla"), (r"\bMir Jafar", "Meer Jaafar"), (r"\bMir Qasim\b", "Meer Kassim"), (r"\bAwadh\b", "Uh-wudh"),
+      (r"\bDiwani\b", "Deewaani"), (r"\bPondicherry\b", "Pondi-cherry"), (r"\bWellesley\b", "Wellsley"), (r"\bLakshmibai\b", "Lukshmee-bai"),
+      (r"\bDandi\b", "Daandee"), (r"\bSubhas\b", "Subhaash")]
 def say(t):
     for a, b in PH: t = re.sub(a, b, t)
     return t
@@ -109,6 +112,9 @@ C = [  # (chapter, narration, caps)
  (8, "the traders who once knelt before the Mughals", "who once *knelt"),
  (8, "would put their own man on the throne of Bengal.", "their own *man | on the *throne."),
 ]
+import sys; sys.path.insert(0, str(Path(__file__).resolve().parent))
+from part2_lines import LINES as PART2
+C = C + PART2
 lines = []
 for i, (ch, text, caps) in enumerate(C):
     ln = {"chapter": ch, "text": say(text), "caps": caps}
@@ -117,12 +123,14 @@ for i, (ch, text, caps) in enumerate(C):
     if text.endswith(":") and nxt == ch: ln["break"] = True; ln["gap"] = 0.25
     lines.append(ln)
 S = {
- "title": "From Merchants to Masters: The English in India, 1600-1717",
+ "title": "From Merchants to Masters: The English in India, 1600-1947",
  "voice": "bm_george", "speed": 0.95, "lead": 0.4, "outro": 2.2, "gap": 0.27,
  "music": "chapters",
  "chapters": [[0, "Cold open", "tension"], [1, "1600: A Queen's Charter", "bed"], [2, "1612: Knocking on Jahangir's Door", "bed"], [3, "1639: A Fort on the Sand", "bed"],
               [4, "1668: Ten Pounds for Bombay", "bed"], [5, "1686: The War They Lost", "bed"], [6, "1690: Three Villages", "bed"],
-              [7, "1717: The Company's Magna Carta", "bed"], [8, "1757: Next, the French", "build"]],
+              [7, "1717: The Company's Magna Carta", "bed"], [8, "1757: Next, the French", "bed"],
+              [9, "1757: Battle of Plassey", "tension"], [10, "1765: Buxar and the Diwani", "bed"], [11, "1799: The Company Conquers", "bed"], [12, "1857: The Great Revolt", "tension"],
+              [13, "1858: The Crown Takes Over", "bed"], [14, "1885: A Voice for India", "bed"], [15, "1919: Gandhi's India", "tension"], [16, "1947: Freedom at Midnight", "build"]],
  "sources": [
   "Rajiv Ahir, A Brief History of Modern India, ch. 3 'Advent of the Europeans in India', section on the English (Golden Farman 1632 and 500 pagodas; Shah Shuja's 1651 farman, Rs 3,000; Roe's factories at Agra, Ahmedabad, Broach; three villages bought for Rs 1,200 in 1698; Fort William 1700; the 1717 farmans as the Company's 'Magna Carta'; Bombay coins valid across the empire)",
   "Wikipedia, 'Anglo-Mughal war (1686-1690)' (1686 fighting at Hooghly and the English withdrawal; 1689 Sidi Yaqub blockades Bombay; famine; 1690 envoys plead for pardon; fine of 150,000 rupees; promise of better behaviour)",
@@ -134,6 +142,7 @@ S = {
   "Wikipedia, 'Battle of Swally' (29-30 November 1612, Best's ships against a larger Portuguese force)",
   "Wikipedia, 'Fort William, India' (begun 1696, named after William III in 1700); 'Farrukhsiyar' (1717 farman, duty-free trade in Bengal, dastaks)",
   "GKToday and Banglapedia (Hawkins at Agra 1609-1611; Sobha Singh's revolt of 1696 let the English fortify; 9 November 1698 deed for the three villages; Bombay headquarters from 1687)",
+  "Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India",
   "Map: Natural Earth 1:50m land and 1:10m rivers (public domain)"
  ],
  "lines": lines,

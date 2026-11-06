@@ -22,6 +22,5 @@ export function build(add, cue) {
   add({ id: '8.07', at: at(i + 6), note: 'callback: the kneeling envoys, small in the great hall', draw: (lt, d, t) => { K.mughalCourt({ pan: 40, throne: 'aurangzeb', dim: 0.4 }); K.layer(40, 0.6, () => { K.envoy(0, { x: 640, y: 800, h: 300, bow: 1 }); K.envoy(1, { x: 800, y: 800, h: 310, bow: 1 }); }); K.courtForeground(40); } });
   { const s0 = at(i + 7), d0 = Le(i + 7) - s0, end0 = Le(i + 7) + 0.1;
     add({ id: '8.08', at: s0, note: 'the cold-open cushion: this time the hand sets the turban down (loop)', draw: (lt, d, t) => { K.cushionScene(); K.cushion(900, 700, 1.1, false); turbanInHand(1010, lerp(520, 640, eio(seg(lt, 0, d0 * 0.8))), 1.1); } });
-    add({ id: '8.09', at: end0, noCaption: true, noSplit: true, note: 'END CARD: NEXT: THE FRENCH IN INDIA (bottom-right kept clear)', draw: (lt) => K.endCard(lt) });
-    cue(s0 + d0 * 0.8, 'thud', { gain: 0.5 }); cue(end0 + 0.1, 'page'); }
+    cue(s0 + d0 * 0.8, 'thud', { gain: 0.5 }); }
 }
