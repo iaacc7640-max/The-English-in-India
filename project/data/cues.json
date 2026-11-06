@@ -1,167 +1,215 @@
 {
- "duration": 40.924,
+ "duration": 308.708,
  "cues": [
   {
-   "t": 0.1,
+   "t": 0.05,
+   "type": "gong",
+   "gain": 0.55
+  },
+  {
+   "t": 2.06,
+   "type": "steps",
+   "dur": 1.8
+  },
+  {
+   "t": 7.72,
+   "type": "cloth"
+  },
+  {
+   "t": 9.6,
+   "type": "coins"
+  },
+  {
+   "t": 10.42,
+   "type": "scroll"
+  },
+  {
+   "t": 11.4,
+   "type": "seal"
+  },
+  {
+   "t": 12.073,
+   "type": "page"
+  },
+  {
+   "t": 15.91,
+   "type": "whoosh",
+   "dur": 1.2
+  },
+  {
+   "t": 24.595,
    "type": "whoosh"
   },
   {
-   "t": 0.15,
-   "type": "pop",
+   "t": 24.945,
+   "type": "page"
+  },
+  {
+   "t": 25.445,
+   "type": "seal"
+  },
+  {
+   "t": 25.968,
+   "type": "page"
+  },
+  {
+   "t": 26.718,
+   "type": "seal",
    "gain": 0.6
   },
   {
-   "t": 5.68,
+   "t": 61.573,
+   "type": "page"
+  },
+  {
+   "t": 62.323,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 97.084,
+   "type": "page"
+  },
+  {
+   "t": 97.834,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 124.888,
+   "type": "page"
+  },
+  {
+   "t": 125.638,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 154.279,
+   "type": "page"
+  },
+  {
+   "t": 155.029,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 155.799,
+   "type": "page"
+  },
+  {
+   "t": 158.706,
+   "type": "scroll"
+  },
+  {
+   "t": 159.586,
+   "type": "seal"
+  },
+  {
+   "t": 161.866,
    "type": "whoosh"
   },
   {
-   "t": 5.78,
+   "t": 162.616,
    "type": "pop",
    "gain": 0.5
   },
   {
-   "t": 9.939,
-   "type": "pop"
+   "t": 162.686,
+   "type": "coins"
   },
   {
-   "t": 11.011,
-   "type": "whoosh"
+   "t": 163.386,
+   "type": "coins",
+   "gain": 0.6
   },
   {
-   "t": 13.993,
-   "type": "slide",
-   "dur": 1.6,
-   "gain": 0.7
-  },
-  {
-   "t": 15.591,
-   "type": "whoosh"
-  },
-  {
-   "t": 15.591,
-   "type": "pop",
-   "gain": 0.45
-  },
-  {
-   "t": 15.591,
-   "type": "sizzle",
-   "dur": 2
-  },
-  {
-   "t": 15.921,
-   "type": "pop",
-   "gain": 0.45
-  },
-  {
-   "t": 16.251,
-   "type": "pop",
-   "gain": 0.45
-  },
-  {
-   "t": 16.581,
-   "type": "pop",
-   "gain": 0.45
-  },
-  {
-   "t": 16.911,
-   "type": "pop",
-   "gain": 0.45
-  },
-  {
-   "t": 17.241,
-   "type": "pop",
-   "gain": 0.45
-  },
-  {
-   "t": 18.167,
-   "type": "whoosh"
-  },
-  {
-   "t": 18.267,
+   "t": 165.016,
    "type": "pop",
    "gain": 0.5
   },
   {
-   "t": 20.318,
-   "type": "boing",
+   "t": 165.541,
+   "type": "pop",
    "gain": 0.5
   },
   {
-   "t": 21.395,
-   "type": "whoosh"
+   "t": 166.067,
+   "type": "pop",
+   "gain": 0.5
   },
   {
-   "t": 21.395,
-   "type": "sizzle",
-   "dur": 2.4,
-   "gain": 0.7
+   "t": 166.592,
+   "type": "pop",
+   "gain": 0.5
   },
   {
-   "t": 23.856,
-   "type": "whoosh"
+   "t": 168.008,
+   "type": "page"
   },
   {
-   "t": 23.936,
-   "type": "pop"
-  },
-  {
-   "t": 25.646,
-   "type": "pop"
-  },
-  {
-   "t": 27.596,
+   "t": 172.44,
    "type": "thud"
   },
   {
-   "t": 29.526,
-   "type": "whoosh"
+   "t": 177.14,
+   "type": "cannon",
+   "gain": 0.45
   },
   {
-   "t": 30.589,
-   "type": "slam"
-  },
-  {
-   "t": 30.839,
+   "t": 179.86,
    "type": "thud",
+   "gain": 0.5
+  },
+  {
+   "t": 181.447,
+   "type": "waves",
+   "dur": 2.4
+  },
+  {
+   "t": 185.787,
+   "type": "rice",
+   "dur": 1.2
+  },
+  {
+   "t": 188.298,
+   "type": "gong",
+   "gain": 0.35
+  },
+  {
+   "t": 190.18,
+   "type": "coins"
+  },
+  {
+   "t": 193.379,
+   "type": "scroll"
+  },
+  {
+   "t": 196.485,
+   "type": "page"
+  },
+  {
+   "t": 197.235,
+   "type": "seal",
    "gain": 0.6
   },
   {
-   "t": 33.017,
-   "type": "whoosh"
+   "t": 242.99,
+   "type": "page"
   },
   {
-   "t": 33.267,
-   "type": "thud",
-   "gain": 0.35
+   "t": 243.74,
+   "type": "seal",
+   "gain": 0.6
   },
   {
-   "t": 33.417,
-   "type": "thud",
-   "gain": 0.35
+   "t": 283.935,
+   "type": "page"
   },
   {
-   "t": 33.567,
-   "type": "thud",
-   "gain": 0.35
-  },
-  {
-   "t": 33.717,
-   "type": "thud",
-   "gain": 0.35
-  },
-  {
-   "t": 33.867,
-   "type": "thud",
-   "gain": 0.35
-  },
-  {
-   "t": 35.855,
-   "type": "sparkle",
-   "dur": 1
-  },
-  {
-   "t": 37.017,
-   "type": "whoosh"
+   "t": 284.685,
+   "type": "seal",
+   "gain": 0.6
   }
  ]
 }

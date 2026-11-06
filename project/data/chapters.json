@@ -1,0 +1,101 @@
+{
+ "duration": 308.708,
+ "chapters": [
+  {
+   "chapter": 0,
+   "start": 0,
+   "title": "Cold open",
+   "end": 25.968
+  },
+  {
+   "chapter": 1,
+   "start": 25.968,
+   "title": "1600: A Queen's Charter",
+   "end": 61.573
+  },
+  {
+   "chapter": 2,
+   "start": 61.573,
+   "title": "1612: Knocking on Jahangir's Door",
+   "end": 97.084
+  },
+  {
+   "chapter": 3,
+   "start": 97.084,
+   "title": "1639: A Fort on the Sand",
+   "end": 124.888
+  },
+  {
+   "chapter": 4,
+   "start": 124.888,
+   "title": "1668: Ten Pounds for Bombay",
+   "end": 154.279
+  },
+  {
+   "chapter": 5,
+   "start": 154.279,
+   "title": "1686: The War They Lost",
+   "end": 196.485
+  },
+  {
+   "chapter": 6,
+   "start": 196.485,
+   "title": "1690: Three Villages",
+   "end": 242.99
+  },
+  {
+   "chapter": 7,
+   "start": 242.99,
+   "title": "1717: The Company's Magna Carta",
+   "end": 283.935
+  },
+  {
+   "chapter": 8,
+   "start": 283.935,
+   "title": "1757: Next, the French",
+   "end": 308.708
+  }
+ ],
+ "music": [
+  {
+   "t": 0,
+   "kind": "tension"
+  },
+  {
+   "t": 25.968,
+   "kind": "bed"
+  },
+  {
+   "t": 61.573,
+   "kind": "bed"
+  },
+  {
+   "t": 97.084,
+   "kind": "bed"
+  },
+  {
+   "t": 124.888,
+   "kind": "bed"
+  },
+  {
+   "t": 154.279,
+   "kind": "bed"
+  },
+  {
+   "t": 171.338,
+   "kind": "tension"
+  },
+  {
+   "t": 196.485,
+   "kind": "bed"
+  },
+  {
+   "t": 242.99,
+   "kind": "bed"
+  },
+  {
+   "t": 283.935,
+   "kind": "build"
+  }
+ ]
+}

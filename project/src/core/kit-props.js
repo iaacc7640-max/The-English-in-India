@@ -171,7 +171,13 @@ export function cushion(x, y, s = 1, turban = true, turbanY = 0) {
   ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
   cut(P_rr(-220, -40, 440, 90, 40), P.wine); ctx.fillStyle = P.gold; for (let i = 0; i < 9; i++) circle(-200 + i * 50, 50, 8, P.gold);
   cut(P_rr(-180, -150, 70, 120, 30), P.wine, { shadow: 0.5, edge: 4 });
-  if (turban) { ctx.save(); ctx.translate(30, -80 - turbanY); cut(() => { ctx.beginPath(); ctx.ellipse(0, 0, 100, 60, 0, Math.PI, TAU); ctx.lineTo(100, 30); ctx.lineTo(-100, 30); ctx.closePath(); }, P.gold); ctx.strokeStyle = 'rgba(62,44,30,0.35)'; ctx.lineWidth = 5; for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(-90, 20 - i * 18); ctx.quadraticCurveTo(0, -10 - i * 20, 90, 20 - i * 18); ctx.stroke(); } cut(P_poly([[20, -60], [36, -36], [20, -12], [4, -36]]), P.crimson, { shadow: 0.3, edge: 3 }); ctx.restore(); }
+  if (turban) turbanProp(30, -80 - turbanY, 1);
+  ctx.restore();
+}
+/** the royal turban (a prop): centred at x, y */
+export function turbanProp(x, y, s = 1) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  cut(() => { ctx.beginPath(); ctx.ellipse(0, 0, 100, 60, 0, Math.PI, TAU); ctx.lineTo(100, 30); ctx.lineTo(-100, 30); ctx.closePath(); }, P.gold); ctx.strokeStyle = 'rgba(62,44,30,0.35)'; ctx.lineWidth = 5; for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(-90, 20 - i * 18); ctx.quadraticCurveTo(0, -10 - i * 20, 90, 20 - i * 18); ctx.stroke(); } cut(P_poly([[20, -60], [36, -36], [20, -12], [4, -36]]), P.crimson, { shadow: 0.3, edge: 3 });
   ctx.restore();
 }
 /** an English hand/cuff reaching in from the right (holding something at its fingertips at (x, y)) */

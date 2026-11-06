@@ -1,3 +1,5 @@
 project/data/*.wav
 project/renders/*.mp4
 project/review/_tmp*/
+project/renders/*.mp4
+!project/renders/pilot_*.mp4

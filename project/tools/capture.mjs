@@ -90,6 +90,8 @@ else {
       fs.mkdirSync(path.join(ROOT, 'data'), { recursive: true });
       fs.writeFileSync(path.join(ROOT, 'data/cues.json'), JSON.stringify({ duration: dur, cues }, null, 1));
       console.log(`data/cues.json: ${cues.length} cues, ${dur.toFixed(2)} s`);
+      const chs = await P.ev('OP.chapters ? OP.chapters() : []'), mus = await P.ev('OP.music ? OP.music() : []');
+      if (chs.length) { chs.forEach((c, i) => (c.end = i < chs.length - 1 ? chs[i + 1].start : +dur.toFixed(3))); fs.writeFileSync(path.join(ROOT, 'data/chapters.json'), JSON.stringify({ duration: dur, chapters: chs, music: mus }, null, 1)); console.log(`data/chapters.json: ${chs.length} chapters`); }
     } else if (mode === 'frames') {
       const dir = path.resolve(ROOT, rest[0] || 'review/frames'); fs.mkdirSync(dir, { recursive: true });
       for (const t of (rest[1] || '0').split(',').map(Number)) { fs.writeFileSync(path.join(dir, `t${t.toFixed(2)}.jpg`), jpg(await P.ev(FRAME(t, 0.92)))); }

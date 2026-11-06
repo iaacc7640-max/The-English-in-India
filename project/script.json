@@ -1,10 +1,10 @@
 {
  "title": "From Merchants to Masters: The English in India, 1600-1717",
  "voice": "bm_george",
- "speed": 0.93,
- "lead": 0.6,
- "outro": 2.4,
- "gap": 0.36,
+ "speed": 0.95,
+ "lead": 0.4,
+ "outro": 1.2,
+ "gap": 0.27,
  "music": "chapters",
  "chapters": [
   [
@@ -35,7 +35,7 @@
   [
    5,
    "1686: The War They Lost",
-   "tension"
+   "bed"
   ],
   [
    6,
@@ -121,7 +121,7 @@
    "chapter": 0,
    "text": "end up making kings?",
    "caps": "making *kings?",
-   "gap": 2.3
+   "gap": 2.1
   },
   {
    "chapter": 1,
@@ -136,12 +136,12 @@
   {
    "chapter": 1,
    "text": "and in fifteen eighty-eight England had beaten the Spanish Armada.",
-   "caps": "In 1588, | the Spanish *Armada"
+   "caps": "In *1588, | the Spanish *Armada"
   },
   {
    "chapter": 1,
    "text": "English merchants heard how rich the Portuguese had grown in the East,",
-   "caps": "how *rich | the Portuguese had grown"
+   "caps": "how *rich | the *Portuguese had grown"
   },
   {
    "chapter": 1,
@@ -156,7 +156,7 @@
   {
    "chapter": 1,
    "text": "Queen Elizabeth the First gave a group of London merchants a charter,",
-   "caps": "Elizabeth the First | gave a *charter,"
+   "caps": "Queen *Elizabeth | gave a *charter,"
   },
   {
    "chapter": 1,
@@ -166,7 +166,7 @@
   {
    "chapter": 1,
    "text": "The Dutch already held the Spice Islands,",
-   "caps": "The *Dutch | held the Spice Islands,"
+   "caps": "The *Dutch | held the Spice *Islands,"
   },
   {
    "chapter": 1,
@@ -177,12 +177,12 @@
    "chapter": 1,
    "text": "and its cloth.",
    "caps": "and its *cloth.",
-   "gap": 1.9
+   "gap": 1.65
   },
   {
    "chapter": 2,
    "text": "The first steps were humbling.",
-   "caps": "The first steps | were *humbling."
+   "caps": "The first *steps | were *humbling."
   },
   {
    "chapter": 2,
@@ -233,7 +233,7 @@
    "chapter": 2,
    "text": "at Agra, Ah-mud-a-baad and Brohch.",
    "caps": "at Agra, *Ahmedabad | and *Broach.",
-   "gap": 1.9
+   "gap": 1.65
   },
   {
    "chapter": 3,
@@ -243,14 +243,14 @@
   {
    "chapter": 3,
    "text": "the Sultan of Golconda gave them a golden farmaan in sixteen thirty-two:",
-   "caps": "a *golden farman | in 1632,",
+   "caps": "a *golden farman | in *1632,",
    "break": true,
    "gap": 0.25
   },
   {
    "chapter": 3,
    "text": "free trade in his ports for five hundred gold pagodas a year.",
-   "caps": "free trade | for *500 pagodas a year."
+   "caps": "free *trade | for *500 pagodas a year."
   },
   {
    "chapter": 3,
@@ -265,7 +265,7 @@
   {
    "chapter": 3,
    "text": "got a local Naayuk ruler to grant a strip of sandy coast.",
-   "caps": "a local *Nayak | to grant a strip of *coast."
+   "caps": "a local *Nayak | a strip of *coast."
   },
   {
    "chapter": 3,
@@ -276,17 +276,17 @@
    "chapter": 3,
    "text": "Around it grew a town called Madras.",
    "caps": "a town called *Madras.",
-   "gap": 1.9
+   "gap": 1.65
   },
   {
    "chapter": 4,
    "text": "In the west, the luck came through a wedding.",
-   "caps": "the luck came | through a *wedding."
+   "caps": "the *luck came | through a *wedding."
   },
   {
    "chapter": 4,
    "text": "In sixteen sixty-two, King Charles the Second married a Portuguese princess,",
-   "caps": "In *1662, | Charles the Second married"
+   "caps": "In *1662, | Charles the Second *married"
   },
   {
    "chapter": 4,
@@ -296,7 +296,7 @@
   {
    "chapter": 4,
    "text": "and the islands of Bombay came as part of her dowry.",
-   "caps": "the islands of Bombay | part of her *dowry."
+   "caps": "the islands of *Bombay | part of her *dowry."
   },
   {
    "chapter": 4,
@@ -316,18 +316,18 @@
   {
    "chapter": 4,
    "text": "By sixteen eighty-seven, Bombay had replaced Soo-rut",
-   "caps": "By *1687, | Bombay replaced Surat"
+   "caps": "By *1687, | Bombay replaced *Surat"
   },
   {
    "chapter": 4,
    "text": "as the Company's western headquarters.",
    "caps": "the western *headquarters.",
-   "gap": 1.9
+   "gap": 1.65
   },
   {
    "chapter": 5,
    "text": "Bengal was the richest prize of all.",
-   "caps": "the *richest prize | of all."
+   "caps": "Bengal was the *richest | prize of *all."
   },
   {
    "chapter": 5,
@@ -337,7 +337,7 @@
   {
    "chapter": 5,
    "text": "for a flat three thousand rupees a year,",
-   "caps": "a flat *Rs 3,000 a year,"
+   "caps": "flat *Rs 3,000 a year,"
   },
   {
    "chapter": 5,
@@ -367,7 +367,7 @@
   {
    "chapter": 5,
    "text": "and the English were driven out of the town.",
-   "caps": "the English | were *driven out."
+   "caps": "and the *English | were *driven out."
   },
   {
    "chapter": 5,
@@ -382,12 +382,12 @@
   {
    "chapter": 5,
    "text": "until famine forced the English to give in.",
-   "caps": "until *famine | forced them to give in."
+   "caps": "until *famine | forced them to *give in."
   },
   {
    "chapter": 5,
    "text": "Peace came at a price:",
-   "caps": "Peace came | at a *price:",
+   "caps": "Peace *came | at a *price:",
    "break": true,
    "gap": 0.25
   },
@@ -400,7 +400,7 @@
    "chapter": 5,
    "text": "a public apology, and a promise to behave.",
    "caps": "a public *apology, | a promise to *behave.",
-   "gap": 1.9
+   "gap": 1.65
   },
   {
    "chapter": 6,
@@ -425,12 +425,12 @@
   {
    "chapter": 6,
    "text": "the English used it as an excuse to build walls.",
-   "caps": "an excuse | to build *walls."
+   "caps": "an *excuse | to build *walls."
   },
   {
    "chapter": 6,
    "text": "Two years later they bought the rights to three villages,",
-   "caps": "Two years later, | *three villages,"
+   "caps": "Two years *later, | *three villages,"
   },
   {
    "chapter": 6,
@@ -445,7 +445,7 @@
   {
    "chapter": 6,
    "text": "By seventeen hundred, the walls had a name, Fort William,",
-   "caps": "By 1700, | the walls had a name: | Fort *William,"
+   "caps": "By *1700, | the walls had a *name: | Fort *William,"
   },
   {
    "chapter": 6,
@@ -465,8 +465,8 @@
   {
    "chapter": 6,
    "text": "that a thriving settlement was already there before him.",
-   "caps": "a *thriving settlement | was already there.",
-   "gap": 1.9
+   "caps": "a *thriving settlement | was *already there.",
+   "gap": 1.65
   },
   {
    "chapter": 7,
@@ -476,12 +476,12 @@
   {
    "chapter": 7,
    "text": "but it flopped, and in seventeen-oh-eight the two merged into one.",
-   "caps": "it *flopped, | in 1708 | the two *merged."
+   "caps": "it *flopped, | in *1708 | the two *merged."
   },
   {
    "chapter": 7,
    "text": "Then, in seventeen fifteen, a Company mission led by John Surman",
-   "caps": "In *1715, | a mission led by John *Surman"
+   "caps": "In *1715, | led by John *Surman"
   },
   {
    "chapter": 7,
@@ -523,13 +523,13 @@
   {
    "chapter": 7,
    "text": "more land around Calcutta,",
-   "caps": "more *land | around Calcutta,"
+   "caps": "more *land | around *Calcutta,"
   },
   {
    "chapter": 7,
    "text": "and Bombay-minted coins valid across the empire.",
-   "caps": "Bombay-minted *coins | valid across the empire.",
-   "gap": 1.9
+   "caps": "Bombay-minted *coins | valid across the *empire.",
+   "gap": 1.65
   },
   {
    "chapter": 8,
@@ -544,7 +544,7 @@
   {
    "chapter": 8,
    "text": "would become the three pillars of British India.",
-   "caps": "the three *pillars | of British India."
+   "caps": "the three *pillars | of British *India."
   },
   {
    "chapter": 8,
@@ -571,7 +571,7 @@
   {
    "chapter": 8,
    "text": "would put their own man on the throne of Bengal.",
-   "caps": "their own man | on the *throne."
+   "caps": "their own *man | on the *throne."
   }
  ]
 }

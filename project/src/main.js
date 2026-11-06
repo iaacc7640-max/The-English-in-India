@@ -4,6 +4,7 @@ import { W, H, setCtx, ctx, clamp, eo, eio } from './core/lib.js';
 import { T, loadTiming } from './core/timing.js';
 import { buildCaptions, drawCaption, captionList } from './core/captions.js';
 import { buildShots } from './shots.js';
+import { loadGeo as K_loadGeo } from './core/kit-map.js';
 
 const cv = document.getElementById('cv');
 setCtx(cv.getContext('2d'));
@@ -55,7 +56,8 @@ function guides() {
     const script = await (await fetch('script.json', { cache: 'no-store' })).json();
     await loadTiming();
     buildCaptions(script);
-    const { shots, cues } = buildShots();
+    await K_loadGeo();
+    const { shots, cues, music, chStart } = buildShots(script);
     shots.sort((a, b) => a.at - b.at);
     OP._shots = shots; OP.script = script;
     OP.duration = () => T.dur;
@@ -64,6 +66,8 @@ function guides() {
     OP.shots = () => shots.map((s, i) => ({ id: s.id, at: +s.at.toFixed(3), end: +(i < shots.length - 1 ? shots[i + 1].at : T.dur).toFixed(3), note: s.note || '' }));
     OP.captions = () => captionList().map((c) => ({ s: +c.s.toFixed(3), e: +c.e.toFixed(3), text: c.words.map((w) => (w.hi ? '*' : '') + w.txt).join(' ') }));
     OP.cues = () => cues.slice().sort((a, b) => a.t - b.t);
+    OP.music = () => music || [];
+    OP.chapters = () => (chStart || []).map((t, i) => ({ chapter: i, start: +t.toFixed(3), title: script.chapters[i][1] }));
     OP.ready = true;
     // preview mode (not capture): play in real time, ?t=12.3 to hold a frame
     const q = new URLSearchParams(location.search);

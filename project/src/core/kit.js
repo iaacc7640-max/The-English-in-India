@@ -162,3 +162,4 @@ export function captionStrip(words, x, y, sc = 1, look = CAPLOOK) {
 export * from './kit-cast.js';
 export * from './kit-map.js';
 export * from './kit-props.js';
+export * from './kit-scenes.js';

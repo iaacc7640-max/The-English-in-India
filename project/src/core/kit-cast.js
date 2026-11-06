@@ -24,7 +24,10 @@ export function person(o) {
   const coatC = o.coatC || P.wine, trim = o.trim || P.gold, legC = o.legC || BLACK;
   // ── legs (stay planted) ──
   if (o.seated) {
-    cut(P_rr(-110, -150, 220, 110, 50), o.legC || CREAM, { shadow: 0.6, edge: 4 });                  // folded legs on a cushion
+    // cross-legged: knees as a wide lens, the whole upper body lowered so the hip sits on the folded legs
+    cut(() => { ctx.beginPath(); ctx.ellipse(0, -60, 150, 58, 0, 0, TAU); }, o.legC || CREAM, { shadow: 0.6, edge: 4 });
+    cut(() => { ctx.beginPath(); ctx.ellipse(118, -40, 34, 18, 0, 0, TAU); }, ctx._skin, { shadow: 0.3, edge: 3 });
+    ctx.translate(0, 170);
   } else if (o.legs === 'gown') {
     cut(P_poly([[-80, -300], [80, -300], [150, 0], [-150, 0]]), coatC); ctx.fillStyle = trim; ctx.fillRect(-150, -16, 300, 16);
   } else if (o.legs === 'robe') {
@@ -35,8 +38,9 @@ export function person(o) {
     for (const k of [-1, 1]) cut(P_rr(k * 24 - 22 + k * wk * 30, -22, 52, 22, 10), BLACK, { shadow: 0.3, edge: 3 });     // shoes
   }
   // coat skirts hang from the hip and do NOT rotate with a bow
-  if (o.coat === 'long') cut(P_poly([[-80, -280], [80, -280], [92, -120], [-92, -120]]), coatC);
-  if (o.coat === 'jama') cut(P_poly([[-80, -280], [80, -280], [118, -90], [-118, -90]]), coatC);
+  if (o.coat === 'long' && !o.seated) cut(P_poly([[-80, -280], [80, -280], [92, -120], [-92, -120]]), coatC);
+  if (o.coat === 'jama' && !o.seated) cut(P_poly([[-80, -280], [80, -280], [118, -90], [-118, -90]]), coatC);
+  if (o.coat === 'jama' && o.seated) cut(P_poly([[-80, -280], [80, -280], [130, -200], [-130, -200]]), coatC);
   // ── upper body pivots at the hip ──
   ctx.save(); ctx.translate(0, -250); ctx.rotate(rad(62) * bow); ctx.translate(0, 250);
   const fr = rad(-(o.arm || 0) - 8 + wk * 16) - rad(40) * bow, br = rad(10 - wk * 16) - rad(30) * bow;

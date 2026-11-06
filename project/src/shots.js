@@ -1,22 +1,38 @@
-// 16:9 LAYOUT PROOF (temporary): one court shot with a lateral pan, the era bar overlay and a caption.
-// Replaced by src/chapters/ch0..ch8 once the plan is approved.
-import { ctx, W, H, clamp, seg, eio, eob } from './core/lib.js';
+// From Merchants to Masters: the shot list. Each chapter lives in src/chapters/chN_*.js; shared art in src/core/kit*.js.
+// This file adds the chapter cards and the screen-fixed overlay (era bar + farman stack) to every shot.
 import * as K from './core/kit.js';
-const YEARS = [1600, 1612, 1639, 1668, 1686, 1690, 1717, 1757];
+import { clamp, lerp, eio, seg } from './core/lib.js';
+import { G, setup, YEARS, ERA_IDX, CARDS, chapterOf, first, last, at, L, Le } from './chapters/common.js';
+import * as ch0 from './chapters/ch0_hook.js';
+import * as ch5 from './chapters/ch5_war.js';
+import * as PH from './chapters/placeholder.js';
 
-function bowing(x, y, h, role, k, dir = 1) {   // a figure bowing low: rotate the body forward around the feet
-  ctx.save(); ctx.translate(x, y); ctx.rotate(dir * 0.55 * k); K.figure({ x: 0, y: 0, h, role, dir, arm: 20 * k }); ctx.restore();
-}
-export function buildShots() {
-  const S = [{ id: 'PROOF', at: 0, note: '16:9 layout proof: court two-shot, era bar, caption',
-    camera: (lt, d) => ({ x: 900 + 120 * eio(clamp(lt / 6)), y: 520, zoom: 1.04 }),
-    draw(lt, d, t) {
-      K.hall();
-      K.figure({ x: 960, y: 700, h: 300, role: 'king' });                 // throne figure (placeholder until the cast sheet)
-      const k = eio(seg(lt, 0.5, 1.6));
-      bowing(560, 800, 380, 'merchant', k); bowing(720, 800, 380, 'merchant', k);
-      K.slip('THE MUGHAL COURT', 1360, 230, eob(seg(lt, 0.2, 0.6)), -0.03, 40);
-    },
-    overlay(lt) { K.eraBar(YEARS, 5, 0.71); } }];
-  return { shots: S, cues: [] };
+const BUILT = { 0: ch0.build, 5: ch5.build };
+export function buildShots(script) {
+  setup(script);
+  const S = [], CUES = [], add = (o) => (S.push(o), o), cue = (t, type, o = {}) => CUES.push({ t: +t.toFixed(3), type, ...o });
+  for (let ch = 0; ch <= 8; ch++) {
+    (BUILT[ch] || PH.build(ch))(add, cue);
+    if (ch > 0) {   // the chapter card sits in the pause before the chapter's first line
+      const t0 = G.chStart[ch], [yr, title] = CARDS[ch];
+      add({ id: `card${ch}`, at: t0, card: ch, note: `CARD ${yr}: ${title}`, draw: (lt) => K.chapterCard(lt, yr, title, ch) });
+      cue(t0, 'page'); cue(t0 + 0.75, 'seal', { gain: 0.6 });
+    }
+  }
+  // music sections for mix.py: one per chapter (cold open starts at 0)
+  G.music = G.chStart.map((t, ch) => ({ t: +t.toFixed(3), kind: script.chapters[ch][2] }));
+  for (const m of G.musicExtra || []) G.music.push(m); G.music.sort((a, b) => a.t - b.t);
+  // overlay on every shot: the era bar and the farman stack (screen-fixed, no camera)
+  for (const sh of S) {
+    const own = sh.overlay;
+    sh.overlay = (lt, d, t) => {
+      const ch = chapterOf(t); let active = ERA_IDX[ch], p = active / 7;
+      if (ch === 0 && G.eraRace) { const k = eio(seg(t, G.eraRace.t0, G.eraRace.t1)); p = lerp(5 / 7, 1, k); active = k > 0.98 ? 7 : 5; }
+      if (ch === 1 && t < G.chStart[1] + 0.4) p = lerp(1, 0, eio(seg(t, G.chStart[1], G.chStart[1] + 0.4)));
+      K.eraBar(YEARS, active, p);
+      K.farmanStack(G.stackLand.filter((x) => x <= t).length);
+      if (own) own(lt, d, t);
+    };
+  }
+  return { shots: S, cues: CUES, music: G.music, chStart: G.chStart };
 }
