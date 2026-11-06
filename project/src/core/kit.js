@@ -2,11 +2,8 @@
 // (light edge + soft drop shadow), maps are stylized, routes are crimson, dates ride on gold ribbons.
 import { ctx, W, H, TAU, lerp, clamp, rnd, rr, circle, ell, line } from './lib.js';
 
-export const P = {
-  parch: '#E9DCBC', parchDark: '#D6C39B', ink: '#3E2C1E', sepia: '#8A6A48', crimson: '#A8322D', gold: '#C8952F',
-  sea: '#9DB4B0', seaDark: '#86A09B', land: '#DCC9A0', forest: '#7E8B5A', skin: '#E3B98F', edge: '#F7EFDC',
-  royal: '#3D5A80', green: '#4F6D4A', wine: '#7A2E3A', stone: '#B9A98C', stoneDark: '#9C8C70', sky: '#E7D7AE',
-};
+import { P } from './palette.js';
+export { P };
 const SERIF = 'Caladea';
 
 // ═════════════════════════ CUT PAPER ═════════════════════════
@@ -162,3 +159,6 @@ export function captionStrip(words, x, y, sc = 1, look = CAPLOOK) {
   let cx = -tw / 2; words.forEach((w, i) => { ctx.fillStyle = w.hi ? look.hi : look.fg; ctx.fillText(w.txt, cx, sz * 0.06); cx += ws[i] + sp; });
   ctx.restore();
 }
+export * from './kit-cast.js';
+export * from './kit-map.js';
+export * from './kit-props.js';

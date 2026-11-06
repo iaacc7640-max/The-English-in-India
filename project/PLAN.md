@@ -5,7 +5,7 @@ Caption format: `|` = next caption, `*` = the one crimson word. Captions may sho
 Phonetic spellings (Jah-hahn-geer, Soo-rut, Or-ung-zeb …) go in script.json "text" only; captions use correct spellings.
 Recurring overlays: era bar (y 70, ticks 1600 · 1612 · 1639 · 1668 · 1686 · 1690 · 1717 · 1757) · farman stack (top right, under the era bar).
 
-## Fact check: what changed from the draft (needs your OK)
+## Fact check: what changed from the draft (approved 2026-11-06: 'driven out' line; Rs 1,200 kept, credited to Ahir)
 1. **Hooghly 1686, changed.** The draft said "Mughal forces sacked the English base at Hooghly". The sources don't support that.
    Wikipedia (Anglo-Mughal war) says fighting broke out at Hooghly in 1686: a brawl in the market, then an English force sent against the town
    (marked "citation needed"). The Mughals massed troops, and Charnock withdrew to Sutanuti (20 Dec 1686) and then Hijli. Ahir's chapter (as I recall it;
