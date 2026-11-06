@@ -64,8 +64,8 @@ export function realMap(o = {}) {
   if (o.dim) { ctx.save(); ctx.globalAlpha = o.dim; ctx.fillStyle = '#2F3550'; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore(); }
   if (o.compass !== false) compass(1760, 760, 0.42);
   // forts: rings + icons
-  if (o.rings) for (const id of FORTS) { const st = o.rings[id]; if (st == null) continue; const [x, y] = pr(PLACES[id].lon, PLACES[id].lat); ctx.save(); ctx.translate(x, y); const rs = clamp(v.k / 29, 0.45, 1.6); ctx.scale(rs, rs); fortRing(0, 0, st, o.glowRings || 0, o.pillars || 0, o.ringLabels !== false ? PLACES[id] : null); ctx.restore(); }
-  for (const [id, pop, po = {}] of o.pins || []) { if (pop <= 0) continue; const p = PLACES[id], [x, y] = pr(p.lon, p.lat); pin(x, y, p, pop, po); }
+  if (o.rings) for (const id of FORTS) { const st = o.rings[id]; if (st == null) continue; const [x, y] = pr(PLACES[id].lon, PLACES[id].lat); if (y > 845 || y < 100 || x < 60 || x > W - 60) continue; ctx.save(); ctx.translate(x, y); const rs = clamp(v.k / 29, 0.45, 1.6); ctx.scale(rs, rs); fortRing(0, 0, st, o.glowRings || 0, o.pillars || 0, o.ringLabels !== false ? PLACES[id] : null); ctx.restore(); }
+  for (const [id, pop, po = {}] of o.pins || []) { if (pop <= 0) continue; const p = PLACES[id], [x, y] = pr(p.lon, p.lat); if (y > 840) continue; pin(x, y, p, pop, po); }
   return pr;
 }
 /** a city pin + its paper label (label kept above y 840) */
@@ -73,7 +73,7 @@ export function pin(x, y, p, pop = 1, o = {}) {
   const s = eobLocal(clamp(pop)); if (s <= 0) return;
   circle(x, y, 9 * s, o.color || P.ink); circle(x, y, 4 * s, P.edge);
   let lx = x + (o.lx ?? p.lx), ly = y + (o.ly ?? p.ly); if (ly > 830) ly = y - 30;
-  if (o.label !== false) tag(o.text || p.n, lx, ly, s * (o.size || 0.62), x, y);
+  if (o.label !== false) tag(o.text || p.n, lx, ly, s * (o.size || 0.8), x, y);
 }
 /** a plain paper map tag (no pushpin, so the ink dot stays the only marker) with a faint leader line to (px, py) */
 export function tag(text, x, y, sc = 1, px = null, py = null) {
@@ -91,7 +91,7 @@ export function fortRing(x, y, st, glow = 0, pillars = 0, place = null) {
   if (glow > 0) { ctx.save(); ctx.globalAlpha = 0.35 * glow; circle(x, y, 40 + 8 * glow, P.gold); ctx.restore(); }
   ctx.beginPath(); ctx.arc(x, y, 24, 0, TAU); ctx.fillStyle = 'rgba(233,220,188,0.55)'; ctx.fill(); ctx.strokeStyle = P.gold; ctx.lineWidth = 7; ctx.stroke();
   if (st > 0) { const s = eobLocal(clamp(st)); ctx.save(); ctx.translate(x, y); ctx.scale(s, s); fortIcon(0, 2, 0.38); ctx.restore(); }
-  if (place && st > 0.5) tag(place.n, x + place.lx, y + place.ly, 0.62, x, y);
+  if (place && st > 0.5) tag(place.n, place.lx, place.ly, 0.8, 0, 0);
 }
 /** small crenellated fort with the Company ensign */
 export function fortIcon(x, y, s = 1) {

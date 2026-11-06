@@ -98,7 +98,7 @@ export function londonOffice(o = {}) {
 export function riverPort(o = {}) {
   const pan = o.pan || 0, t = o.t || 0;
   parchment(29); ctx.fillStyle = P.sky; ctx.fillRect(-400, -400, W + 800, 860);
-  layer(pan, 0.15, () => { cut(P_circ(1500, 210, 60), '#EFC66A', { shadow: 0.3, edge: 4 }); });
+  layer(pan, 0.15, () => { cut(P_circ(1360, 220, 60), '#EFC66A', { shadow: 0.3, edge: 4 }); });
   layer(pan, 0.3, () => {   // far bank with town
     cut(() => { ctx.beginPath(); ctx.moveTo(-400, 470); for (let x = -400; x <= W + 400; x += 60) ctx.lineTo(x, 440 + Math.sin(x * 0.01) * 10); ctx.lineTo(W + 400, 520); ctx.lineTo(-400, 520); ctx.closePath(); }, '#A9B48A', { shadow: 0.4, edge: 4 });
     for (let i = 0; i < 9; i++) { const x = 900 + i * 110; cut(P_rr(x, 380 - (i % 3) * 18, 80, 80 + (i % 3) * 18, 3), '#C9B48C', { shadow: 0.3, edge: 3 }); cut(P_poly([[x - 6, 384 - (i % 3) * 18], [x + 40, 350 - (i % 3) * 18], [x + 86, 384 - (i % 3) * 18]]), '#8C6B4E', { shadow: 0.2, edge: 2 }); }
@@ -149,7 +149,7 @@ export function tollGate(x, y, s = 1) {
 export function sea(o = {}, shipsFn = null) {
   const pan = o.pan || 0, t = o.t || 0;
   parchment(31); ctx.fillStyle = P.sky; ctx.fillRect(-400, -400, W + 800, 860);
-  layer(pan, 0.1, () => cut(P_circ(1550, 180, 60), '#EFC66A', { shadow: 0.3, edge: 4 }));
+  layer(pan, 0.1, () => cut(P_circ(1360, 210, 60), '#EFC66A', { shadow: 0.3, edge: 4 }));
   for (let i = 0; i < 4; i++) {
     layer(pan, 0.3 + i * 0.2, () => cut(() => { ctx.beginPath(); ctx.moveTo(-400, H + 300); const y = 430 + i * 105; ctx.lineTo(-400, y); for (let x = -400; x <= W + 400; x += 40) ctx.lineTo(x, y + Math.sin(x * 0.01 + t * 1.4 + i * 1.7) * 14); ctx.lineTo(W + 400, H + 300); ctx.closePath(); }, i % 2 ? P.seaDark : P.sea, { shadow: 0.6, edge: 5 }));
     if (shipsFn) shipsFn(i);
@@ -189,6 +189,6 @@ export function sidiOnProw(o = {}) {
 /** BENGAL THRONE CUSHION scene (cold open + loop): a dark wine backdrop, gold border */
 export function cushionScene(o = {}) {
   parchment(37); cut(P_rr(-400, -400, W + 800, H + 800, 0), '#5E2A33', { shadow: 0, edge: 0 });
-  ctx.strokeStyle = P.gold; ctx.lineWidth = 6; ctx.strokeRect(120, 120, W - 240, 700);
+  ctx.strokeStyle = P.gold; ctx.lineWidth = 6; ctx.strokeRect(120, 130, W - 240, 610);
   for (let i = 0; i < 12; i++) { ctx.save(); ctx.globalAlpha = 0.12; sun(200 + i * 140, 470, 34, P.gold); ctx.restore(); }
 }

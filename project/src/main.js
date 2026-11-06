@@ -28,11 +28,11 @@ function draw(t) {
   ctx.restore();
   ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
 
-  // fade from / to black on the first and last 0.25 s
+  if (sh.overlay) { ctx.save(); sh.overlay(lt, d, t); ctx.restore(); }   // screen-fixed layer (era bar, farman stack): no camera
+  if (!sh.card && !sh.noCaption) drawCaption(t);
+  // fade from / to black on the first and last 0.25 s (over everything)
   const fade = Math.min(clamp(t / 0.25), clamp((T.dur - t) / 0.35));
   if (fade < 1) { ctx.fillStyle = '#000'; ctx.globalAlpha = 1 - fade; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
-  if (sh.overlay) { ctx.save(); sh.overlay(lt, d, t); ctx.restore(); }   // screen-fixed layer (era bar, farman stack): no camera
-  drawCaption(t);
   if (GUIDES) guides();
 }
 const GUIDES = new URLSearchParams(location.search).has('guides');

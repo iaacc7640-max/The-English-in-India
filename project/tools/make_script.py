@@ -118,7 +118,7 @@ for i, (ch, text, caps) in enumerate(C):
     lines.append(ln)
 S = {
  "title": "From Merchants to Masters: The English in India, 1600-1717",
- "voice": "bm_george", "speed": 0.95, "lead": 0.4, "outro": 1.2, "gap": 0.27,
+ "voice": "bm_george", "speed": 0.95, "lead": 0.4, "outro": 2.2, "gap": 0.27,
  "music": "chapters",
  "chapters": [[0, "Cold open", "tension"], [1, "1600: A Queen's Charter", "bed"], [2, "1612: Knocking on Jahangir's Door", "bed"], [3, "1639: A Fort on the Sand", "bed"],
               [4, "1668: Ten Pounds for Bombay", "bed"], [5, "1686: The War They Lost", "bed"], [6, "1690: Three Villages", "bed"],

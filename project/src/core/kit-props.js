@@ -70,6 +70,7 @@ export function farman(id, x, y, w, h, p = 1, stamp = 0, lines = null) {
   cut(P_rr(-ww / 2, -h / 2, ww, h, 6), F.paper, { shadow: 0.9, edge: 4 });
   ctx.save(); ctx.beginPath(); ctx.rect(-ww / 2 + 30, -h / 2, ww - 60, h); ctx.clip();
   // calligraphy: ink lines that look like flowing script (not real words), or given text lines
+  if (lines && lines.length < 2) { ctx.save(); ctx.globalAlpha = 0.35; ctx.strokeStyle = 'rgba(62,44,30,0.7)'; ctx.lineWidth = 5; const rows = Math.floor((h - 160) / 46); for (let r = 0; r < rows; r++) { const yy = -h / 2 + 170 + r * 46; ctx.beginPath(); for (let xx = -w / 2 + 70; xx < w / 2 - 70; xx += 8) { const k = xx * 0.08 + r * 3.1; ctx.lineTo(xx, yy + Math.sin(k) * 7 + Math.sin(k * 2.7) * 4); } ctx.stroke(); } ctx.restore(); }
   if (lines) { ctx.fillStyle = P.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; lines.forEach((t, i) => { ctx.font = `700 ${t.size || 44}px ${SERIF}`; ctx.fillText(t.text, t.x || 0, -h / 2 + (t.y ?? 80 + i * 64)); }); }
   else { ctx.strokeStyle = 'rgba(62,44,30,0.7)'; ctx.lineWidth = 5; ctx.lineCap = 'round'; const rows = Math.floor((h - 120) / 46); for (let r = 0; r < rows; r++) { const yy = -h / 2 + 70 + r * 46; ctx.beginPath(); for (let xx = -w / 2 + 70; xx < w / 2 - 70; xx += 8) { const k = xx * 0.08 + r * 3.1; ctx.lineTo(xx, yy + Math.sin(k) * 7 + Math.sin(k * 2.7) * 4 - (rnd(Math.floor(xx / 40) + r * 50) > 0.85 ? 14 : 0)); } ctx.stroke(); } }
   ctx.restore();

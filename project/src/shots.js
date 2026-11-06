@@ -2,12 +2,19 @@
 // This file adds the chapter cards and the screen-fixed overlay (era bar + farman stack) to every shot.
 import * as K from './core/kit.js';
 import { clamp, lerp, eio, seg } from './core/lib.js';
-import { G, setup, YEARS, ERA_IDX, CARDS, chapterOf, first, last, at, L, Le } from './chapters/common.js';
+import { G, setup, YEARS, ERA_IDX, CARDS, chapterOf, first, last, at, L, Le, T } from './chapters/common.js';
 import * as ch0 from './chapters/ch0_hook.js';
 import * as ch5 from './chapters/ch5_war.js';
+import * as ch1 from './chapters/ch1_charter.js';
+import * as ch2 from './chapters/ch2_jahangir.js';
+import * as ch3 from './chapters/ch3_madras.js';
+import * as ch4 from './chapters/ch4_bombay.js';
+import * as ch6 from './chapters/ch6_calcutta.js';
+import * as ch7 from './chapters/ch7_farman.js';
+import * as ch8 from './chapters/ch8_outro.js';
 import * as PH from './chapters/placeholder.js';
 
-const BUILT = { 0: ch0.build, 5: ch5.build };
+const BUILT = { 0: ch0.build, 1: ch1.build, 2: ch2.build, 3: ch3.build, 4: ch4.build, 5: ch5.build, 6: ch6.build, 7: ch7.build, 8: ch8.build };
 export function buildShots(script) {
   setup(script);
   const S = [], CUES = [], add = (o) => (S.push(o), o), cue = (t, type, o = {}) => CUES.push({ t: +t.toFixed(3), type, ...o });
@@ -18,6 +25,16 @@ export function buildShots(script) {
       add({ id: `card${ch}`, at: t0, card: ch, note: `CARD ${yr}: ${title}`, draw: (lt) => K.chapterCard(lt, yr, title, ch) });
       cue(t0, 'page'); cue(t0 + 0.75, 'seal', { gain: 0.6 });
     }
+  }
+  // no cut over 3.5 s: split long shots at the word nearest their middle with a reframe (same action, tighter camera)
+  S.sort((a, b) => a.at - b.at);
+  for (let k = 0; k < S.length; k++) {
+    const sh = S[k], end = k < S.length - 1 ? S[k + 1].at : T.dur, d = end - sh.at;
+    if (sh.card || d <= 3.5 || sh.noSplit) continue;
+    const mid = sh.at + d / 2, w = T.words.filter((x) => x.s > sh.at + 1.2 && x.s < end - 1.2).sort((a, b) => Math.abs(a.s - mid) - Math.abs(b.s - mid))[0];
+    const off = (w ? w.s - 0.06 : mid) - sh.at, base = sh;
+    const cam = (lt, dd) => { const c = base.camera ? base.camera(lt + off, d) : { x: base.cam?.[0] ?? 960, y: base.cam?.[1] ?? 500, zoom: 1 }; return { x: lerp(c.x, 960, 0.15), y: lerp(c.y, 470, 0.15), zoom: (c.zoom || 1) * 1.14 }; };
+    S.splice(k + 1, 0, { id: sh.id + 'r', at: sh.at + off, note: '(reframe) ' + sh.note, camera: cam, draw: (lt, dd, t) => base.draw(lt + off, d, t), overlay: base.overlay ? (lt, dd, t) => base.overlay(lt + off, d, t) : null });
   }
   // music sections for mix.py: one per chapter (cold open starts at 0)
   G.music = G.chStart.map((t, ch) => ({ t: +t.toFixed(3), kind: script.chapters[ch][2] }));

@@ -1,7 +1,7 @@
 // CH5 · 1686: THE WAR THEY LOST. Bengal, tolls, Child's war, Hooghly, the Bombay blockade, the price of peace.
 import { ctx, W, H, clamp, lerp, seg, eo, eob, eio } from '../core/lib.js';
 import * as K from '../core/kit.js';
-import { L, Le, Wd, at, first, G } from './common.js';
+import { L, Le, Wd, at, first, G, ringsAt } from './common.js';
 import { courtShot } from './ch0_hook.js';
 const { P } = K;
 
@@ -12,12 +12,12 @@ export function build(add, cue) {
   // 50 · Bengal was the richest prize of all — India -> Bengal, Bengal glows gold, pins
   add({ id: '5.01', at: at(i0), note: 'map: zoom to Bengal, it glows gold; pins', draw: (lt, d, t) => {
     const p = eio(seg(lt, 0, d * 0.8)), v = K.lerpView(K.VIEWS.india, { lon: 86.5, lat: 23.2, k: 62 }, p);
-    K.realMap({ view: v, tint: { region: 'bengal', a: eo(seg(lt, 0.5, 1.4)) }, rings: { madras: 1, bombay: 1, calcutta: 0 }, ringLabels: false,
+    K.realMap({ view: v, tint: { region: 'bengal', a: eo(seg(lt, 0.5, 1.4)) }, rings: ringsAt(t), ringLabels: false,
       pins: [['patna', seg(lt, 1.0, 1.3)], ['kasimbazar', seg(lt, 1.15, 1.45)], ['hooghly', seg(lt, 1.3, 1.6)], ['balasore', seg(lt, 1.45, 1.75)]] });
   } });
   cue(at(i0), 'page');
   // 51 · From 1651, the Company traded there — Shah Shuja's farman unrolls, stamps, flies to the stack (slot 2)
-  { const s0 = at(i0 + 1), d0 = Le(i0 + 1) - s0, fly0 = d0 - 0.55; G.stackLand[2] = s0 + fly0 + 0.75;
+  { const s0 = at(i0 + 1), d0 = at(i0 + 2) - s0, fly0 = d0 - 0.8; G.stackLand[2] = s0 + fly0 + 0.75;
     add({ id: '5.02', at: s0, note: "Shah Shuja's 1651 farman: unroll, stamp, fly to the stack", draw: (lt, d, t) => {
       K.parchment(51); K.label('SHAH SHUJA · 1651', 960, 200, 40, P.sepia);
       if (lt < fly0) K.farman('shuja', 960, 500, 1000, 480, seg(lt, 0, 0.6), seg(lt, 0.9, 1.15));
