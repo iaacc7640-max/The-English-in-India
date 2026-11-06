@@ -40,10 +40,14 @@ export function buildShots(script) {
   for (let k = 0; k < S.length; k++) {
     const sh = S[k], end = k < S.length - 1 ? S[k + 1].at : T.dur, d = end - sh.at;
     if (sh.card || d <= 3.5 || sh.noSplit) continue;
-    const mid = sh.at + d / 2, w = T.words.filter((x) => x.s > sh.at + 1.2 && x.s < end - 1.2).sort((a, b) => Math.abs(a.s - mid) - Math.abs(b.s - mid))[0];
-    const off = (w ? w.s - 0.06 : mid) - sh.at, base = sh;
-    const cam = (lt, dd) => { const c = base.camera ? base.camera(lt + off, d) : { x: base.cam?.[0] ?? 960, y: base.cam?.[1] ?? 500, zoom: 1 }; return { x: lerp(c.x, 960, 0.15), y: lerp(c.y, 470, 0.15), zoom: (c.zoom || 1) * 1.14 }; };
-    S.splice(k + 1, 0, { id: sh.id + 'r', at: sh.at + off, note: '(reframe) ' + sh.note, camera: cam, draw: (lt, dd, t) => base.draw(lt + off, d, t), overlay: base.overlay ? (lt, dd, t) => base.overlay(lt + off, d, t) : null });
+    const n = Math.ceil(d / 3.0), base = sh, adds = [];
+    for (let m = 1; m < n; m++) {
+      const target = sh.at + d * m / n, w = T.words.filter((x) => Math.abs(x.s - target) < 0.6).sort((a, b) => Math.abs(a.s - target) - Math.abs(b.s - target))[0];
+      const off = (w ? w.s - 0.06 : target) - sh.at, zf = m % 2 ? 1.14 : 1.08;
+      const cam = (lt, dd) => { const c = base.camera ? base.camera(lt + off, d) : { x: base.cam?.[0] ?? 960, y: base.cam?.[1] ?? 500, zoom: 1 }; return { x: lerp(c.x, 960, 0.15), y: lerp(c.y, 470, 0.15), zoom: (c.zoom || 1) * zf }; };
+      adds.push({ id: sh.id + 'r' + m, at: sh.at + off, note: '(reframe) ' + sh.note, camera: cam, draw: (lt, dd, t) => base.draw(lt + off, d, t), overlay: base.overlay ? (lt, dd, t) => base.overlay(lt + off, d, t) : null });
+    }
+    S.splice(k + 1, 0, ...adds); k += adds.length;
   }
   // music sections for mix.py: one per chapter (cold open starts at 0)
   G.music = G.chStart.map((t, ch) => ({ t: +t.toFixed(3), kind: script.chapters[ch][2] }));
