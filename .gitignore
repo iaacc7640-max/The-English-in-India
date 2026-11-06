@@ -3,3 +3,5 @@ project/renders/*.mp4
 project/review/_tmp*/
 project/renders/*.mp4
 !project/renders/pilot_*.mp4
+!project/renders/english-in-india.mp4
+!project/renders/english-in-india_share.mp4
