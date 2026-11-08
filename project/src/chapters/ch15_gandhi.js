@@ -13,7 +13,7 @@ const flyDoc = (add, cue, id, i, slot, kind, title) => {   // a document unrolls
 };
 export function build(add, cue) {
   const i = first(15);
-  add({ id: '15.01', at: at(i), note: 'a ship docks at Bombay; Gandhi steps down (1915)', draw: (lt, d, t) => { K.suratHarbour({ t, place: 'BOMBAY · APOLLO BUNDER', flag: 'union', steamer: 1, shipX: lerp(200, 520, eio(seg(lt, 0, d * 0.6))) }); K.cast('gandhi', { x: lerp(1130, 1320, eio(seg(lt, d * 0.4, d))), y: 800, h: 360, walk: t * 4 }); K.ribbon('1915', 600, 220, eob(seg(lt, 0.1, 0.5)), 70); } });
+  add({ id: '15.01', at: at(i), note: 'a ship docks at Bombay; Gandhi steps down (1915)', draw: (lt, d, t) => { K.suratHarbour({ t, place: 'BOMBAY · 1915', flag: 'union', steamer: 1, shipX: lerp(200, 520, eio(seg(lt, 0, d * 0.6))) }); K.cast('gandhi', { x: lerp(1130, 1320, eio(seg(lt, d * 0.4, d))), y: 800, h: 360, walk: t * 4 }); K.ribbon('1915', 600, 220, eob(seg(lt, 0.1, 0.5)), 70); } });
   add({ id: '15.02', at: at(i + 1), note: 'the walled garden at dusk, empty; its narrow entrance', draw: (lt, d, t) => K.jallianwala({ t, pan: lerp(-40, 40, eio(clamp(lt / d))), exit: eob(seg(lt, 0.8, 1.2)) }) });
   add({ id: '15.03', at: at(i + 2), note: 'the empty wall; a small memorial flame (no figures, no gunfire)', draw: (lt, d, t) => { K.jallianwala({ t, pan: 40, exit: 1, m: seg(lt, 0.3, 0.9), night: 0.6 }); K.slip('13 APRIL 1919', 960, 230, eob(seg(lt, 0.2, 0.6)), -0.02, 52); } });
   cue(at(i + 2) + 0.2, 'gong', { gain: 0.3 });

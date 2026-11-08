@@ -10,22 +10,22 @@ This paper-cut animated history follows the English in India from Queen Elizabet
 
 Chapters
 0:00 Cold open: 1690, before Aurangzeb
-0:25 1600: A Queen's Charter
-1:01 1612: Knocking on Jahangir's Door
-1:37 1639: A Fort on the Sand
-2:04 1668: Ten Pounds for Bombay
-2:34 1686: The War They Lost
-3:16 1690: Three Villages
-4:02 1717: The Company's Magna Carta
-4:43 1757: Next, the French
-5:07 1757: Battle of Plassey
-6:02 1765: Buxar and the Diwani
-6:51 1799: The Company Conquers
-7:38 1857: The Great Revolt
-8:24 1858: The Crown Takes Over
-8:59 1885: A Voice for India
-9:31 1919: Gandhi's India
-10:09 1947: Freedom at Midnight
+0:28 1600: A Queen's Charter
+1:03 1612: Knocking on Jahangir's Door
+1:40 1639: A Fort on the Sand
+2:08 1668: Ten Pounds for Bombay
+2:37 1686: The War They Lost
+3:19 1690: Three Villages
+4:06 1717: The Company's Magna Carta
+4:47 1757: Next, the French
+5:10 1757: Battle of Plassey
+6:10 1765: Buxar and the Diwani
+6:59 1799: The Company Conquers
+7:46 1857: The Great Revolt
+8:32 1858: The Crown Takes Over
+9:07 1885: A Voice for India
+9:39 1919: Gandhi's India
+10:17 1947: Freedom at Midnight
 
 Sources
 - Rajiv Ahir, A Brief History of Modern India, ch. 3 'Advent of the Europeans in India', section on the English (Golden Farman 1632 and 500 pagodas; Shah Shuja's 1651 farman, Rs 3,000; Roe's factories at Agra, Ahmedabad, Broach; three villages bought for Rs 1,200 in 1698; Fort William 1700; the 1717 farmans as the Company's 'Magna Carta'; Bombay coins valid across the empire)
@@ -40,6 +40,8 @@ Sources
 - GKToday and Banglapedia (Hawkins at Agra 1609-1611; Sobha Singh's revolt of 1696 let the English fortify; 9 November 1698 deed for the three villages; Bombay headquarters from 1687)
 - Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India
 - Map: Natural Earth 1:50m land and 1:10m rivers (public domain)
+- Wikipedia, 'Jagat Seth family' (the Jagat Seth and other wealthy bankers funded the British conspiracy before Plassey); 'Clothing in India' (chintz, block print, muslin, sari); 'History of Bombay under British rule' (Gandhi in Bombay, 1915)
+- Drawn after reference images on Wikimedia Commons: 'Islands of Bombay and Colaba' (1843 map); portrait of James I; flags of the East India Company (1600, 1707, 1801), Mughal Empire, Portugal (1578), Spanish Burgundy cross, Qutb Shahi (Golconda), Bengal Subah, Oudh (1857), Mysore (Hyder Ali and Tipu Sultan), Maratha Empire and Sikh Empire
 
 Narration: synthetic voice (Kokoro, bm_george). Animation drawn entirely in code; no AI-generated images or video. Map data: Natural Earth (public domain). Battles, the 1770 famine, Jallianwala Bagh and Partition are shown without depicting violence.
 
