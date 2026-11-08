@@ -21,10 +21,11 @@ export function flag(kind, x, y, h = 300, s = 1, wave = 0, fall = 0) {
   const wv = (i) => Math.sin(i * 0.7 + wave * 4) * 6 * i / 10;
   let shape;
   if (kind === 'bengal') shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw * 1.2, fh * 0.5 * i / 10 + wv(i)); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw * 1.2, fh - fh * 0.5 * i / 10 + wv(i)); ctx.closePath(); };
-  else if (kind === 'maratha') shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw * 1.1, fh * 0.12 * i / 10 + wv(i)); ctx.lineTo(fw * 0.75, fh * 0.5); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw * 1.1, fh - fh * 0.12 * i / 10 + wv(i)); ctx.closePath(); };
+  else if (kind === 'maratha') shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw, wv(i)); ctx.lineTo(fw * 0.6, fh * 0.5 + wv(6)); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw, fh + wv(i)); ctx.closePath(); };
+  else if (kind === 'tiger' || kind === 'sikh') shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 1; i <= 10; i++) ctx.lineTo(i / 10 * fw * 1.3, fh * 0.5 * i / 10 + wv(i)); for (let i = 9; i >= 0; i--) ctx.lineTo(i / 10 * fw * 1.3, fh - fh * 0.5 * i / 10 + wv(i)); ctx.closePath(); };
   else shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw, wv(i)); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw, fh + wv(i)); ctx.closePath(); };
   cut(shape, '#FFFFFF', { shadow: 0.5, edge: 3 });
-  ctx.save(); shape(); ctx.clip(); flagFace(kind, kind === 'bengal' ? fw * 1.2 : fw, fh, wave); ctx.restore();
+  ctx.save(); shape(); ctx.clip(); flagFace(kind, kind === 'bengal' ? fw * 1.2 : (kind === 'tiger' || kind === 'sikh') ? fw * 1.3 : fw, fh, wave); ctx.restore();
   ctx.restore(); ctx.restore();
 }
 /** the Union canton (with St Patrick's saltire from 1801), drawn in a w x h box */
@@ -70,9 +71,17 @@ function flagFace(kind, fw, fh) {
     f('#B8A84A', 0, 0, fw, fh); f('#8C2F3A', fw * 0.04, fh * 0.06, fw * 0.88, fh * 0.88); f('#2A2C4A', fw * 0.16, fh * 0.2, fw * 0.62, fh * 0.6);
     ctx.strokeStyle = '#B9A47A'; ctx.lineWidth = 2; for (let k = 0; k < 12; k++) { ctx.beginPath(); ctx.arc(fw * 0.1 + (k % 6) * fw * 0.15, k < 6 ? fh * 0.13 : fh * 0.87, 5, 0, Math.PI * 1.5); ctx.stroke(); }
     ctx.strokeStyle = '#C9B27A'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(fw * 0.47, fh * 0.5, fh * 0.16, 0, TAU); ctx.stroke(); circle(fw * 0.47, fh * 0.48, fh * 0.06, '#C9B27A'); }
-  if (kind === 'maratha') { f('#F07F13', 0, 0, fw, fh); }
-  if (kind === 'tiger') { f(P.gold, 0, 0, fw, fh); ctx.fillStyle = P.ink; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.ellipse(20 + i * 32, fh / 2 + (i % 2 ? -14 : 14), 8, 30, 0.3, 0, TAU); ctx.fill(); } }
-  if (kind === 'sikh') { f('#D9822B', 0, 0, fw, fh); ctx.fillStyle = P.royal; ctx.beginPath(); ctx.arc(fw / 2, fh / 2, fh * 0.2, 0, TAU); ctx.fill(); }
+  if (kind === 'maratha') { f('#FF9900', 0, 0, fw, fh); }
+  if (kind === 'tiger') {   // Mysore under Hyder Ali and Tipu Sultan (your Wikimedia link): green pennant, gold scroll border, gold sun with a script roundel, gold flecks
+    f('#2F6B2F', 0, 0, fw, fh); ctx.strokeStyle = '#D9B341'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(4, 8); ctx.lineTo(fw - 12, fh / 2); ctx.lineTo(4, fh - 8); ctx.stroke();
+    ctx.fillStyle = '#D9B341'; for (let i = 0; i < 9; i++) { ctx.beginPath(); ctx.ellipse(70 + (i % 3) * 38, 22 + Math.floor(i / 3) * 40, 3, 7, 0.6, 0, TAU); ctx.fill(); }
+    const cx = fw * 0.2, cy = fh / 2; for (let k = 0; k < 12; k++) { const a = k / 12 * TAU; ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * 22, cy + Math.sin(a) * 22); ctx.lineTo(cx + Math.cos(a + 0.13) * 34, cy + Math.sin(a + 0.13) * 34); ctx.lineTo(cx + Math.cos(a + 0.26) * 22, cy + Math.sin(a + 0.26) * 22); ctx.fill(); }
+    ctx.beginPath(); ctx.arc(cx, cy, 24, 0, TAU); ctx.fill(); ctx.fillStyle = '#2F6B2F'; ctx.beginPath(); ctx.arc(cx, cy, 19, 0, TAU); ctx.fill(); ctx.fillStyle = '#D9B341'; for (let r = -1; r <= 1; r++) ctx.fillRect(cx - 13, cy + r * 8 - 1, 26, 2); }
+  if (kind === 'sikh') {   // Sikh Empire (your Wikimedia link): light-green border, red field with gold motifs, a gold sun in the middle
+    f('#8DC63F', 0, 0, fw, fh); ctx.fillStyle = '#B22A2A'; ctx.beginPath(); ctx.moveTo(12, 14); ctx.lineTo(fw - 34, fh / 2); ctx.lineTo(12, fh - 14); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#E8C34A'; for (let y = 22; y < fh - 16; y += 11) for (let x = 18; x < fw - 40; x += 11) { const lim = (fh / 2 - 14) * (1 - (x - 12) / (fw - 46)); if (Math.abs(y - fh / 2) < lim - 4) ctx.fillRect(x, y, 3, 3); }
+    const cx = fw * 0.3, cy = fh / 2; ctx.fillStyle = '#F2D34E'; for (let k = 0; k < 16; k++) { const a = k / 16 * TAU; ctx.beginPath(); ctx.moveTo(cx + Math.cos(a - 0.1) * 11, cy + Math.sin(a - 0.1) * 11); ctx.lineTo(cx + Math.cos(a) * 22, cy + Math.sin(a) * 22); ctx.lineTo(cx + Math.cos(a + 0.1) * 11, cy + Math.sin(a + 0.1) * 11); ctx.fill(); }
+    ctx.beginPath(); ctx.arc(cx, cy, 11, 0, TAU); ctx.fill(); }
 }
 function star8(x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); for (let i = 0; i < 16; i++) { const a = i / 16 * TAU - Math.PI / 2, rr = i % 2 ? r * 0.45 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } ctx.closePath(); ctx.fill(); }
 /** gold sun disc with rays (the Mughal seal motif) */

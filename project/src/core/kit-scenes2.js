@@ -5,7 +5,7 @@ import { cut, P_rr, P_poly, P_circ, parchment, label, slip, ribbon, seal, hall }
 import { person, cast, SKIN, horse, parasol } from './kit-cast.js';
 import { flag, eastIndiaman, MUGHAL, coin, sun, fleur } from './kit-props.js';
 import { layer, nightWash, sea, boat, mughalCourt } from './kit-scenes.js';
-import { GEO as GEO_REF } from './kit-map.js';
+import { GEO as GEO_REF, tag } from './kit-map.js';
 
 const CREAM = '#F3E9D2', SAND = '#C98B67', SAND_D = '#A86A4E', MARBLE = '#F1E7D0';
 const house = (x, y, w, h, wall, roof) => { cut(P_rr(x - w / 2, y - h, w, h, 3), wall, { shadow: 0.5, edge: 4 }); cut(P_poly([[x - w / 2 - 10, y - h + 2], [x, y - h - w * 0.5], [x + w / 2 + 10, y - h + 2]]), roof, { shadow: 0.4, edge: 4 }); };
@@ -112,21 +112,36 @@ export function jharokha(o = {}) {
 }
 /** NAVAL TWO-SHOT: four English ships (left) vs a bigger Portuguese fleet (right); tear 0..1 rips the Portuguese sails; puffs = distant smoke */
 export function seaBattle(o = {}) {
-  const t = o.t || 0, tear = o.tear || 0;
+  // English ships (left) fire: smoke puffs at their bows; the Portuguese ships (right) list and go down below the waves. No people.
+  const t = o.t || 0, fire = o.fire || 0, sink = o.sink || 0;
+  const goDown = (x, y, s, k, sk) => {   // a ship listing then sinking, clipped at its waterline
+    const list = Math.min(1, sk * 2) * 0.28 * (k % 2 ? 1 : -1), drop = Math.max(0, sk - 0.35) / 0.65 * 720 * s;
+    ctx.save(); ctx.beginPath(); ctx.rect(x - 400, -2000, 800, 2000 + y + 30 * s); ctx.clip();
+    eastIndiaman(x, y + drop, s, list, t, 'portugal', 0); ctx.restore();
+  };
   sea({ t, pan: o.pan || 0 }, (i) => {
-    if (i === 0) for (let k = 0; k < 6; k++) eastIndiaman(1080 + k * 150, 470 + (k % 2) * 14, 0.22, 0, t, 'portugal', tear);
-    if (i === 1) for (let k = 0; k < 3; k++) eastIndiaman(1140 + k * 260, 580, 0.36, 0, t, 'portugal', tear);
-    if (i === 2) for (let k = 0; k < 2; k++) eastIndiaman(250 + k * 380, 690 + Math.sin(t * 1.5 + k) * 6, 0.46, 0.02 * Math.sin(t + k), t, 'eic');
+    if (i === 0) for (let k = 0; k < 4; k++) goDown(1180 + k * 170, 470 + (k % 2) * 14, 0.22, k, clamp(sink * 1.4 - 0.4 - k * 0.12));
+    if (i === 1) for (let k = 0; k < 3; k++) goDown(1180 + k * 260, 580, 0.36, k, clamp(sink * 1.5 - k * 0.25));
+    if (i === 2) for (let k = 0; k < 2; k++) {
+      const x = 250 + k * 380, y = 690 + Math.sin(t * 1.5 + k) * 6; eastIndiaman(x, y, 0.46, 0.02 * Math.sin(t + k), t, 'eic');
+      for (let j = 0; j < 3; j++) { const f = clamp(fire * 3 - k * 0.6 - j * 0.25); if (f <= 0 || f >= 1) continue;
+        ctx.save(); ctx.globalAlpha = 0.75 * (1 - f); cut(P_circ(x + 150 + f * 90, y - 12 - f * 40, 20 + f * 40), '#D8D0C0', { shadow: 0.2, edge: 3 }); ctx.restore(); }
+    }
     if (i === 3) for (let k = 0; k < 2; k++) eastIndiaman(80 + k * 400, 790 + Math.sin(t * 1.4 + k) * 5, 0.36, 0, t, 'eic');
-    if (i === 1 && o.puffs > 0) for (let k = 0; k < 4; k++) { ctx.save(); ctx.globalAlpha = 0.55 * clamp(o.puffs * 2 - k * 0.3); cut(P_circ(800 + k * 60, 560 - k * 14, 34 + k * 6), '#C9C0B0', { shadow: 0.2, edge: 3 }); ctx.restore(); }
   });
 }
-/** a blank treaty scroll (stays empty), with a quill hovering */
-export function blankTreaty(x, y, p = 1, t = 0) {
-  const w = 760 * eo(clamp(p)) + 40; cut(P_rr(x - w / 2, y - 200, w, 400, 6), CREAM, { shadow: 0.9, edge: 4 });
-  for (const sx of [x - w / 2, x + w / 2]) cut(P_rr(sx - 20, y - 220, 40, 440, 20), '#D9C7A0', { shadow: 0.7, edge: 4 });
-  label('TREATY', x, y - 140, 40, P.sepia);
-  ctx.save(); ctx.translate(x + 200, y + 40 + Math.sin(t * 3) * 10); ctx.rotate(-0.6); cut(P_poly([[0, 0], [12, -150], [40, -190], [20, -120], [6, 0]]), '#EFE4CC', { shadow: 0.5, edge: 3 }); ctx.restore();
+export function blankTreaty(x, y, p = 1, t = 0, strike = 0) {
+  // Roe's draft treaty: written requests (scribbled lines, no invented wording) struck through one by one; "NO TREATY" stamp
+  const w = 760 * eo(clamp(p)) + 40; cut(P_rr(x - w / 2, y - 220, w, 440, 6), CREAM, { shadow: 0.9, edge: 4 });
+  for (const sx of [x - w / 2, x + w / 2]) cut(P_rr(sx - 20, y - 240, 40, 480, 20), '#D9C7A0', { shadow: 0.7, edge: 4 });
+  if (p < 0.6) return;
+  label("ROE'S TREATY", x, y - 160, 40, P.sepia);
+  ctx.save(); ctx.globalAlpha = clamp((p - 0.6) * 4);
+  for (let r = 0; r < 5; r++) { const ly = y - 90 + r * 54, lw = 520 - (r % 2) * 80; ctx.strokeStyle = 'rgba(62,44,30,0.75)'; ctx.lineWidth = 4; ctx.beginPath();
+    for (let k = 0; k <= lw; k += 8) ctx.lineTo(x - 280 + k, ly + Math.sin(k * 0.21 + r * 3) * 6 + Math.sin(k * 0.05 + r) * 3); ctx.stroke();
+    circle(x - 310, ly, 6, P.sepia);
+    const s = clamp(strike * 5 - r * 0.9); if (s > 0) { ctx.strokeStyle = P.crimson; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 300, ly + 2); ctx.lineTo(x - 300 + (lw + 40) * s, ly - 4); ctx.stroke(); } }
+  ctx.restore();
 }
 
 /** COROMANDEL BEACH: a strip between two rivers lights up (hl 0..1); fort rises (fort 0..1); town roofs fill (town 0..1); figures optional */
@@ -175,9 +190,13 @@ export function bombayIslands(m, t = 0) {
   });
 }
 /** a desk with Charles sliding the receipt: p 0..1 slide */
-export function receiptDesk(p = 0, shrug = 0) {
+export function receiptDesk(p = 0, shrug = 0, officials = 1) {
   parchment(49); cut(P_rr(-400, -100, W + 800, 700, 0), '#8C6B4E', { shadow: 0, edge: 0 });
   cast('charles', { x: 380, y: 800, h: 520, arm: lerp(10, 60, shrug) });
+  if (officials > 0) {   // two Company officials (sober coats, wigs) across the table from the king
+    person({ x: 1440, y: 800, h: 480, dir: -1, legs: 'hose', coat: 'long', coatC: '#3B3A4A', trim: '#2B2019', buttons: 1, collar: 'band', hair: 'wig', hairC: '#BDB09A', arm: 25 });
+    person({ x: 1640, y: 800, h: 470, dir: -1, legs: 'hose', coat: 'long', coatC: '#4A3426', trim: '#2B2019', buttons: 1, collar: 'band', hair: 'wig', hairC: '#7A6248', prop: 'ledger' });
+  }
   cut(P_rr(300, 600, 1400, 50, 8), '#5A3E2B', { shadow: 0.8, edge: 4 }); cut(P_rr(320, 650, 1360, 200, 0), '#6E4A33', { shadow: 0.3, edge: 3 });
 }
 
@@ -237,3 +256,106 @@ export function endCard(lt) {
   label('FROM MERCHANTS TO MASTERS · PART OF A SERIES', 700, 790, 26, P.sepia);
 }
 export { CREAM as CREAM2 };
+
+/** INDIAN TEXTILES (after Wikipedia "Clothing in India"): four lengths hang from a rod and unroll downward —
+ *  chintz (painted calico), block print, fine muslin, a silk sari with a gold zari border. p = 0..1 unroll; labels from p > 0.7 */
+export function indianTextiles(p = 1, t = 0) {
+  parchment(44);
+  const X = [300, 740, 1180, 1620], TOP = 150, FULL = 580, cw = 380;
+  cut(P_rr(80, TOP - 22, W - 160, 26, 13), '#6B4A2E', { shadow: 0.7, edge: 3 });
+  X.forEach((cx, k) => {
+    const h = FULL * eio(clamp(p * 1.6 - k * 0.2)); if (h < 4) return;
+    const x0 = cx - cw / 2, sway = Math.sin(t * 1.3 + k) * 3;
+    ctx.save(); ctx.translate(sway, 0);
+    const bg = ['#F4E8CF', '#E2B66B', '#FBF7EE', '#9E2032'][k];
+    cut(P_rr(x0, TOP, cw, h, 4), bg, { shadow: 0.8, edge: 4 });
+    ctx.save(); ctx.beginPath(); ctx.rect(x0, TOP, cw, h); ctx.clip();
+    if (k === 0) {   // chintz: red flowers, green leaves on a winding stem
+      for (let r = 0; r < 6; r++) for (let c = 0; c < 3; c++) { const fx = x0 + 70 + c * 120 + (r % 2) * 50, fy = TOP + 60 + r * 100;
+        ctx.strokeStyle = '#4C6B3C'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(fx - 40, fy + 40); ctx.quadraticCurveTo(fx - 30, fy, fx, fy); ctx.stroke();
+        ctx.fillStyle = '#4C6B3C'; ctx.beginPath(); ctx.ellipse(fx - 30, fy + 22, 16, 7, -0.6, 0, TAU); ctx.fill();
+        for (let i = 0; i < 5; i++) { const a = i / 5 * TAU; circle(fx + Math.cos(a) * 13, fy + Math.sin(a) * 13, 11, '#B3392F'); } circle(fx, fy, 7, '#E3B341'); }
+    } else if (k === 1) {   // block print: rows of indigo buta (small paisley) and dotted lines
+      for (let r = 0; r < 10; r++) { const fy = TOP + 34 + r * 58; ctx.fillStyle = 'rgba(44,52,90,0.55)'; for (let x = x0 + 8; x < x0 + cw; x += 16) ctx.fillRect(x, fy + 24, 6, 4);
+        for (let c = 0; c < 5; c++) { const fx = x0 + 40 + c * 76 + (r % 2) * 38; ctx.fillStyle = '#2C345A'; ctx.beginPath(); ctx.ellipse(fx, fy, 10, 15, 0.5, 0, TAU); ctx.fill(); ctx.beginPath(); ctx.arc(fx + 7, fy - 12, 5, 0, TAU); ctx.fill(); circle(fx, fy, 4, '#B3392F'); } }
+    } else if (k === 2) {   // muslin: fine, light, almost see-through, faint woven stripes
+      ctx.fillStyle = 'rgba(200,190,170,0.22)'; for (let x = x0 + 10; x < x0 + cw; x += 9) ctx.fillRect(x, TOP, 1.5, h); ctx.fillStyle = 'rgba(201,168,102,0.5)'; ctx.fillRect(x0, TOP + h - 40, cw, 6); ctx.fillRect(x0, TOP + h - 28, cw, 3);
+            for (let r = 0; r < 7; r++) for (let c = 0; c < 4; c++) circle(x0 + 50 + c * 95 + (r % 2) * 45, TOP + 50 + r * 82, 4, 'rgba(201,168,102,0.8)');
+    } else {   // silk sari: red field, small gold butis, a broad gold zari border with temple (triangle) motifs
+      for (let r = 0; r < 7; r++) for (let c = 0; c < 4; c++) circle(x0 + 50 + c * 95 + (r % 2) * 45, TOP + 40 + r * 60, 6, '#E3B341');
+      const by = TOP + FULL - 150; ctx.fillStyle = '#D9A441'; ctx.fillRect(x0, by, cw, 120); ctx.fillStyle = '#9E2032';
+      for (let x = x0; x < x0 + cw; x += 40) { ctx.beginPath(); ctx.moveTo(x, by); ctx.lineTo(x + 20, by + 34); ctx.lineTo(x + 40, by); ctx.fill(); }
+      ctx.fillStyle = '#2E5A3A'; ctx.fillRect(x0, by + 56, cw, 10); ctx.fillStyle = '#9E2032'; ctx.fillRect(x0, by + 84, cw, 6);
+    }
+    ctx.restore();
+    ctx.fillStyle = 'rgba(62,44,30,0.15)'; ctx.fillRect(x0, TOP + h - 10, cw, 10);
+    ctx.restore();
+    const lp = eob(clamp((p - 0.7) * 4 - k * 0.15)); if (lp > 0) slip(['CHINTZ', 'BLOCK PRINT', 'MUSLIN', 'SILK SARI'][k], cx, 800, lp * 0.8, (k % 2 ? 0.02 : -0.02), 40);
+  });
+}
+
+/** a TEAR-OFF WALL CALENDAR: "30 DECEMBER 1600" tears away (tear 0..1) to show "31 DECEMBER 1600" */
+export function calendarPage(tear = 0, ring = 0) {
+  parchment(45);
+  const x = 960, y = 470, w = 520, h = 600;
+  cut(P_rr(x - w / 2 - 20, y - h / 2 - 20, w + 40, h + 60, 10), '#8C6A48', { shadow: 1, edge: 5 });
+  const page = (day) => { cut(P_rr(x - w / 2, y - h / 2 + 40, w, h - 20, 4), '#F6EEDB', { shadow: 0.4, edge: 3 });
+    ctx.fillStyle = P.crimson; ctx.fillRect(x - w / 2, y - h / 2 + 40, w, 96);
+    label('DECEMBER', x, y - h / 2 + 90, 54, '#F6EEDB');
+    ctx.font = `700 260px Georgia, serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = P.ink; ctx.fillText(String(day), x, y + 40);
+    label('1600', x, y + 230, 56, P.sepia); };
+  page(31);
+  if (ring > 0) { ctx.save(); ctx.strokeStyle = P.crimson; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.ellipse(x, y + 40, 190, 150, -0.1, -1.4, -1.4 + TAU * eio(clamp(ring))); ctx.stroke(); ctx.restore(); }
+  if (tear < 1) { ctx.save(); const k = eio(clamp(tear)); ctx.translate(x - w / 2, y - h / 2 + 40); ctx.rotate(-k * 0.9); ctx.translate(-k * 200, k * 700); ctx.globalAlpha = 1 - k * 0.6; ctx.translate(-(x - w / 2), -(y - h / 2 + 40)); page(30); ctx.restore(); }
+  cut(P_rr(x - w / 2 - 10, y - h / 2 - 10, w + 20, 60, 8), '#5A3E2B', { shadow: 0.6, edge: 4 });
+  for (const dx of [-140, 140]) { circle(x + dx, y - h / 2 + 20, 16, '#C9B48A'); circle(x + dx, y - h / 2 + 20, 8, '#3E2C1E'); }
+}
+
+/** THE SEVEN ISLANDS OF BOMBAY, traced from the 1843 "Map of the Island of Bombay and Colaba" (north up).
+ *  p 0..1: the islands appear one by one with their names. Coordinates are in the source map's pixels. */
+const SEVEN = [
+  ['Colaba', [[520,1660],[545,1652],[528,1700],[505,1740],[480,1800],[455,1870],[432,1930],[420,1880],[440,1800],[470,1730],[495,1690]], [-150, 0]],
+  ["Old Woman's Island", [[528,1655],[562,1660],[556,1692],[528,1690]], [200, -10]],
+  ['Bombay', [[190,1065],[250,1090],[275,1170],[300,1240],[400,1300],[460,1240],[490,1170],[525,1130],[560,1200],[580,1350],[600,1420],[625,1480],[595,1560],[560,1605],[520,1560],[470,1500],[420,1430],[330,1380],[250,1360],[200,1380],[170,1440],[140,1520],[120,1530],[100,1470],[110,1380],[140,1290],[130,1200],[150,1120]], [-270, 30]],
+  ['Mazagaon', [[440,930],[520,915],[560,960],[600,915],[605,980],[590,1050],[600,1110],[560,1140],[490,1120],[440,1100],[425,1020]], [220, 0]],
+  ['Parel', [[450,160],[500,130],[560,150],[580,200],[620,160],[650,240],[640,330],[560,280],[540,380],[620,390],[640,450],[600,470],[580,520],[570,600],[620,620],[660,700],[620,720],[580,800],[540,880],[470,890],[420,850],[400,750],[420,650],[470,560],[510,450],[520,330],[470,260],[440,200]], [210, 120]],
+  ['Worli', [[100,520],[140,540],[190,640],[210,760],[200,830],[190,900],[185,960],[175,960],[165,900],[140,820],[130,700],[115,600]], [-170, 60]],
+  ['Mahim', [[300,290],[370,260],[420,350],[430,450],[380,560],[320,640],[260,690],[230,680],[240,600],[300,500],[320,400]], [-200, -60]],
+];
+export function bombaySeven(p = 1, t = 0, o = {}) {
+  parchment(46); ctx.save(); ctx.globalAlpha = 0.85; ctx.fillStyle = P.sea; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore();
+  ctx.strokeStyle = 'rgba(62,44,30,0.12)'; ctx.lineWidth = 2; for (let y = 140; y < 880; y += 90) { ctx.beginPath(); ctx.moveTo(-300, y); ctx.lineTo(W + 300, y); ctx.stroke(); }
+  const S = 0.415, X = (mx) => 960 + (mx - 378) * S, Y = (my) => 112 + (my - 130) * S;
+  SEVEN.forEach(([name, pts, [lx, ly]], k) => {
+    const a = eob(clamp(p * 9 - k * 1.1)); if (a <= 0) return;
+    let cx = 0, cy = 0; pts.forEach(([x, y]) => { cx += X(x); cy += Y(y); }); cx /= pts.length; cy /= pts.length;
+    ctx.save(); ctx.translate(cx, cy); ctx.scale(a, a); ctx.translate(-cx, -cy);
+    cut(P_poly(pts.map(([x, y]) => [X(x), Y(y)])), k === 2 ? '#E9D7B0' : P.land, { shadow: 0.6, edge: 4 }); ctx.restore();
+    if (o.labels !== false && a > 0.5) tag(name, cx + lx, Math.min(cy + ly, 830), 0.62 * clamp(a), cx, cy);
+  });
+  if (o.title) slip('SEVEN ISLANDS', 420, 200, eob(clamp(o.title)), -0.02, 54);
+}
+
+/** THE THREE VILLAGES, 1698, as on the old maps of Kolkata: the Hooghly runs north to south; on its east bank lie
+ *  Sutanuti (north), Dihi Kalikata (middle) and Gobindapur (south). pop[k] 0..1 builds each village; name[k] 0..1 shows its tag. */
+export function threeVillages(pop = [1, 1, 1], name = [1, 1, 1], t = 0, o = {}) {
+  parchment(47); cut(P_rr(-300, -300, W + 600, H + 600, 0), '#D8C79A', { shadow: 0, edge: 0 });
+  // fields and tree clumps
+  for (let k = 0; k < 26; k++) { const x = 1000 + rnd(k * 3.1) * 900, y = 120 + rnd(k * 7.7) * 700; ctx.save(); ctx.globalAlpha = 0.5; circle(x, y, 18 + rnd(k) * 16, '#8FA06A'); ctx.restore(); }
+  const rx = (y) => 640 + Math.sin(y * 0.004 + 0.6) * 70;   // the river's centreline
+  cut(() => { ctx.beginPath(); for (let y = -100; y <= H + 100; y += 20) ctx.lineTo(rx(y) - 150, y); for (let y = H + 100; y >= -100; y -= 20) ctx.lineTo(rx(y) + 150, y); ctx.closePath(); }, P.sea, { shadow: 0.5, edge: 4 });
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 3; for (let k = 0; k < 6; k++) { const y0 = ((t * 30 + k * 190) % 1200) - 60; ctx.beginPath(); ctx.moveTo(rx(y0) - 40, y0); ctx.lineTo(rx(y0) - 10, y0 + 40); ctx.stroke(); }
+  label('HOOGHLY', rx(560) - 10, 560, 34, 'rgba(255,255,255,0.75)');
+  const V = [['SUTANUTI', 230], ['KALIKATA', 470], ['GOBINDAPUR', 710]];
+  V.forEach(([n, vy], k) => {
+    const a = eob(clamp(pop[k])); if (a <= 0) return;
+    const bx = rx(vy) + 190;
+    for (let j = 0; j < 9; j++) { const hx = bx + (j % 3) * 70 + (Math.floor(j / 3) % 2) * 30, hy = vy - 60 + Math.floor(j / 3) * 55;
+      ctx.save(); ctx.translate(hx, hy); ctx.scale(a, a); cut(P_rr(-20, -16, 40, 32, 3), '#EFE2C2', { shadow: 0.5, edge: 3 }); cut(P_poly([[-24, -14], [0, -30], [24, -14]]), '#A8743E', { shadow: 0.2, edge: 2 }); ctx.restore(); }
+    ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = '#B9A37A'; ctx.fillRect(rx(vy) + 145, vy - 8, 40, 16); ctx.restore();   // the ghat (steps to the river)
+    const nm = eob(clamp(name[k])); if (nm > 0.02) tag(n, bx + 380, vy, 0.8 * nm, bx + 170, vy);
+  });
+  if (o.boat !== false) boat(rx(400 + Math.sin(t * 0.3) * 80) - 40, 400 + Math.sin(t * 0.3) * 80, 0.5, 'eic', t);
+  // north arrow
+  ctx.save(); ctx.translate(1780, 690); cut(P_poly([[0, -60], [22, 20], [0, 6], [-22, 20]]), P.ink, { shadow: 0.4, edge: 2 }); ctx.restore(); label('N', 1780, 740, 30, P.ink);
+}

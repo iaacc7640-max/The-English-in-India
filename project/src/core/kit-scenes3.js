@@ -3,7 +3,7 @@ import { ctx, W, H, TAU, clamp, lerp, seg, eo, eob, eio, rnd, circle, line } fro
 import { P } from './palette.js';
 import { cut, P_rr, P_poly, P_circ, parchment, label, slip, ribbon, seal } from './kit.js';
 import { person, cast, SKIN, horse } from './kit-cast.js';
-import { flag, coin, sun, MUGHAL } from './kit-props.js';
+import { flag, coin, sun, MUGHAL, moneybag } from './kit-props.js';
 import { layer, nightWash } from './kit-scenes.js';
 
 const CREAM = '#F3E9D2', RED_SAND = '#B5654A', RED_D = '#8E4A36';
@@ -182,4 +182,46 @@ export function finalCard(lt) {
   slip('FROM MERCHANTS TO MASTERS', 760, 480, eob(seg(lt, 0.3, 0.7)), -0.02, 64);
   label('THE ENGLISH IN INDIA', 760, 620, 36, P.sepia);
   const f = eob(seg(lt, 0.6, 1.0)); if (f > 0) { flag('india', 560, 800, 120, 0.7 * f, lt); flag('eic', 900, 800, 120, 0.5 * f, lt); }
+}
+
+/** a small army TOKEN for maps: a flag over two rows of tiny soldiers. kind 'eic' (red coats) | 'france' (blue) | others */
+export function armyToken(x, y, kind, s = 1, t = 0, a = 1) {
+  if (a <= 0) return; ctx.save(); ctx.globalAlpha = clamp(a); ctx.translate(x, y); ctx.scale(s, s);
+  const coat = kind === 'eic' ? P.crimson : kind === 'france' ? '#2C4A8A' : kind === 'bengal' ? '#2E5A3A' : kind === 'oudh' ? '#2C3E5A' : '#E9DCC0';
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 4; c++) { const sx = -48 + c * 30 + r * 14, sy = r * 22; cut(P_rr(sx - 8, sy - 22, 16, 26, 4), coat, { shadow: 0.3, edge: 2 }); circle(sx, sy - 30, 7, '#E8C9A0'); }
+  flag(kind, 40, 10, 110, 0.45, t);
+  ctx.restore();
+}
+
+/** PLASSEY, 23 June 1757: two armies drawn up in formation, facing each other across the field by the mango grove (no fighting).
+ *  o = { t, show 0..1 (the armies form up), aside 0..1 (Mir Jafar's division turns and marches away), nawab: flag kind } */
+export function armyField(o = {}) {
+  const t = o.t || 0, show = o.show ?? 1, aside = o.aside || 0, nf = o.nawab || 'bengal';
+  parchment(98); ctx.fillStyle = P.sky; ctx.fillRect(-400, -400, W + 800, 900);
+  cut(P_rr(-400, 470, W + 800, 800, 0), '#A9B48A', { shadow: 0.4, edge: 4 });
+  for (let k = 0; k < 9; k++) { const x = 60 + k * 230; cut(P_rr(x - 9, 400, 18, 90, 4), '#5A3E2B', { shadow: 0.3, edge: 2 }); cut(P_circ(x, 385, 62), P.forest, { shadow: 0.4, edge: 3 }); }
+  const sold = (x, y, dir, coatC, hatC, hat, a) => { if (a <= 0) return; ctx.save(); ctx.globalAlpha = clamp(a); person({ x, y, h: 170, dir, legs: 'trousers', legC: '#F5EEDD', coat: hat === 'tall' ? 'doublet' : 'jama', coatC, trim: '#F5EEDD', hat, hatC, beard: hat === 'tall' ? null : 'mous' }); ctx.restore(); };
+  // the Nawab's army (right): elephants behind, three ranks; the right-hand division (Mir Jafar's) marches off when aside > 0
+  for (const [ex, ey] of [[1330, 640], [1640, 650]]) { ctx.save(); ctx.globalAlpha = clamp(show * 2); elephant(ex, ey, 0.42); ctx.restore(); }
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 7; c++) {
+    const x0 = 1080 + c * 110 + r * 30, y = 680 + r * 60, jaf = c >= 4, a = clamp(show * 4 - (6 - c) * 0.3);
+    const dx = jaf ? aside * 900 : 0;
+    sold(x0 + dx, y, jaf && aside > 0.05 ? 1 : -1, r % 2 ? '#2E5A3A' : '#EFE4CC', r % 2 ? '#EFE4CC' : '#D9A441', 'turban', a);
+  }
+  for (const [fx, jaf] of [[1150, 0], [1400, 0], [1650, 1]]) flag(nf, fx + (jaf ? aside * 900 : 0), 700, 300, 0.55 * eob(clamp(show * 3)), t + fx);
+  // the Company's army (left): fewer, red coats, three ranks, two cannon (silent)
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) sold(160 + c * 110 + r * 30, 680 + r * 60, 1, P.crimson, '#2B2019', 'tall', clamp(show * 4 - c * 0.3));
+  for (const cx of [760, 860]) { cut(P_rr(cx - 40, 790, 90, 22, 8), '#3E2C1E', { shadow: 0.4, edge: 2 }); circle(cx - 10, 820, 18, '#5A3E2B'); }
+  for (const fx of [200, 520]) flag('eic', fx, 700, 300, 0.55 * eob(clamp(show * 3)), t + fx);
+}
+
+/** the BANKER's room: Jagat Seth on a white gaddi with his ledger; money bags slide across to a Company official. p 0..1 */
+export function bankerRoom(p = 0, t = 0) {
+  parchment(97); cut(P_rr(-400, -400, W + 800, 1200, 0), '#E6D2A8', { shadow: 0, edge: 0 });
+  for (let i = 0; i < 5; i++) { const x = 220 + i * 370; cut(() => { ctx.beginPath(); ctx.moveTo(x - 110, 700); ctx.lineTo(x - 110, 330); ctx.quadraticCurveTo(x, 200, x + 110, 330); ctx.lineTo(x + 110, 700); ctx.closePath(); }, '#C9A97A', { shadow: 0.3, edge: 3 }); }
+  cut(P_rr(-400, 800, W + 800, 400, 0), '#B98A66', { shadow: 0, edge: 0 });
+  cut(P_rr(260, 680, 640, 120, 14), '#F7F1E3', { shadow: 0.7, edge: 4 }); cut(P_rr(270, 600, 90, 110, 40), P.crimson, { shadow: 0.5, edge: 3 });
+  cast('jagatseth', { x: 520, y: 700, h: 330, seated: 1, arm: 30 * eio(clamp(p * 2)) });
+  for (let k = 0; k < 4; k++) { const q = eio(clamp(p * 2.2 - k * 0.3)); moneybag(lerp(720, 1180 + k * 70, q), 800 - Math.sin(q * Math.PI) * 60, 0.42, ''); }
+  person({ x: 1500, y: 800, h: 430, dir: -1, legs: 'hose', legC: '#F5EEDD', coat: 'long', coatC: P.crimson, trim: P.gold, buttons: 1, collar: 'band', hair: 'wig', hairC: '#E9E2D2', hat: 'tricorne', arm: 35 });
 }

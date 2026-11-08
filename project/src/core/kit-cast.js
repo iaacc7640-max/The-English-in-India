@@ -157,6 +157,7 @@ export const CAST = {
   sobha: { name: 'Sobha Singh', skin: SKIN.in2, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.forest, patka: P.gold, beard: 'full', hat: 'turban', hatC: '#D9A441' },
   surman: { name: 'John Surman', legs: 'hose', coat: 'long', coatC: P.royal, trim: P.gold, buttons: 1, collar: 'band', hair: 'wig', hairC: '#CDBFA6', hat: 'tricorne', prop: 'scroll' },
   hamilton: { name: 'William Hamilton', legs: 'hose', coat: 'long', coatC: BLACK, trim: '#4A3426', buttons: 1, collar: 'band', hair: 'wig', hairC: '#BDB09A', hat: 'tricorne', prop: 'bag' },
+  james: { name: 'James I', legs: 'hose', legC: '#EDE3C8', coat: 'doublet', coatC: '#EDE3C8', trim: P.gold, buttons: 1, collar: 'ruff', hair: 'short', hairC: '#8A4B2A', beard: 'full', beardC: '#8A4B2A', hat: 'crown', jewel: P.crimson, prop: 'letter' },
   farrukhsiyar: { name: 'Farrukhsiyar', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.wine, trim: P.gold, patka: P.gold, beard: 'mous', hat: 'turban', hatC: P.gold, jewel: P.crimson, plume: WHITE, pearls: 1 },
 };
 Object.assign(CAST, {
@@ -166,6 +167,7 @@ Object.assign(CAST, {
   mirqasim: { name: 'Mir Qasim', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.royal, patka: P.gold, beard: 'full', hat: 'turban', hatC: '#E9CF8E' },
   shahalam: { name: 'Shah Alam II', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: P.wine, patka: P.gold, beard: 'full', hat: 'turban', hatC: P.gold, jewel: P.crimson, plume: WHITE, pearls: 1 },
   hastings: { name: 'Warren Hastings', legs: 'hose', coat: 'long', coatC: BLACK, trim: '#4A3426', buttons: 1, collar: 'band', hair: 'wig', hairC: '#E9E2D2' },
+  jagatseth: { name: 'Jagat Seth Mehtab Chand', skin: SKIN.in, legs: 'trousers', legC: '#F5EEDD', coat: 'jama', coatC: '#F5EEDD', patka: P.crimson, beard: 'mous', hat: 'turban', hatC: '#D9822B', jewel: P.gold, pearls: 1, prop: 'ledger' },
   tipu: { name: 'Tipu Sultan', skin: SKIN.in, legs: 'trousers', legC: CREAM, coat: 'jama', coatC: '#D9A441', patka: P.ink, beard: 'mous', hat: 'turban', hatC: '#D9A441', band: P.ink, stripes: 1 },
   wellesley: { name: 'Lord Wellesley', legs: 'hose', legC: '#F5EEDD', coat: 'long', coatC: P.crimson, trim: P.gold, buttons: 1, collar: 'band', hair: 'short', hairC: '#7A6248', sash: P.royal },
   dalhousie: { name: 'Lord Dalhousie', legs: 'hose', legC: BLACK, coat: 'long', coatC: '#2C3E5A', trim: P.gold, buttons: 1, collar: 'band', hair: 'short', hairC: '#4A3426' },
@@ -179,8 +181,8 @@ Object.assign(CAST, {
   bose: { name: 'Subhas Chandra Bose', skin: SKIN.in, legs: 'trousers', legC: '#7A7A5A', coat: 'doublet', coatC: '#7A7A5A', trim: '#4A3426', buttons: 1, hat: 'cap', hatC: '#7A7A5A', specs: 1 },
   nehru: { name: 'Jawaharlal Nehru', skin: SKIN.in, legs: 'trousers', legC: WHITE, coat: 'long', coatC: '#E9DCC0', trim: '#E9DCC0', buttons: 1, hat: 'cap', hatC: WHITE, rose: 1 },
 });
-export const CAST_ORDER2 = ['clive', 'siraj', 'mirjafar', 'mirqasim', 'shahalam', 'hastings', 'tipu', 'wellesley', 'dalhousie', 'sepoy', 'zafar', 'lakshmibai', 'victoria', 'naoroji', 'curzon', 'gandhi', 'bose', 'nehru'];
-export const CAST_ORDER = ['elizabeth', 'merchant', 'hawkins', 'best', 'jahangir', 'roe', 'day', 'nayak', 'charles', 'catherine', 'child', 'aurangzeb', 'sidi', 'charnock', 'sobha', 'surman', 'hamilton', 'farrukhsiyar'];
+export const CAST_ORDER2 = ['clive', 'siraj', 'mirjafar', 'mirqasim', 'shahalam', 'hastings', 'tipu', 'wellesley', 'dalhousie', 'sepoy', 'zafar', 'lakshmibai', 'victoria', 'naoroji', 'curzon', 'gandhi', 'bose', 'nehru', 'jagatseth'];
+export const CAST_ORDER = ['elizabeth', 'merchant', 'hawkins', 'best', 'jahangir', 'roe', 'day', 'nayak', 'charles', 'catherine', 'child', 'aurangzeb', 'sidi', 'charnock', 'sobha', 'surman', 'hamilton', 'farrukhsiyar', 'james'];
 /** draw a cast member on model: cast('roe', { x, y, h, dir, bow, arm, walk, seated, prop }) (o overrides the pose, never the costume colours) */
 export function cast(id, o) { const c = CAST[id]; if (!c) throw new Error('no cast member ' + id); person({ ...c, ...o }); }
 

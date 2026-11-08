@@ -20,9 +20,10 @@ export function build(add, cue) {
   add({ id: '6.05', at: at(i + 4), note: 'the English start stacking bricks: walls', draw: (lt, d, t) => { K.sutanuti({ t, walls: 0 }); K.fortRise(960, 790, 1.2, seg(lt, 0.2, d)); } });
   for (let k = 0; k < 5; k++) cue(at(i + 4) + 0.2 + k * 0.32, 'brick', { gain: 0.6 });
   { const s0 = at(i + 5);
-    add({ id: '6.06', at: s0, note: '1698: three villages, three signs', draw: (lt, d, t) => { K.sutanuti({ t, signs: [seg(lt, 0.4, 0.7), seg(lt, 0.6, 0.9), seg(lt, 0.8, 1.1)] }); } });
-    for (let k = 0; k < 3; k++) cue(s0 + 0.4 + k * 0.2, 'pop', { gain: 0.45 }); }
-  add({ id: '6.07', at: at(i + 6), note: 'each sign lights as it is named', camera: () => ({ x: 960, y: 560, zoom: 1.15 }), draw: (lt, d, t) => { K.sutanuti({ t, signs: [1, 1, 1] }); } });
+    add({ id: '6.06', at: s0, note: '1698: map of the Hooghly; three villages rise on the east bank', draw: (lt, d, t) => { K.threeVillages([seg(lt, 0.3, 0.7), seg(lt, 0.5, 0.9), seg(lt, 0.7, 1.1)], [0, 0, 0], t); K.ribbon('1698', 320, 220, eob(seg(lt, 0.1, 0.5)), 70); } });
+    for (let k = 0; k < 3; k++) cue(s0 + 0.35 + k * 0.2, 'pop', { gain: 0.45 }); }
+  { const s0 = at(i + 6), w = (n) => { try { return Wd(n, i + 6) - s0; } catch { return 0.3; } };
+    add({ id: '6.07', at: s0, note: 'each village name appears as it is spoken: Sutanuti, Gobindapur, Kalikata', draw: (lt, d, t) => K.threeVillages([1, 1, 1], [seg(lt, w('sutanuti') - 0.1, w('sutanuti') + 0.3), seg(lt, w('kalikata') - 0.1, w('kalikata') + 0.3), seg(lt, w('gobindapur') - 0.1, w('gobindapur') + 0.3)], t) }); }
   add({ id: '6.08', at: at(i + 7), note: 'coins counted: Rs 1,200', draw: (lt, d, t) => { K.parchment(72); const n = Math.floor(24 * eo(seg(lt, 0, d * 0.8))); ctx.save(); ctx.translate(960, 720); ctx.scale(2.2, 2.2); K.coinStacks(-74, 0, n, 8, '#D9D2C2'); ctx.restore(); K.slip('Rs 1,200', 960, 320, eob(seg(lt, 0.2, 0.6)), -0.02, 70); } });
   cue(at(i + 7), 'coins');
   { const s0 = at(i + 8), w0 = Wd('william', i + 8) - s0;

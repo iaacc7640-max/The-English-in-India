@@ -18,8 +18,8 @@ export function build(add, cue) {
     cue(s0 + p0, 'coins'); }
   add({ id: '1.05', at: at(i + 4), note: 'the ledger snaps open: wanted a share', camera: () => ({ x: 640, y: 560, zoom: 1.4 }), draw: (lt, d, t) => { K.parchment(15); K.coinPile(960, 720, 34, 1.1); K.cast('merchant', { x: 470, y: 800, h: 460, bow: 0.2, arm: lerp(15, 70, eob(seg(lt, 0.1, 0.4))) }); } });
   cue(at(i + 4) + 0.1, 'page');
-  add({ id: '1.06', at: at(i + 5), note: 'ribbon 31 DEC 1600', draw: (lt, d, t) => { K.parchment(16); K.ribbon('31 DEC 1600', 960, 420, eob(seg(lt, 0.1, 0.5)), 110); } });
-  cue(at(i + 5) + 0.1, 'whoosh');
+  add({ id: '1.06', at: at(i + 5), note: 'a wall calendar: 30 December tears away to 31 DECEMBER 1600, circled', draw: (lt, d, t) => K.calendarPage(seg(lt, 0.25, 0.95), seg(lt, 1.0, 1.6)) });
+  cue(at(i + 5) + 0.3, 'page'); cue(at(i + 5) + 1.0, 'quill', { dur: 0.6 });
   { const s0 = at(i + 6), d0 = Le(i + 6) - s0;
     add({ id: '1.07', at: s0, note: 'Elizabeth signs the charter (quill)', draw: (lt, d, t) => K.charterScene({ sign: seg(lt, 0.4, d0 * 0.55) }) });
     add({ id: '1.07b', at: s0 + d0 * 0.55, note: 'push in: the signature and the charter', camera: () => ({ x: 980, y: 560, zoom: 1.6 }), draw: (lt, d, t) => K.charterScene({ sign: 1 }) });
@@ -38,10 +38,11 @@ export function build(add, cue) {
     const h = K.dashedRoute(R, eio(seg(lt, 0.1, d))); K.eastIndiaman(h[0], h[1] - 12, 0.1, 0, t, 'eic');
     const [cx, cy] = pr(18.5, -36.5); K.tag('Cape of Good Hope', cx - 230, cy - 40, 0.7 * eob(seg(lt, 0.4, 0.8)), cx, cy);
   } });
-  { const s0 = at(i + 10); G.ringsShow = s0 + 0.55;
-    add({ id: '1.11', at: s0, note: 'a bolt of Indian cloth unrolls; then the three empty gold rings', draw: (lt, d, t) => {
-      K.realMap({ view: K.VIEWS.india, rings: ringsAt(t), ringLabels: false }); if (lt < 0.85) K.clothBolt(lt < 0.5 ? seg(lt, 0, 0.4) : 1 - seg(lt, 0.5, 0.85), 470);
+  { const s0 = at(i + 10), e0 = Le(i + 10) + 1.1; G.ringsShow = e0 + 0.4;
+    add({ id: '1.11', at: s0, note: 'Indian textiles unroll: chintz, block print, muslin, a silk sari', draw: (lt, d, t) => K.indianTextiles(seg(lt, 0, 1.4), t) });
+    add({ id: '1.11b', at: e0, note: 'map of India; the three empty gold rings', draw: (lt, d, t) => {
+      K.realMap({ view: K.VIEWS.india, rings: ringsAt(t), ringLabels: false });
       for (const id of ['madras', 'bombay', 'calcutta']) { const p = K.PLACES[id], [x, y] = K.proj(K.VIEWS.india)(p.lon, p.lat); if (lt > 0.6) K.tag(p.n, x + p.lx, y + p.ly, 0.62 * eob(seg(lt, 0.6, 0.9)), x, y); }
     } });
-    cue(s0, 'cloth'); cue(s0 + 0.55, 'pop', { gain: 0.5 }); }
+    cue(s0, 'cloth'); cue(e0 + 0.5, 'pop', { gain: 0.5 }); }
 }

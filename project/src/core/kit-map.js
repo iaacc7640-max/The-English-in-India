@@ -13,7 +13,7 @@ export const PLACES = {
   broach: { n: 'Broach', lon: 72.98, lat: 21.70, lx: -84, ly: -16 },
   ahmedabad: { n: 'Ahmedabad', lon: 72.57, lat: 23.02, lx: -40, ly: -30 },
   agra: { n: 'Agra', lon: 78.01, lat: 27.18, lx: 0, ly: 30 },
-  delhi: { n: 'Delhi', lon: 77.21, lat: 28.61, lx: 0, ly: -30 },
+  delhi: { n: 'Delhi', lon: 77.21, lat: 28.61, lx: 0, ly: -30 }, rangoon: { n: 'Rangoon', lon: 96.16, lat: 16.84, lx: 0, ly: -34 },
   bombay: { n: 'Bombay', lon: 72.88, lat: 19.08, lx: -90, ly: 0 },
   masulipatnam: { n: 'Masulipatnam', lon: 81.13, lat: 16.17, lx: 108, ly: 4 },
   golconda: { n: 'Golconda', lon: 78.40, lat: 17.38, lx: -62, ly: -26 },
@@ -123,4 +123,18 @@ function tintRegion(t, pr) {
   const g = ctx.createRadialGradient(x, y, 0, x, y, Math.max(Math.abs(x2 - x), Math.abs(y2 - y)));
   g.addColorStop(0, t.color || 'rgba(200,149,47,0.55)'); g.addColorStop(1, 'rgba(200,149,47,0)');
   ctx.save(); ctx.globalAlpha = clamp(t.a ?? 1); ctx.fillStyle = g; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore();
+}
+/** a Company FACTORY (trading post) on the map: a small warehouse with a pitched roof, door and a striped Company pennant.
+ *  pop 0..1 grows it up from the ground; the label is drawn with tag() by the caller or via o.label */
+export function factoryIcon(x, y, s = 1, pop = 1, o = {}) {
+  const k = eobLocal(clamp(pop)); if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); ctx.scale(s * k, s * k);
+  cut(P_rr(-46, -50, 92, 50, 3), '#E8D7B4', { shadow: 0.6, edge: 3 });
+  cut(P_poly([[-54, -48], [0, -84], [54, -48]]), '#B3392F', { shadow: 0.5, edge: 3 });
+  ctx.fillStyle = '#5A3E2B'; ctx.fillRect(-12, -30, 24, 30); ctx.fillRect(-36, -38, 14, 12); ctx.fillRect(22, -38, 14, 12);
+  ctx.fillStyle = '#4A3426'; ctx.fillRect(30, -126, 5, 80);
+  for (let i = 0; i < 5; i++) { ctx.fillStyle = i % 2 ? '#FFFFFF' : '#C8102E'; ctx.fillRect(35, -124 + i * 7, 46, 7); }
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(35, -124, 20, 17); ctx.fillStyle = '#C8102E'; ctx.fillRect(43, -124, 4, 17); ctx.fillRect(35, -117, 20, 3);
+  ctx.restore();
+  if (o.label && pop > 0.3) { const p = o.place; tag(o.label, x + (p ? p.lx : 0), y + (p ? p.ly : -60) - 20, 0.7 * k, x, y - 20); }
 }

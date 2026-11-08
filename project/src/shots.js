@@ -30,7 +30,7 @@ export function buildShots(script) {
   for (let ch = 0; ch < NCH; ch++) {
     (BUILT[ch] || PH.build(ch))(add, cue);
     if (ch > 0) {   // the chapter card sits in the pause before the chapter's first line
-      const t0 = G.chStart[ch], [yr, title] = CARDS[ch];
+      const t0 = Math.max(G.chStart[ch], L(G.lines[ch][0]) - 0.08 - 1.5), [yr, title] = CARDS[ch];   // the card always takes the last 1.5 s of the pause
       add({ id: `card${ch}`, at: t0, card: ch, note: `CARD ${yr}: ${title}`, draw: (lt) => K.chapterCard(lt, yr, title, ch) });
       cue(t0, 'page'); cue(t0 + 0.75, 'seal', { gain: 0.6 });
     }

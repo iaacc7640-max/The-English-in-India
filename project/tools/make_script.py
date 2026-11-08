@@ -118,7 +118,8 @@ lines = []
 for i, (ch, text, caps) in enumerate(C):
     ln = {"chapter": ch, "text": say(text), "caps": caps}
     nxt = C[i + 1][0] if i + 1 < len(C) else None
-    if nxt is not None and nxt != ch: ln["gap"] = 2.1 if ch == 0 else 1.65          # chapter card beat (title card after CH0)
+    if nxt is not None and nxt != ch: ln["gap"] = 4.0 if ch == 0 else 1.65          # chapter card beat (title card after CH0)
+    if text == "and its cloth.": ln["gap"] = 3.6                                  # room for the textiles and the three rings before the CH2 card
     if text.endswith(":") and nxt == ch and not text.endswith("rival to beat:"): ln["break"] = True; ln["gap"] = 0.25
     lines.append(ln)
 S = {
