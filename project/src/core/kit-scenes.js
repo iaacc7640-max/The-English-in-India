@@ -28,30 +28,52 @@ function P_mughalArch(x, y, r, yb) {
 }
 /** THE MUGHAL COURT (red sandstone): o = { pan, night, throne: 'aurangzeb'|'farrukhsiyar'|'jahangir'|null, courtiers, dim, emperorArm } floor y 800 */
 export function mughalCourt(o = {}) {
-  const pan = o.pan || 0, fl = 800;
+  // THE DARBAR (after your reference painting): a pillared hall with a painted canopy, dark arched panels on the back wall,
+  // a raised throne pavilion, a patterned red carpet and rows of standing nobles. Thrones: Jahangir = black basalt slab;
+  // Aurangzeb / Farrukhsiyar = the Peacock Throne (first used 1635); others = a cushioned takht.
+  const pan = o.pan || 0, fl = 800, tx = 1380, CAN = '#E8D29A', CAN_D = '#C9A866', PANEL = '#2E4A4A', CREAM = '#F1E4C4';
+  const seat = o.seat || (o.throne === 'jahangir' ? 'basalt' : (o.throne === 'aurangzeb' || o.throne === 'farrukhsiyar') ? 'peacock' : 'takht');
   parchment(17);
-  layer(pan, 0.35, () => {
-    cut(P_rr(-400, -100, W + 800, fl + 100, 0), SAND, { shadow: 0, edge: 0 });
-    ctx.fillStyle = SAND_D; ctx.fillRect(-400, 96, W + 800, 18); for (let x = -380; x < W + 380; x += 60) { ctx.save(); ctx.translate(x, 126); ctx.rotate(Math.PI / 4); ctx.fillStyle = P.gold; ctx.fillRect(-7, -7, 14, 14); ctx.restore(); }
-    for (let i = -1; i < 6; i++) { const x = 140 + i * 380; cut(P_mughalArch(x, 330, 130, fl), SAND_D, { shadow: 0, edge: 0 }); cut(P_mughalArch(x, 350, 108, fl), SAND_DD, { shadow: 0, edge: 0 }); }
-    for (let i = -1; i < 7; i++) { const x = -50 + i * 380; cut(P_rr(x - 34, 150, 68, fl - 150, 6), SAND_L, { shadow: 0.4, edge: 3 }); cut(P_rr(x - 46, 150, 92, 30, 6), SAND_L, { shadow: 0.3, edge: 3 }); }
+  layer(pan, 0.3, () => {
+    cut(P_rr(-400, -100, W + 800, fl + 100, 0), '#D9C08C', { shadow: 0, edge: 0 });
+    for (let i = -1; i < 7; i++) { const x = 150 + i * 330; cut(P_mughalArch(x, 380, 120, fl), '#B89A62', { shadow: 0, edge: 0 }); cut(P_mughalArch(x, 400, 100, fl - 10), PANEL, { shadow: 0, edge: 0 });
+      ctx.save(); ctx.globalAlpha = 0.35; for (let k = 0; k < 8; k++) circle(x - 60 + (k % 4) * 40, 460 + Math.floor(k / 4) * 120, 9, '#7FA3A0'); ctx.restore(); }
+  });
+  layer(pan, 0.45, () => {  // the canopy (shamiana) across the top, scalloped, with a painted pattern
+    cut(() => { ctx.beginPath(); ctx.moveTo(-400, -100); ctx.lineTo(W + 400, -100); ctx.lineTo(W + 400, 150); for (let x = W + 400; x >= -400; x -= 60) ctx.quadraticCurveTo(x - 30, 196, x - 60, 150); ctx.closePath(); }, CAN, { shadow: 0.9, edge: 5 });
+    ctx.save(); ctx.globalAlpha = 0.45; for (let x = -380; x < W + 380; x += 60) { circle(x, 110, 10, CAN_D); circle(x + 30, 70, 6, P.crimson); } ctx.restore();
+    for (let i = -1; i < 8; i++) { const x = -20 + i * 330; cut(P_rr(x - 16, 150, 32, fl - 150, 10), CAN, { shadow: 0.6, edge: 3 }); for (let r = 0; r < 6; r++) { ctx.fillStyle = 'rgba(160,110,50,0.4)'; ctx.fillRect(x - 16, 190 + r * 100, 32, 8); } }
   });
   layer(pan, 0.6, () => {
     cut(P_rr(-400, fl, W + 800, H - fl + 400, 0), '#B98A66', { shadow: 0, edge: 0 });
-    cut(P_poly([[420, fl], [1500, fl], [1900, H + 60], [20, H + 60]]), P.wine, { shadow: 0, edge: 0 });
-    ctx.strokeStyle = P.gold; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(450, fl + 14); ctx.lineTo(1470, fl + 14); ctx.stroke();
-    // the dais + throne (takht) under a canopy
+    cut(P_poly([[360, fl], [1560, fl], [1980, H + 60], [-60, H + 60]]), '#B3392F', { shadow: 0, edge: 0 });
+    ctx.strokeStyle = P.gold; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(360, fl + 12); ctx.lineTo(1560, fl + 12); ctx.stroke();
+    for (let k = 0; k < 14; k++) circle(420 + k * 82, fl + 30, 8, P.gold);
     if (o.throne !== null) {
-      const tx = 1380;
-      cut(P_rr(tx - 260, 640, 520, 160, 6), MARBLE, { shadow: 0.7, edge: 4 }); ctx.fillStyle = 'rgba(62,44,30,0.15)'; for (let i = 0; i < 6; i++) ctx.fillRect(tx - 240 + i * 86, 660, 40, 120);
-      for (const k of [-1, 1]) cut(P_rr(tx + k * 230 - 8, 250, 16, 400, 6), P.gold, { shadow: 0.5, edge: 3 });
-      cut(() => { ctx.beginPath(); ctx.moveTo(tx - 270, 260); ctx.quadraticCurveTo(tx, 180, tx + 270, 260); for (let i = 0; i <= 10; i++) ctx.lineTo(tx + 270 - i * 54, 270 + (i % 2) * 22); ctx.closePath(); }, P.gold, { shadow: 0.7, edge: 4 });
-      cut(P_rr(tx - 180, 560, 360, 84, 14), P.wine, { shadow: 0.6, edge: 4 }); cut(P_rr(tx + 70, 470, 80, 110, 34), P.wine, { shadow: 0.5, edge: 4 });
-      if (o.throne) cast(o.throne, { x: tx - 10, y: 640, h: 300, seated: 1, dir: -1, arm: o.emperorArm || 0 });
+      // raised platform with steps
+      cut(P_rr(tx - 300, 690, 600, 110, 6), CREAM, { shadow: 0.7, edge: 4 }); for (let k = 0; k < 3; k++) cut(P_rr(tx - 300 + k * 30, 690 - k * 26, 600 - k * 60, 26, 4), k % 2 ? '#E3D3B0' : CREAM, { shadow: 0.3, edge: 3 });
+      if (seat === 'peacock') {
+        for (const k of [-1, 1]) for (const d of [0, 1]) cut(P_rr(tx + k * (210 - d * 50) - 8, 300, 16, 330, 6), P.gold, { shadow: 0.5, edge: 3 });
+        cut(() => { ctx.beginPath(); ctx.moveTo(tx - 250, 310); ctx.quadraticCurveTo(tx, 170, tx + 250, 310); ctx.closePath(); }, P.gold, { shadow: 0.7, edge: 4 });
+        for (const k of [-1, 1]) { ctx.save(); ctx.translate(tx + k * 60, 214); ctx.scale(k, 1); cut(P_poly([[0, 0], [40, -30], [70, -10], [50, 10]]), '#2E6E8A', { shadow: 0.3, edge: 2 }); circle(40, -26, 8, P.gold); ctx.restore(); }
+        cut(P_rr(tx - 200, 520, 400, 110, 16), P.gold, { shadow: 0.6, edge: 4 }); for (let k = 0; k < 7; k++) circle(tx - 170 + k * 57, 575, 9, k % 2 ? P.crimson : '#2E6E8A');
+        cut(P_rr(tx - 170, 560, 340, 70, 20), P.wine, { shadow: 0.4, edge: 3 });
+      } else if (seat === 'basalt') {
+        for (const k of [-1, 1]) cut(P_rr(tx + k * 220 - 8, 330, 16, 300, 6), P.gold, { shadow: 0.5, edge: 3 });
+        cut(() => { ctx.beginPath(); ctx.moveTo(tx - 250, 340); ctx.quadraticCurveTo(tx, 250, tx + 250, 340); for (let k = 0; k <= 10; k++) ctx.lineTo(tx + 250 - k * 50, 350 + (k % 2) * 18); ctx.closePath(); }, CAN, { shadow: 0.7, edge: 4 });
+        cut(P_rr(tx - 190, 570, 380, 64, 6), '#2B2622', { shadow: 0.8, edge: 4 }); ctx.strokeStyle = 'rgba(200,180,140,0.35)'; ctx.lineWidth = 3; ctx.strokeRect(tx - 175, 580, 350, 44);
+        cut(P_rr(tx - 140, 540, 280, 40, 16), P.wine, { shadow: 0.4, edge: 3 });
+      } else {
+        for (const k of [-1, 1]) cut(P_rr(tx + k * 220 - 8, 320, 16, 310, 6), P.gold, { shadow: 0.5, edge: 3 });
+        cut(() => { ctx.beginPath(); ctx.moveTo(tx - 250, 330); ctx.quadraticCurveTo(tx, 240, tx + 250, 330); for (let k = 0; k <= 10; k++) ctx.lineTo(tx + 250 - k * 50, 340 + (k % 2) * 18); ctx.closePath(); }, P.gold, { shadow: 0.7, edge: 4 });
+        cut(P_rr(tx - 180, 560, 360, 74, 14), P.wine, { shadow: 0.6, edge: 4 });
+      }
+      cut(P_rr(tx + 80, 470, 70, 110, 30), P.wine, { shadow: 0.5, edge: 4 });   // bolster
+      if (o.throne) { ctx.save(); ctx.globalAlpha = 0.35; circle(tx - 16, 470, 70, '#F2D27A'); ctx.restore(); cast(o.throne, { x: tx - 10, y: 640, h: 300, seated: 1, dir: -1, arm: o.emperorArm || 0 }); }
     }
-    if (o.courtiers !== false) {
-      person({ x: 1700, y: fl, h: 330, dir: -1, skin: SKIN.in2, legs: 'trousers', legC: '#EFE4CC', coat: 'jama', coatC: '#EFE4CC', patka: MUGHAL, beard: 'full', hat: 'turban', hatC: '#EFE4CC' });
-      person({ x: 1820, y: fl + 10, h: 340, dir: -1, skin: SKIN.in, legs: 'trousers', legC: '#EFE4CC', coat: 'jama', coatC: P.forest, patka: P.gold, beard: 'mous', hat: 'turban', hatC: P.gold });
+    if (o.courtiers !== false) {   // nobles standing in rows on both sides (as in the painting)
+      const N = [[1700, SKIN.in2, '#EFE4CC', MUGHAL, '#EFE4CC', 'full'], [1820, SKIN.in, P.forest, P.gold, P.gold, 'mous'], [1060, SKIN.in, '#E9CF8E', P.crimson, '#D9822B', 'mous']];
+      for (const [x, sk, c, pk, hc, bd] of N) person({ x, y: fl, h: 330, dir: -1, skin: sk, legs: 'trousers', legC: '#EFE4CC', coat: 'jama', coatC: c, patka: pk, beard: bd, hat: 'turban', hatC: hc });
     }
   });
   if (o.dim) { ctx.save(); ctx.globalAlpha = o.dim; ctx.fillStyle = '#2B2019'; ctx.fillRect(-400, -400, W + 800, H + 800); ctx.restore(); }
