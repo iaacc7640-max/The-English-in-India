@@ -73,17 +73,22 @@ export function clothBolt(p, y = 520) {
 
 /** SURAT HARBOUR with the Mughal customs house. o = { pan, t, shipX } */
 export function suratHarbour(o = {}) {
+  // SURAT PORT: open sea on the left; the shore, river mouth and town on the right on solid ground; a stone quay with the domed customs house
   const pan = o.pan || 0, t = o.t || 0;
   parchment(43); ctx.fillStyle = P.sky; ctx.fillRect(-400, -400, W + 800, 900);
-  layer(pan, 0.1, () => cut(P_circ(1380, 220, 64), '#EFC66A', { shadow: 0.3, edge: 4 }));
-  layer(pan, 0.3, () => { for (let i = 0; i < 12; i++) house(980 + i * 110, 470, 96, 70 + rnd(i + 3) * 60, i % 2 ? '#E3D3B0' : '#D9C49A', '#B98A55'); });
-  for (let i = 0; i < 3; i++) layer(pan, 0.4 + i * 0.14, () => cut(() => { ctx.beginPath(); ctx.moveTo(-400, H + 300); const y = 480 + i * 90; ctx.lineTo(-400, y); for (let x = -400; x <= W + 400; x += 40) ctx.lineTo(x, y + Math.sin(x * 0.011 + t * 1.3 + i) * 10); ctx.lineTo(W + 400, H + 300); ctx.closePath(); }, i % 2 ? P.seaDark : P.sea, { shadow: 0.5, edge: 4 }));
-  layer(pan, 0.55, () => eastIndiaman(o.shipX ?? 520, 600 + Math.sin(t * 1.6) * 6, 0.55, Math.sin(t * 1.2) * 0.02, t, 'eic'));
-  layer(pan, 0.8, () => { // the customs house on the quay (domed, Mughal flag)
-    cut(P_rr(1080, 690, 1200, 120, 0), '#C9B48C', { shadow: 0.6, edge: 4 });
-    cut(P_rr(1200, 470, 420, 220, 4), MARBLE, { shadow: 0.7, edge: 4 }); cut(() => { ctx.beginPath(); ctx.arc(1410, 470, 110, Math.PI, TAU); ctx.closePath(); }, MARBLE, { shadow: 0.5, edge: 4 }); circle(1410, 352, 12, P.gold);
-    for (let i = 0; i < 4; i++) cut(() => { ctx.beginPath(); const x = 1250 + i * 100; ctx.moveTo(x, 690); ctx.lineTo(x, 580); ctx.arc(x + 30, 580, 30, Math.PI, TAU); ctx.lineTo(x + 60, 690); ctx.closePath(); }, '#3E2C1E', { shadow: 0, edge: 2 });
-    flag('mughal', 1210, 480, 220, 0.6, t); slip('CUSTOMS HOUSE', 1410, 300, 0.6, -0.02, 36);
+  layer(pan, 0.1, () => cut(P_circ(700, 200, 64), '#EFC66A', { shadow: 0.3, edge: 4 }));
+  for (let i = 0; i < 3; i++) layer(pan, 0.3 + i * 0.12, () => cut(() => { ctx.beginPath(); ctx.moveTo(-400, H + 300); const y = 470 + i * 100; ctx.lineTo(-400, y); for (let x = -400; x <= W + 400; x += 40) ctx.lineTo(x, y + Math.sin(x * 0.011 + t * 1.3 + i) * 10); ctx.lineTo(W + 400, H + 300); ctx.closePath(); }, i % 2 ? P.seaDark : P.sea, { shadow: 0.5, edge: 4 }));
+  layer(pan, 0.5, () => {   // the shore: land rising from the water on the right, with the town on it
+    cut(() => { ctx.beginPath(); ctx.moveTo(900, H + 300); ctx.lineTo(980, 560); ctx.quadraticCurveTo(1060, 470, 1200, 440); ctx.lineTo(W + 400, 420); ctx.lineTo(W + 400, H + 300); ctx.closePath(); }, '#D9C49A', { shadow: 0.7, edge: 5 });
+    for (let i = 0; i < 9; i++) house(1180 + i * 105, 452 - (i % 3) * 6, 92, 66 + rnd(i + 3) * 50, i % 2 ? '#E3D3B0' : '#CDB688', '#B98A55');
+    for (const [x, y] of [[1090, 520], [1700, 450]]) { cut(P_rr(x - 8, y - 150, 16, 150, 4), '#6E5236', { shadow: 0.3, edge: 2 }); cut(P_circ(x, y - 160, 46), P.forest, { shadow: 0.3, edge: 3 }); }
+  });
+  layer(pan, 0.6, () => eastIndiaman(o.shipX ?? 520, 640 + Math.sin(t * 1.6) * 6, 0.55, Math.sin(t * 1.2) * 0.02, t, 'eic'));
+  layer(pan, 0.8, () => { // stone quay + the customs house standing on it
+    cut(P_poly([[960, 820], [1010, 700], [W + 400, 700], [W + 400, 820]]), '#B9A98C', { shadow: 0.8, edge: 5 }); for (let x = 1020; x < W + 300; x += 70) { ctx.fillStyle = 'rgba(62,44,30,0.2)'; ctx.fillRect(x, 700, 3, 120); }
+    cut(P_rr(1250, 500, 420, 200, 4), MARBLE, { shadow: 0.7, edge: 4 }); cut(() => { ctx.beginPath(); ctx.arc(1460, 500, 105, Math.PI, TAU); ctx.closePath(); }, MARBLE, { shadow: 0.5, edge: 4 }); circle(1460, 386, 12, P.gold);
+    for (let i = 0; i < 4; i++) cut(() => { ctx.beginPath(); const x = 1300 + i * 100; ctx.moveTo(x, 700); ctx.lineTo(x, 600); ctx.arc(x + 30, 600, 30, Math.PI, TAU); ctx.lineTo(x + 60, 700); ctx.closePath(); }, '#3E2C1E', { shadow: 0, edge: 2 });
+    flag('mughal', 1260, 500, 200, 0.6, t); slip('SURAT · CUSTOMS HOUSE', 1460, 330, 0.6, -0.02, 34);
   });
 }
 /** JHAROKHA: Jahangir at a carved balcony window high on a red sandstone wall; a figure below. o = { open 0..1, door 0..1 (a side door swings shut) } */
