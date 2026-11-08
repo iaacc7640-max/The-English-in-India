@@ -83,12 +83,21 @@ export function suratHarbour(o = {}) {
     for (let i = 0; i < 9; i++) house(1180 + i * 105, 452 - (i % 3) * 6, 92, 66 + rnd(i + 3) * 50, i % 2 ? '#E3D3B0' : '#CDB688', '#B98A55');
     for (const [x, y] of [[1090, 520], [1700, 450]]) { cut(P_rr(x - 8, y - 150, 16, 150, 4), '#6E5236', { shadow: 0.3, edge: 2 }); cut(P_circ(x, y - 160, 46), P.forest, { shadow: 0.3, edge: 3 }); }
   });
-  layer(pan, 0.6, () => eastIndiaman(o.shipX ?? 520, 640 + Math.sin(t * 1.6) * 6, 0.55, Math.sin(t * 1.2) * 0.02, t, 'eic'));
+  layer(pan, 0.6, () => { const sx = o.shipX ?? 520, sy = 640 + Math.sin(t * 1.6) * 6;
+    if (!o.steamer) { eastIndiaman(sx, sy, 0.55, Math.sin(t * 1.2) * 0.02, t, 'eic'); return; }
+    // a 1910s passenger steamer: black hull, white deck house, two buff funnels with smoke (no sails)
+    ctx.save(); ctx.translate(sx, sy);
+    cut(P_poly([[-200, -40], [190, -40], [230, -70], [200, 30], [-180, 30], [-215, -55]]), '#2B2622', { shadow: 0.6, edge: 4 });
+    ctx.fillStyle = '#B3392F'; ctx.fillRect(-190, 16, 385, 10);
+    cut(P_rr(-130, -95, 250, 55, 4), '#F3EEE2', { shadow: 0.4, edge: 3 }); for (let k = 0; k < 8; k++) circle(-110 + k * 30, -68, 7, '#5A6B7A');
+    for (const fx of [-50, 50]) { cut(P_rr(fx - 16, -170, 32, 78, 3), '#D9B36A', { shadow: 0.4, edge: 3 }); ctx.fillStyle = '#2B2622'; ctx.fillRect(fx - 16, -170, 32, 12);
+      for (let j = 0; j < 3; j++) { const q = ((t * 0.5 + j / 3) % 1); ctx.save(); ctx.globalAlpha = 0.5 * (1 - q); circle(fx - 20 - q * 120, -190 - q * 60, 16 + q * 26, '#CFC8BC'); ctx.restore(); } }
+    ctx.restore(); });
   layer(pan, 0.8, () => { // stone quay + the customs house standing on it
     cut(P_poly([[960, 820], [1010, 700], [W + 400, 700], [W + 400, 820]]), '#B9A98C', { shadow: 0.8, edge: 5 }); for (let x = 1020; x < W + 300; x += 70) { ctx.fillStyle = 'rgba(62,44,30,0.2)'; ctx.fillRect(x, 700, 3, 120); }
     cut(P_rr(1250, 500, 420, 200, 4), MARBLE, { shadow: 0.7, edge: 4 }); cut(() => { ctx.beginPath(); ctx.arc(1460, 500, 105, Math.PI, TAU); ctx.closePath(); }, MARBLE, { shadow: 0.5, edge: 4 }); circle(1460, 386, 12, P.gold);
     for (let i = 0; i < 4; i++) cut(() => { ctx.beginPath(); const x = 1300 + i * 100; ctx.moveTo(x, 700); ctx.lineTo(x, 600); ctx.arc(x + 30, 600, 30, Math.PI, TAU); ctx.lineTo(x + 60, 700); ctx.closePath(); }, '#3E2C1E', { shadow: 0, edge: 2 });
-    flag('mughal', 1260, 500, 200, 0.6, t); slip('SURAT · CUSTOMS HOUSE', 1460, 330, 0.6, -0.02, 34);
+    if (o.flag !== null) flag(o.flag || 'mughal', o.place ? 1640 : 1260, 500, 200, 0.6, t); slip(o.place || 'SURAT · CUSTOMS HOUSE', o.place ? 1330 : 1460, 330, 0.6, -0.02, 34);
   });
 }
 /** JHAROKHA: Jahangir at a carved balcony window high on a red sandstone wall; a figure below. o = { open 0..1, door 0..1 (a side door swings shut) } */

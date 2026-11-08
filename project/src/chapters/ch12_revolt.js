@@ -40,7 +40,7 @@ export function build(add, cue) {
   { const s0 = at(i + 7), r0 = wd('rangoon', i + 7, s0), e0 = wd('end', i + 7, s0);
     add({ id: '12.08', at: s0, note: 'the old emperor walks to a waiting boat', draw: (lt, d, t) => { K.sea({ t }, (k) => { if (k === 2) K.boat(1420, 720, 1.1, null, t); }); K.cut(K.P_poly([[-400, 760], [1180, 760], [1240, 800], [-400, 800]]), '#C9B48C', { shadow: 0.6, edge: 4 }); K.cut(K.P_rr(1100, 744, 260, 26, 4), '#7A5234', { shadow: 0.5, edge: 3 }); K.cast('zafar', { x: lerp(400, 1180, eio(seg(lt, 0, d))), y: 770, h: 400, walk: t * 4 }); } });
     add({ id: '12.08b', at: s0 + r0 - 0.4, note: 'map: exile route Delhi -> Allahabad -> Calcutta by land, then by sea to Rangoon; the Mughal flag at Delhi comes down', draw: (lt, d, t) => {
-      const pr = map(t, { view: { lon: 86.5, lat: 22.5, k: 46 }, pins: [['delhi', 1, { lx: -90, ly: 20 }], ['calcutta', 1], ['rangoon', seg(lt, 0.9, 1.2), { lx: 120, ly: 20 }]] }), dd = e0 - r0 + 0.4;
+      const pr = map(t, { view: { lon: 86.5, lat: 23.2, k: 46 }, pins: [['delhi', 1, { lx: -90, ly: 20 }], ['calcutta', 1], ['rangoon', seg(lt, 0.9, 1.2), { lx: 120, ly: 20 }]] }), dd = e0 - r0 + 0.4;
       const land = [[77.21, 28.61], [79.5, 27.2], [81.85, 25.44], [85.1, 25.6], [87.3, 23.9], [88.36, 22.57]].map(([a, b]) => pr(a, b)), seaR = [[88.36, 22.57], [88.6, 21.3], [91, 19.5], [94.2, 17.2], [96.16, 16.84]].map(([a, b]) => pr(a, b));
       K.dashedRoute(land, eio(seg(lt, 0.05, dd * 0.45))); const h = K.dashedRoute(seaR, eio(seg(lt, dd * 0.45, dd * 0.9))); if (lt > dd * 0.45) K.boat(h[0], h[1], 0.3, null, t);
       const [x, y] = pr(77.21, 28.61); K.flag('mughal', x + 10, y, 180, 0.6, t, eio(seg(lt, dd - 0.1, dd + 0.8)));
