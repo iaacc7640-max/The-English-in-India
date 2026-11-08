@@ -53,6 +53,10 @@ export function buildShots(script) {
   G.music = G.chStart.map((t, ch) => ({ t: +t.toFixed(3), kind: script.chapters[ch][2] }));
   for (const m of G.musicExtra || []) G.music.push(m); G.music.sort((a, b) => a.t - b.t);
   // overlay on every shot: the era bar and the farman stack (screen-fixed, no camera)
+  const CH_YEAR = [1690, 1600, 1612, 1639, 1668, 1686, 1690, 1717, 1757, 1757, 1765, 1799, 1857, 1858, 1885, 1919, 1947];
+  for (const sh of S) {   // period-correct flags: every shot draws with its chapter's year
+    const dr = sh.draw; sh.draw = (lt, d, t) => { K.FLAGS.year = CH_YEAR[chapterOf(t)] || 1600; dr(lt, d, t); };
+  }
   for (const sh of S) {
     const own = sh.overlay;
     sh.overlay = (lt, d, t) => {

@@ -32,6 +32,11 @@ const BOARDS = {
     K.parchment(23); K.label('THE CAST · PART TWO (1717–1947)', 960, 52, 34);
     K.CAST_ORDER2.forEach((id, i) => { const r = Math.floor(i / 9), c = i % 9, x = 120 + c * 210, y = 480 + r * 470; K.cast(id, { x, y, h: 330, arm: 15 }); const nm = K.CAST[id].name.toUpperCase().split(' '), half = Math.ceil(nm.length / 2); if (nm.join(' ').length > 13 && nm.length > 1) { K.label(nm.slice(0, half).join(' '), x, y + 30, 16); K.label(nm.slice(half).join(' '), x, y + 52, 16); } else K.label(nm.join(' '), x, y + 30, 16); });
   },
+  flags() {
+    K.parchment(31); K.label('FLAGS (ROUND 2)', 960, 52, 34);
+    const L = [['eic', 1650, 'COMPANY 1600–1706'], ['eic', 1750, 'COMPANY 1707–1800'], ['eic', 1858, 'COMPANY FROM 1801'], ['mughal', 1700, 'MUGHAL'], ['spain', 1600, 'SPAIN (ARMADA)'], ['portugal', 1600, 'PORTUGAL (1600s)'], ['golconda', 1632, 'GOLCONDA'], ['bengal', 1757, 'BENGAL SUBAH'], ['oudh', 1764, 'OUDH'], ['tiger', 1799, 'MYSORE'], ['maratha', 1818, 'MARATHA'], ['sikh', 1849, 'SIKH'], ['union', 1858, 'UNION'], ['india', 1947, 'INDIA'], ['france', 1757, 'FRANCE'], ['dutch', 1600, 'DUTCH']];
+    L.forEach(([k, y, n], i) => { const x = 170 + (i % 6) * 300, yy = 380 + Math.floor(i / 6) * 330; K.FLAGS.year = y; K.flag(k, x, yy, 260, 1, 0); K.label(n, x + 100, yy + 30, 18); });
+  },
   thumb() {
     K.mughalCourt({ pan: 40, throne: 'aurangzeb' });
     K.layer(40, 0.6, () => { K.envoy(0, { x: 560, y: 800, h: 430, bow: 1 }); K.envoy(1, { x: 760, y: 800, h: 440, bow: 0.95 }); K.moneybag(960, 800, 0.55, '1,50,000'); });

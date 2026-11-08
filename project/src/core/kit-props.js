@@ -8,31 +8,73 @@ const CREAM = '#F3E9D2', SERIF = 'Caladea';
 
 // ═════════ FLAGS (fixed for the whole video) ═════════
 /** a flag on a pole. kind: 'eic' | 'mughal' | 'portugal' | 'dutch' | 'golconda' | 'spain' | 'france' | 'white'. x, y = pole foot; h = pole height; wave = time */
+/** the year of the scene being drawn (set per chapter by shots.js): picks period-correct flag variants */
+export const FLAGS = { year: 1600 };
+const FLAG_RED = '#C8102E', FLAG_BLUE = '#012169', FLAG_GREEN = '#03401E', EIC_W = '#FFFFFF';
+/** a flag on a pole. kind: 'eic' (1600-1800 St George canton; from 1801 Union canton) | 'eic1801' | 'mughal' | 'portugal' | 'dutch' | 'golconda' | 'spain' |
+ *  'france' | 'white' | 'union' | 'india' | 'bengal' | 'oudh' | 'maratha' | 'tiger' | 'sikh'. x, y = pole foot; h = pole height; wave = time */
 export function flag(kind, x, y, h = 300, s = 1, wave = 0, fall = 0) {
+  if (kind === 'eic' && FLAGS.year >= 1801) kind = 'eic1801'; else if (kind === 'eic' && FLAGS.year >= 1707) kind = 'eic1707';
   ctx.save(); ctx.translate(x, y); ctx.rotate(-fall * 1.35); ctx.scale(s, s);
   cut(P_rr(-6, -h, 12, h, 5), P.sepia, { shadow: 0.5, edge: 3 });
-  const fw = 190, fh = 120; ctx.save(); ctx.translate(6, -h + 8);
-  const shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw, Math.sin(i * 0.7 + wave * 4) * 6 * i / 10); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw, fh + Math.sin(i * 0.7 + wave * 4) * 6 * i / 10); ctx.closePath(); };
+  const fw = 200, fh = 124; ctx.save(); ctx.translate(6, -h + 8);
+  const wv = (i) => Math.sin(i * 0.7 + wave * 4) * 6 * i / 10;
+  let shape;
+  if (kind === 'bengal') shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw * 1.2, fh * 0.5 * i / 10 + wv(i)); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw * 1.2, fh - fh * 0.5 * i / 10 + wv(i)); ctx.closePath(); };
+  else if (kind === 'maratha') shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw * 1.1, fh * 0.12 * i / 10 + wv(i)); ctx.lineTo(fw * 0.75, fh * 0.5); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw * 1.1, fh - fh * 0.12 * i / 10 + wv(i)); ctx.closePath(); };
+  else shape = () => { ctx.beginPath(); ctx.moveTo(0, 0); for (let i = 0; i <= 10; i++) ctx.lineTo(i / 10 * fw, wv(i)); for (let i = 10; i >= 0; i--) ctx.lineTo(i / 10 * fw, fh + wv(i)); ctx.closePath(); };
   cut(shape, '#FFFFFF', { shadow: 0.5, edge: 3 });
-  ctx.save(); shape(); ctx.clip(); flagFace(kind, fw, fh, wave); ctx.restore();
+  ctx.save(); shape(); ctx.clip(); flagFace(kind, kind === 'bengal' ? fw * 1.2 : fw, fh, wave); ctx.restore();
   ctx.restore(); ctx.restore();
+}
+/** the Union canton (with St Patrick's saltire from 1801), drawn in a w x h box */
+function unionCanton(w, h, patrick = true) {
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip();
+  ctx.fillStyle = FLAG_BLUE; ctx.fillRect(0, 0, w, h);
+  ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = h * 0.2; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(w, h); ctx.moveTo(w, 0); ctx.lineTo(0, h); ctx.stroke();
+  if (patrick) { ctx.strokeStyle = FLAG_RED; ctx.lineWidth = h * 0.067; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(w, h); ctx.moveTo(w, 0); ctx.lineTo(0, h); ctx.stroke(); }
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(w * 0.4, 0, w * 0.2, h); ctx.fillRect(0, h * 0.333, w, h * 0.333);
+  ctx.fillStyle = FLAG_RED; ctx.fillRect(w * 0.44, 0, w * 0.12, h); ctx.fillRect(0, h * 0.4, w, h * 0.2);
+  ctx.restore();
 }
 function flagFace(kind, fw, fh) {
   const f = (c, x, y, w, h) => { ctx.fillStyle = c; ctx.fillRect(x, y - 10, w, h + 20); };
-  if (kind === 'eic') { for (let i = 0; i < 9; i++) f(i % 2 ? CREAM : P.crimson, 0, i * fh / 9, fw, fh / 9); f(CREAM, 0, 0, fw * 0.4, fh * 0.45); ctx.fillStyle = P.crimson; ctx.fillRect(fw * 0.17, -10, fw * 0.07, fh * 0.45 + 10); ctx.fillRect(0, fh * 0.19, fw * 0.4, fh * 0.07); }
-  if (kind === 'mughal') { f(MUGHAL, 0, 0, fw, fh); sun(fw * 0.5, fh * 0.5, fh * 0.26, P.gold); }
-  if (kind === 'portugal') { f(CREAM, 0, 0, fw, fh); ctx.fillStyle = P.royal; ctx.fillRect(fw * 0.42, -10, fw * 0.14, fh + 20); ctx.fillRect(0, fh * 0.42, fw, fh * 0.16); }
+  const stripes = (n) => { for (let i = 0; i < n; i++) { ctx.fillStyle = i % 2 ? EIC_W : FLAG_RED; ctx.fillRect(-10, i * fh / n - (i ? 0 : 10), fw + 20, fh / n + (i === n - 1 ? 10 : 0) + (i ? 0 : 10)); } };
+  if (kind === 'eic') { stripes(13); const cw = fw * 0.46, ch = fh * 7 / 13; ctx.fillStyle = '#FFFFFF'; ctx.fillRect(-10, -10, cw + 10, ch + 10); ctx.fillStyle = FLAG_RED; ctx.fillRect(cw * 0.41, -10, cw * 0.18, ch + 10); ctx.fillRect(-10, ch * 0.38, cw + 10, ch * 0.24); }
+  if (kind === 'eic1801') { stripes(13); unionCanton(fw * 0.46, fh * 7 / 13, true); }
+  if (kind === 'eic1707') { stripes(13); unionCanton(fw * 0.46, fh * 6 / 13, false); }
+  if (kind === 'mughal') {   // your attached design: green lower-left triangle with gold stars, white upper-right, gold lion and sun
+    f('#FFFFFF', 0, 0, fw, fh); ctx.fillStyle = FLAG_GREEN; ctx.beginPath(); ctx.moveTo(-10, -10); ctx.lineTo(fw + 10, fh + 10); ctx.lineTo(-10, fh + 10); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#F2C230'; for (let y = 6; y < fh; y += 10) for (let x = 4; x < fw; x += 12) if (y > x * fh / fw + 6) { ctx.beginPath(); ctx.arc(x + (y % 20 ? 6 : 0), y, 1.3, 0, TAU); ctx.fill(); }
+    sun(fw * 0.31, fh * 0.6, fh * 0.1, '#F2C230', 14);
+    ctx.save(); ctx.translate(fw * 0.3, fh * 0.74); ctx.fillStyle = '#F2C230'; ctx.beginPath(); ctx.ellipse(0, 0, fw * 0.12, fh * 0.07, 0, 0, TAU); ctx.fill(); ctx.beginPath(); ctx.arc(-fw * 0.12, -fh * 0.05, fh * 0.07, 0, TAU); ctx.fill();
+    for (const lx of [-0.09, -0.04, 0.05, 0.1]) ctx.fillRect(fw * lx - 2, 0, 4, fh * 0.1); ctx.lineWidth = 2; ctx.strokeStyle = '#F2C230'; ctx.beginPath(); ctx.moveTo(fw * 0.12, -fh * 0.02); ctx.quadraticCurveTo(fw * 0.2, -fh * 0.1, fw * 0.17, fh * 0.08); ctx.stroke(); ctx.restore(); }
+  if (kind === 'portugal') {  // period royal flag: white field, the royal shield (red border with gold castles, white with five blue escutcheons), crown
+    f('#FFFFFF', 0, 0, fw, fh); ctx.save(); ctx.translate(fw / 2, fh / 2 + 6); const sw = fh * 0.34;
+    ctx.fillStyle = FLAG_RED; ctx.beginPath(); ctx.moveTo(-sw, -sw); ctx.lineTo(sw, -sw); ctx.lineTo(sw, sw * 0.3); ctx.quadraticCurveTo(sw, sw, 0, sw * 1.15); ctx.quadraticCurveTo(-sw, sw, -sw, sw * 0.3); ctx.closePath(); ctx.fill();
+    const iw = sw * 0.68; ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.moveTo(-iw, -iw); ctx.lineTo(iw, -iw); ctx.lineTo(iw, iw * 0.3); ctx.quadraticCurveTo(iw, iw, 0, iw * 1.15); ctx.quadraticCurveTo(-iw, iw, -iw, iw * 0.3); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = FLAG_BLUE; for (const [ex, ey] of [[0, -0.45], [-0.45, 0], [0, 0], [0.45, 0], [0, 0.45]]) ctx.fillRect(ex * iw - 3, ey * iw - 4, 6, 8);
+    ctx.fillStyle = P.gold; for (const [cx, cy] of [[-0.82, -0.82], [0, -0.85], [0.82, -0.82], [-0.85, 0], [0.85, 0], [-0.6, 0.75], [0.6, 0.75]]) ctx.fillRect(cx * sw - 3, cy * sw - 3, 6, 6);
+    ctx.fillStyle = P.gold; ctx.beginPath(); ctx.moveTo(-sw * 0.8, -sw - 4); for (let i = 0; i <= 4; i++) { ctx.lineTo(-sw * 0.8 + i * sw * 0.4, -sw - 16); ctx.lineTo(-sw * 0.6 + i * sw * 0.4, -sw - 6); } ctx.lineTo(sw * 0.8, -sw - 4); ctx.closePath(); ctx.fill(); ctx.restore(); }
   if (kind === 'dutch') { f('#D9822B', 0, 0, fw, fh / 3); f(CREAM, 0, fh / 3, fw, fh / 3); f(P.royal, 0, 2 * fh / 3, fw, fh / 3); }
-  if (kind === 'golconda') { f(P.royal, 0, 0, fw, fh); sun(fw * 0.5, fh * 0.5, fh * 0.24, P.gold, 8); }
-  if (kind === 'spain') { f(P.crimson, 0, 0, fw, fh); ctx.strokeStyle = P.gold; ctx.lineWidth = 14; ctx.beginPath(); ctx.moveTo(fw * 0.2, fh * 0.1); ctx.lineTo(fw * 0.8, fh * 0.9); ctx.moveTo(fw * 0.8, fh * 0.1); ctx.lineTo(fw * 0.2, fh * 0.9); ctx.stroke(); }
+  if (kind === 'golconda') f('#38C9AC', 0, 0, fw, fh);   // your link (Qutb Shahi flag): a plain teal field
+  if (kind === 'spain') {  // your attached design: white field, red ragged saltire (cross of Burgundy)
+    f('#FFFFFF', 0, 0, fw, fh); ctx.save(); ctx.translate(fw / 2, fh / 2); for (const a of [Math.atan2(fh, fw), -Math.atan2(fh, fw)]) { ctx.save(); ctx.rotate(a); ctx.fillStyle = '#D9181E'; const L = Math.hypot(fw, fh) / 2 + 10, b = fh * 0.1; ctx.fillRect(-L, -b, 2 * L, 2 * b); for (let k = -L + 14; k < L; k += 26) { ctx.beginPath(); ctx.moveTo(k, -b); ctx.lineTo(k + 6, -b - 9); ctx.lineTo(k + 12, -b); ctx.moveTo(k + 8, b); ctx.lineTo(k + 14, b + 9); ctx.lineTo(k + 20, b); ctx.fill(); } ctx.restore(); } ctx.restore(); }
   if (kind === 'france') { f(CREAM, 0, 0, fw, fh); fleur(fw * 0.5, fh * 0.52, 0.9, P.gold); }
   if (kind === 'white') f(CREAM, 0, 0, fw, fh);
-  if (kind === 'union') { f(P.royal, 0, 0, fw, fh); ctx.strokeStyle = CREAM; ctx.lineWidth = 22; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(fw, fh); ctx.moveTo(fw, 0); ctx.lineTo(0, fh); ctx.stroke(); ctx.strokeStyle = P.crimson; ctx.lineWidth = 8; ctx.stroke(); ctx.fillStyle = CREAM; ctx.fillRect(fw * 0.42, -10, fw * 0.16, fh + 20); ctx.fillRect(0, fh * 0.36, fw, fh * 0.28); ctx.fillStyle = P.crimson; ctx.fillRect(fw * 0.46, -10, fw * 0.08, fh + 20); ctx.fillRect(0, fh * 0.42, fw, fh * 0.16); }
-  if (kind === 'india') { f('#D9822B', 0, 0, fw, fh / 3); f(CREAM, 0, fh / 3, fw, fh / 3); f('#3F7A3A', 0, 2 * fh / 3, fw, fh / 3); ctx.strokeStyle = P.royal; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(fw / 2, fh / 2, fh * 0.13, 0, TAU); for (let i = 0; i < 24; i++) { const a = i / 24 * TAU; ctx.moveTo(fw / 2, fh / 2); ctx.lineTo(fw / 2 + Math.cos(a) * fh * 0.13, fh / 2 + Math.sin(a) * fh * 0.13); } ctx.stroke(); }
-  if (kind === 'maratha') { f('#D9822B', 0, 0, fw, fh); }
+  if (kind === 'union') unionCanton(fw, fh, true);
+  if (kind === 'india') { f('#FF9933', 0, 0, fw, fh / 3); f('#FFFFFF', 0, fh / 3, fw, fh / 3); f('#138808', 0, 2 * fh / 3, fw, fh / 3); ctx.strokeStyle = '#000080'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(fw / 2, fh / 2, fh * 0.14, 0, TAU); for (let i = 0; i < 24; i++) { const a = i / 24 * TAU; ctx.moveTo(fw / 2, fh / 2); ctx.lineTo(fw / 2 + Math.cos(a) * fh * 0.14, fh / 2 + Math.sin(a) * fh * 0.14); } ctx.stroke(); }
+  if (kind === 'bengal') {  // your link (Bengal Subah standard): white upper, dark green lower, three gold stars
+    f('#FFFFFF', 0, 0, fw, fh / 2); f('#053F30', 0, fh / 2, fw, fh / 2); for (const [sx, sy] of [[0.58, 0.34], [0.68, 0.42], [0.8, 0.44]]) star8(sx * fw, sy * fh, fh * 0.045, '#B49A50'); }
+  if (kind === 'oudh') {  // your link (Oudh standard): gold edge, crimson floral border, navy field, gold crest
+    f('#B8A84A', 0, 0, fw, fh); f('#8C2F3A', fw * 0.04, fh * 0.06, fw * 0.88, fh * 0.88); f('#2A2C4A', fw * 0.16, fh * 0.2, fw * 0.62, fh * 0.6);
+    ctx.strokeStyle = '#B9A47A'; ctx.lineWidth = 2; for (let k = 0; k < 12; k++) { ctx.beginPath(); ctx.arc(fw * 0.1 + (k % 6) * fw * 0.15, k < 6 ? fh * 0.13 : fh * 0.87, 5, 0, Math.PI * 1.5); ctx.stroke(); }
+    ctx.strokeStyle = '#C9B27A'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(fw * 0.47, fh * 0.5, fh * 0.16, 0, TAU); ctx.stroke(); circle(fw * 0.47, fh * 0.48, fh * 0.06, '#C9B27A'); }
+  if (kind === 'maratha') { f('#F07F13', 0, 0, fw, fh); }
   if (kind === 'tiger') { f(P.gold, 0, 0, fw, fh); ctx.fillStyle = P.ink; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.ellipse(20 + i * 32, fh / 2 + (i % 2 ? -14 : 14), 8, 30, 0.3, 0, TAU); ctx.fill(); } }
   if (kind === 'sikh') { f('#D9822B', 0, 0, fw, fh); ctx.fillStyle = P.royal; ctx.beginPath(); ctx.arc(fw / 2, fh / 2, fh * 0.2, 0, TAU); ctx.fill(); }
 }
+function star8(x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); for (let i = 0; i < 16; i++) { const a = i / 16 * TAU - Math.PI / 2, rr = i % 2 ? r * 0.45 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } ctx.closePath(); ctx.fill(); }
 /** gold sun disc with rays (the Mughal seal motif) */
 export function sun(x, y, r, c = P.gold, n = 12) {
   ctx.save(); ctx.translate(x, y); ctx.fillStyle = c; ctx.beginPath();
