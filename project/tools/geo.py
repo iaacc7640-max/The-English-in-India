@@ -35,7 +35,13 @@ for f in json.load(open(SRC / 'ne_10m_rivers_lake_centerlines.geojson'))['featur
     g = f['geometry']; lines = [g['coordinates']] if g['type'] == 'LineString' else g['coordinates']
     for l in lines:
         if any(60 < p[0] < 100 and 5 < p[1] < 35 for p in l): rivers.setdefault(n, []).append([rnd(p) for p in dp(l, 0.02)])
-OUT.write_text(json.dumps({'source': 'Natural Earth 1:50m land + 1:10m rivers (public domain), naturalearthdata.com', 'land': land, 'rivers': rivers}, separators=(',', ':')))
+world = []   # whole-world coarse land (1:110m) for the globe
+for f in json.load(open(SRC / 'ne_110m_land.geojson'))['features']:
+    g = f['geometry']; polys = [g['coordinates']] if g['type'] == 'Polygon' else g['coordinates']
+    for poly in polys:
+        ring = poly[0]; h = len(ring) // 2; w = dp(ring[:h + 1], 0.4)[:-1] + dp(ring[h:], 0.4)
+        if len(w) >= 4: world.append([rnd(q) for q in w])
+OUT.write_text(json.dumps({'source': 'Natural Earth 1:50m land + 1:10m rivers + 1:110m world land (public domain), naturalearthdata.com', 'land': land, 'rivers': rivers, 'world': world}, separators=(',', ':')))
 print(OUT, OUT.stat().st_size, 'bytes,', len(land), 'land polygons,', {k: len(v) for k, v in rivers.items()})
 # where does the Ganges end? (Hooghly check)
 g = rivers.get('Ganges', [])

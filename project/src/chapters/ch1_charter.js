@@ -32,11 +32,11 @@ export function build(add, cue) {
     [[127.5, -3.5], [120.5, 2], [131.5, 0.5], [118, -8]].forEach(([lo, la], k) => { const [x, y] = pr(lo, la); K.flag('dutch', x, y, 110, 0.4 * eob(seg(lt, 0.4 + k * 0.2, 0.7 + k * 0.2)), t); });
   } });
   for (let k = 0; k < 4; k++) cue(at(i + 8) + 0.4 + k * 0.2, 'pop', { gain: 0.4 });
-  add({ id: '1.10', at: at(i + 9), note: 'an English ship turns toward India on a crimson route', draw: (lt, d, t) => {
-    const pr = K.realMap({ view: K.VIEWS.asia, pins: [['spice', 1]] });
-    [[127.5, -3.5], [120.5, 2], [131.5, 0.5], [118, -8]].forEach(([lo, la]) => { const [x, y] = pr(lo, la); K.flag('dutch', x, y, 110, 0.4, t); });
-    const route = [[60, -5], [72, 3], [76, 12], [72.8, 20.5]].map(([lo, la]) => pr(lo, la)); const h = K.dashedRoute(route, eio(seg(lt, 0.1, d)));
-    K.eastIndiaman(h[0], h[1] - 10, 0.12, 0, t, 'eic');
+  add({ id: '1.10', at: at(i + 9), note: 'the real route: London, down the Atlantic, round the Cape of Good Hope, to Surat', draw: (lt, d, t) => {
+    const v = { lon: 30, lat: 12, k: 7.2 }, pr = K.realMap({ view: v, compass: false, pins: [['london', 1], ['surat', seg(lt, d * 0.8, d)]] });
+    const R = [[-0.1, 51.5], [-6, 48], [-14, 40], [-19, 28], [-24, 12], [-15, -5], [0, -22], [18.5, -36.5], [32, -32], [43, -18], [52, -2], [62, 12], [72.8, 21.2]].map(([a, b]) => pr(a, b));
+    const h = K.dashedRoute(R, eio(seg(lt, 0.1, d))); K.eastIndiaman(h[0], h[1] - 12, 0.1, 0, t, 'eic');
+    const [cx, cy] = pr(18.5, -36.5); K.tag('Cape of Good Hope', cx - 230, cy - 40, 0.7 * eob(seg(lt, 0.4, 0.8)), cx, cy);
   } });
   { const s0 = at(i + 10); G.ringsShow = s0 + 0.55;
     add({ id: '1.11', at: s0, note: 'a bolt of Indian cloth unrolls; then the three empty gold rings', draw: (lt, d, t) => {

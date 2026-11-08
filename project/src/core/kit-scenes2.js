@@ -5,6 +5,7 @@ import { cut, P_rr, P_poly, P_circ, parchment, label, slip, ribbon, seal, hall }
 import { person, cast, SKIN, horse, parasol } from './kit-cast.js';
 import { flag, eastIndiaman, MUGHAL, coin, sun, fleur } from './kit-props.js';
 import { layer, nightWash, sea, boat, mughalCourt } from './kit-scenes.js';
+import { GEO as GEO_REF } from './kit-map.js';
 
 const CREAM = '#F3E9D2', SAND = '#C98B67', SAND_D = '#A86A4E', MARBLE = '#F1E7D0';
 const house = (x, y, w, h, wall, roof) => { cut(P_rr(x - w / 2, y - h, w, h, 3), wall, { shadow: 0.5, edge: 4 }); cut(P_poly([[x - w / 2 - 10, y - h + 2], [x, y - h - w * 0.5], [x + w / 2 + 10, y - h + 2]]), roof, { shadow: 0.4, edge: 4 }); };
@@ -21,16 +22,28 @@ export function londonDawn(o = {}) {
   nightWash(o.night || 0);
 }
 /** a paper globe with a little ship circling on a crimson route: p 0..1 */
-export function globe(x, y, r, p = 1, t = 0) {
+/** Drake's voyage (1577-80), approximate waypoints (lon, lat): Plymouth, Canaries, Brazil, Strait of Magellan, Chile, California, Pacific, Moluccas, Java, Cape, home */
+export const DRAKE = [[-4.1, 50.4], [-15, 28], [-35, -8], [-55, -35], [-68, -52.5], [-75, -35], [-80, -10], [-110, 20], [-123, 38], [-150, 20], [-175, 5], [150, 3], [127, -1], [110, -7], [80, -20], [40, -35], [18.5, -35], [0, -20], [-15, 15], [-4.1, 50.4]];
+function routeAt(R, p) { const seg = R.length - 1, f = Math.min(seg - 1e-6, Math.max(0, p * seg)), k = Math.floor(f), u = f - k; let a = R[k][0], b = R[k + 1][0]; if (b - a > 180) b -= 360; if (a - b > 180) b += 360; return [a + (b - a) * u, R[k][1] + (R[k + 1][1] - R[k][1]) * u]; }
+/** a globe with real coastlines (Natural Earth 1:110m, orthographic); a ship sails Drake's route, p 0..1, and the globe turns to follow it */
+export function globe(x, y, r, p = 1, t = 0, route = DRAKE) {
+  const [slon] = routeAt(route, p), lon0 = slon, lat0 = 10 * Math.PI / 180;
+  const pr = (lon, lat) => { const d = (lon - lon0) * Math.PI / 180, la = lat * Math.PI / 180; const c = Math.sin(lat0) * Math.sin(la) + Math.cos(lat0) * Math.cos(la) * Math.cos(d);
+    let px = Math.cos(la) * Math.sin(d), py = -(Math.cos(lat0) * Math.sin(la) - Math.sin(lat0) * Math.cos(la) * Math.cos(d)); if (c < 0) { const m = Math.hypot(px, py) || 1; px /= m; py /= m; } return [x + px * r, y + py * r, c >= 0]; };
   cut(P_circ(x, y, r), P.sea, { shadow: 0.9, edge: 6 });
   ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.clip();
-  for (const [dx, dy, rx, ry] of [[-0.35, -0.2, 0.32, 0.42], [0.25, -0.05, 0.38, 0.3], [0.32, 0.45, 0.2, 0.18]]) cut(() => { ctx.beginPath(); ctx.ellipse(x + dx * r, y + dy * r, rx * r, ry * r, 0.3, 0, TAU); }, P.land, { shadow: 0.2, edge: 3 });
-  ctx.strokeStyle = 'rgba(62,44,30,0.25)'; ctx.lineWidth = 2; for (let k = -2; k <= 2; k++) { ctx.beginPath(); ctx.ellipse(x, y, r * Math.abs(Math.cos(k * 0.6)), r, 0, 0, TAU); ctx.stroke(); }
+  const world = (GEO_REF.data && GEO_REF.data.world) || [];
+  for (const ring of world) { const pts = ring.map(([lo, la]) => pr(lo, la)); if (!pts.some((q) => q[2])) continue; cut(P_poly(pts.map((q) => [q[0], q[1]])), P.land, { shadow: 0.15, edge: 2 }); }
+  ctx.strokeStyle = 'rgba(62,44,30,0.2)'; ctx.lineWidth = 1.5;
+  for (let lo = -180; lo < 180; lo += 30) { ctx.beginPath(); let st = false; for (let la = -90; la <= 90; la += 5) { const q = pr(lo, la); if (q[2]) { st ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); st = true; } else st = false; } ctx.stroke(); }
+  for (let la = -60; la <= 60; la += 30) { ctx.beginPath(); let st = false; for (let lo = -180; lo <= 180; lo += 5) { const q = pr(lo, la); if (q[2]) { st ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); st = true; } else st = false; } ctx.stroke(); }
+  // the route sailed so far (front side only)
+  ctx.setLineDash([12, 9]); ctx.strokeStyle = P.crimson; ctx.lineWidth = 6; ctx.beginPath(); let st = false;
+  for (let k = 0; k <= 200; k++) { const pp = k / 200 * p, [lo, la] = routeAt(route, pp), q = pr(lo, la); if (q[2]) { st ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); st = true; } else st = false; }
+  ctx.stroke(); ctx.setLineDash([]);
   ctx.restore();
-  ctx.save(); ctx.setLineDash([16, 12]); ctx.strokeStyle = P.crimson; ctx.lineWidth = 7; ctx.beginPath(); ctx.ellipse(x, y, r * 1.18, r * 0.42, -0.25, Math.PI * 0.5, Math.PI * 0.5 + TAU * p); ctx.stroke(); ctx.restore();
-  const a = Math.PI * 0.5 + TAU * p, sx = x + Math.cos(a) * r * 1.18, sy = y + Math.sin(a) * r * 0.42;
-  const ca = Math.cos(-0.25), sa = Math.sin(-0.25), rx = x + (sx - x) * ca - (sy - y) * sa, ry = y + (sx - x) * sa + (sy - y) * ca;
-  eastIndiaman(rx, ry - 10, 0.16, 0, t, null);
+  ctx.save(); ctx.globalAlpha = 0.25; const g = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r); g.addColorStop(0, 'rgba(255,255,255,0.6)'); g.addColorStop(1, 'rgba(62,44,30,0.5)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); ctx.restore();
+  const [lo, la] = routeAt(route, p), q = pr(lo, la); eastIndiaman(q[0], q[1] - 14, 0.14, 0, t, null);
 }
 /** the Spanish Armada: a row of ships whose sails tip over like paper cut-outs (k 0..1) */
 export function armada(k, t = 0) {
