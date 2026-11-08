@@ -10,16 +10,16 @@ const cv = document.getElementById('cv');
 setCtx(cv.getContext('2d'));
 const OP = (window.OP = { ready: false });
 
-function draw(t) {
-  t = clamp(t, 0, T.dur - 1e-4);
+const mainC = ctx, off = document.createElement('canvas'); off.width = W; off.height = H; const offC = off.getContext('2d');
+const XF = 0.4;   // cross-fade length between shots (s)
+/** draw one shot (camera + art) into the current ctx */
+function scene(sh, lt, d, t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
   ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
-  const S = OP._shots; let i = S.length - 1; while (i > 0 && S[i].at > t) i--;
-  const sh = S[i], end = i < S.length - 1 ? S[i + 1].at : T.dur, d = end - sh.at, lt = t - sh.at;
-  // camera: punch-in on the cut + a slow push across the shot ("camera always moving")
-  const punch = 1 + 0.06 * (1 - eo(clamp(lt / 0.25)));
+  // camera: a gentle settle on the cut + a slow push across the shot ("camera always moving")
+  const punch = 1 + 0.03 * (1 - eo(clamp(lt / 0.5)));
   const drift = 1 + (sh.zoom ?? 0.06) * eio(clamp(lt / d));
-  // camera: sh.camera(lt, d) -> { x, y, zoom } puts page point (x, y) at frame centre (parallax pans); else cam + slow push
+  // sh.camera(lt, d) -> { x, y, zoom } puts page point (x, y) at frame centre (parallax pans); else cam + slow push
   const cam = sh.camera ? sh.camera(lt, d) : null;
   ctx.save();
   if (cam) { const z = (cam.zoom ?? 1) * punch; ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-cam.x, -cam.y); }
@@ -27,6 +27,18 @@ function draw(t) {
   sh.draw(lt, d, t);
   ctx.restore();
   ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
+}
+function draw(t) {
+  t = clamp(t, 0, T.dur - 1e-4);
+  const S = OP._shots; let i = S.length - 1; while (i > 0 && S[i].at > t) i--;
+  const sh = S[i], end = i < S.length - 1 ? S[i + 1].at : T.dur, d = end - sh.at, lt = t - sh.at, prev = i > 0 ? S[i - 1] : null;
+  if (prev && lt < XF && !sh.card && !prev.card && !sh.noXfade) {
+    // cross-fade: the previous shot keeps moving underneath while the new one fades in
+    const pd = sh.at - prev.at; scene(prev, pd + lt, pd, t);
+    setCtx(offC); scene(sh, lt, d, t); setCtx(mainC);
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = eio(clamp(lt / XF)); ctx.drawImage(off, 0, 0); ctx.restore();
+  } else scene(sh, lt, d, t);
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
 
   if (sh.overlay) { ctx.save(); sh.overlay(lt, d, t); ctx.restore(); }   // screen-fixed layer (era bar, farman stack): no camera
   if (!sh.card && !sh.noCaption) drawCaption(t);
