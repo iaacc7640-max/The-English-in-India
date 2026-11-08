@@ -10,8 +10,7 @@ PH = [(r"\bJahangir", "Jahaangeer"), (r"\bSurat\b", "Soo-rut"), (r"\bBroach\b", 
       (r"\bDiwani\b", "Deewaani"), (r"\bPondicherry\b", "Pondi-cherry"), (r"\bWellesley\b", "Wellsley"), (r"\bLakshmibai\b", "Lukshmee-bai"),
       (r"\bDandi\b", "Daandee"), (r"\bSubhas\b", "Subhaash")]
 def say(t):
-    for a, b in PH: t = re.sub(a, b, t)
-    return t
+    return t   # real spellings: hard names are spoken from script.json "phonemes" (tools/voice2.py)
 C = [  # (chapter, narration, caps)
  (0, "In sixteen ninety,", "In *1690,"),
  (0, "envoys of the English East India Company", "envoys of the *English | East India *Company"),
@@ -120,7 +119,7 @@ for i, (ch, text, caps) in enumerate(C):
     ln = {"chapter": ch, "text": say(text), "caps": caps}
     nxt = C[i + 1][0] if i + 1 < len(C) else None
     if nxt is not None and nxt != ch: ln["gap"] = 2.1 if ch == 0 else 1.65          # chapter card beat (title card after CH0)
-    if text.endswith(":") and nxt == ch: ln["break"] = True; ln["gap"] = 0.25
+    if text.endswith(":") and nxt == ch and not text.endswith("rival to beat:"): ln["break"] = True; ln["gap"] = 0.25
     lines.append(ln)
 S = {
  "title": "From Merchants to Masters: The English in India, 1600-1947",
@@ -145,6 +144,11 @@ S = {
   "Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India",
   "Map: Natural Earth 1:50m land and 1:10m rivers (public domain)"
  ],
+ "phonemes": {"Jahangir": "dʒəhˈɑːŋɡiːɹ", "Ahmedabad": "ˈɑːmədɑːbˌɑːd", "Broach": "bɹˈoːtʃ", "Gobindapur": "ɡˈoːbɪndəpʊɹ", "Kalikata": "kˈɑːlɪkɑːtɑː",
+   "Shah Alam": "ʃˈɑː ˈɑːləm", "Thane": "tˈɑːneɪ", "Sutanuti": "sˌuːtɑːnˈuːtiː", "Hooghly": "hˈuːɡliː", "Aurangzeb": "ˈɔːɹəŋzɛb", "Surat": "sˈuːɹət",
+   "Nayak": "nˈɑːjək", "zamindar": "zəmiːndˈɑːɹ", "Sobha Singh": "ʃˈoːbɑː sˈɪŋ", "Farrukhsiyar": "fəɹˈʊksɪjɑːɹ", "Sidi Yaqub": "sˈɪdiː jɑːkˈuːb",
+   "Siraj-ud-Daulah": "sɪɹˈɑːdʒ ʊd dˈaʊlə", "Mir Jafar": "mˈiːɹ dʒˈɑːfəɹ", "Mir Qasim": "mˈiːɹ kˈɑːsɪm", "Awadh": "ˈʌvəd", "Diwani": "diːwˈɑːniː",
+   "Lakshmibai": "lˈʌkʃmiːbaːi", "Dandi": "dˈɑːndiː", "Subhas": "sʊbˈɑːʃ", "Jagat Seth": "dʒˈʌɡət sˈeːt", "Mehtab Chand": "mˈeːtɑːb tʃˈʌnd", "farman": "fəɹmˈɑːn", "farmans": "fəɹmˈɑːnz"},
  "lines": lines,
 }
 Path(__file__).resolve().parent.parent.joinpath('script.json').write_text(json.dumps(S, indent=1, ensure_ascii=False))

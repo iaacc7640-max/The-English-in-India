@@ -15,7 +15,7 @@ import { courtShot } from './ch0_hook.js';
 export function build(add, cue) {
   const i = first(16);
   add({ id: '16.01', at: at(i), note: "a banner 'QUIT INDIA'; a crowd of cut-outs (1942)", draw: (lt, d, t) => { K.crowdBanner('QUIT INDIA', { t, banner: seg(lt, 0.4, 0.9), seed: 161 }); K.ribbon('1942', 300, 560, eob(seg(lt, 0.1, 0.5)), 64); } });
-  { const s0 = at(i + 1), b0 = wd('subhaash', i + 1, s0);
+  { const s0 = at(i + 1), b0 = wd('subhas', i + 1, s0);
     add({ id: '16.02', at: s0, note: 'prison bars over Gandhi and Nehru', draw: (lt, d, t) => K.prison() });
     add({ id: '16.02b', at: s0 + b0 - 0.2, note: 'Bose in uniform beside a map of South-East Asia', draw: (lt, d, t) => { K.realMap({ view: { lon: 100, lat: 14, k: 22 }, compass: false }); K.cast('bose', { x: 520, y: 800, h: 480, arm: 30 }); K.slip('INDIAN NATIONAL ARMY', 1250, 260, eob(seg(lt, 0.2, 0.6)), -0.02, 46); } });
     cue(s0 + 0.1, 'thud', { gain: 0.5 }); }

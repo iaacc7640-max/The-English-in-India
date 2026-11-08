@@ -107,6 +107,36 @@
   "Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India",
   "Map: Natural Earth 1:50m land and 1:10m rivers (public domain)"
  ],
+ "phonemes": {
+  "Jahangir": "dʒəhˈɑːŋɡiːɹ",
+  "Ahmedabad": "ˈɑːmədɑːbˌɑːd",
+  "Broach": "bɹˈoːtʃ",
+  "Gobindapur": "ɡˈoːbɪndəpʊɹ",
+  "Kalikata": "kˈɑːlɪkɑːtɑː",
+  "Shah Alam": "ʃˈɑː ˈɑːləm",
+  "Thane": "tˈɑːneɪ",
+  "Sutanuti": "sˌuːtɑːnˈuːtiː",
+  "Hooghly": "hˈuːɡliː",
+  "Aurangzeb": "ˈɔːɹəŋzɛb",
+  "Surat": "sˈuːɹət",
+  "Nayak": "nˈɑːjək",
+  "zamindar": "zəmiːndˈɑːɹ",
+  "Sobha Singh": "ʃˈoːbɑː sˈɪŋ",
+  "Farrukhsiyar": "fəɹˈʊksɪjɑːɹ",
+  "Sidi Yaqub": "sˈɪdiː jɑːkˈuːb",
+  "Siraj-ud-Daulah": "sɪɹˈɑːdʒ ʊd dˈaʊlə",
+  "Mir Jafar": "mˈiːɹ dʒˈɑːfəɹ",
+  "Mir Qasim": "mˈiːɹ kˈɑːsɪm",
+  "Awadh": "ˈʌvəd",
+  "Diwani": "diːwˈɑːniː",
+  "Lakshmibai": "lˈʌkʃmiːbaːi",
+  "Dandi": "dˈɑːndiː",
+  "Subhas": "sʊbˈɑːʃ",
+  "Jagat Seth": "dʒˈʌɡət sˈeːt",
+  "Mehtab Chand": "mˈeːtɑːb tʃˈʌnd",
+  "farman": "fəɹmˈɑːn",
+  "farmans": "fəɹmˈɑːnz"
+ },
  "lines": [
   {
    "chapter": 0,
@@ -120,7 +150,7 @@
   },
   {
    "chapter": 0,
-   "text": "stood before the court of Emperor Orungzeb,",
+   "text": "stood before the court of Emperor Aurangzeb,",
    "caps": "before Emperor *Aurangzeb,"
   },
   {
@@ -227,7 +257,7 @@
   },
   {
    "chapter": 2,
-   "text": "Captain William Hawkins reached Emperor Jahaangeer's court in sixteen-oh-nine,",
+   "text": "Captain William Hawkins reached Emperor Jahangir's court in sixteen-oh-nine,",
    "caps": "Hawkins reached *Jahangir | in *1609,"
   },
   {
@@ -242,12 +272,12 @@
   },
   {
    "chapter": 2,
-   "text": "Then, in sixteen twelve, Captain Thomas Best beat a Portuguese fleet off Soo-rut,",
+   "text": "Then, in sixteen twelve, Captain Thomas Best beat a Portuguese fleet off Surat,",
    "caps": "In *1612, | Thomas *Best | beat a Portuguese *fleet"
   },
   {
    "chapter": 2,
-   "text": "and an impressed Jahaangeer",
+   "text": "and an impressed Jahangir",
    "caps": "an *impressed Jahangir"
   },
   {
@@ -272,7 +302,7 @@
   },
   {
    "chapter": 2,
-   "text": "at Agra, Ah-mud-a-baad and Brohch.",
+   "text": "at Agra, Ahmedabad and Broach.",
    "caps": "at Agra, *Ahmedabad | and *Broach.",
    "gap": 1.65
   },
@@ -283,7 +313,7 @@
   },
   {
    "chapter": 3,
-   "text": "the Sultan of Golconda gave them a golden farmaan in sixteen thirty-two:",
+   "text": "the Sultan of Golconda gave them a golden farman in sixteen thirty-two:",
    "caps": "a *golden farman | in *1632,",
    "break": true,
    "gap": 0.25
@@ -305,7 +335,7 @@
   },
   {
    "chapter": 3,
-   "text": "got a local Naayuk ruler to grant a strip of sandy coast.",
+   "text": "got a local Nayak ruler to grant a strip of sandy coast.",
    "caps": "a local *Nayak | a strip of *coast."
   },
   {
@@ -356,7 +386,7 @@
   },
   {
    "chapter": 4,
-   "text": "By sixteen eighty-seven, Bombay had replaced Soo-rut",
+   "text": "By sixteen eighty-seven, Bombay had replaced Surat",
    "caps": "By *1687, | Bombay replaced *Surat"
   },
   {
@@ -402,7 +432,7 @@
   },
   {
    "chapter": 5,
-   "text": "In sixteen eighty-six, fighting broke out at Hoogly,",
+   "text": "In sixteen eighty-six, fighting broke out at Hooghly,",
    "caps": "In *1686, | fighting at *Hooghly,"
   },
   {
@@ -412,7 +442,7 @@
   },
   {
    "chapter": 5,
-   "text": "Soon a Mughal admiral, Siddi Yaakoob,",
+   "text": "Soon a Mughal admiral, Sidi Yaqub,",
    "caps": "admiral Sidi *Yaqub"
   },
   {
@@ -445,7 +475,7 @@
   },
   {
    "chapter": 6,
-   "text": "Orungzeb forgave them, and trade resumed.",
+   "text": "Aurangzeb forgave them, and trade resumed.",
    "caps": "Aurangzeb *forgave them, | and trade *resumed."
   },
   {
@@ -455,12 +485,12 @@
   },
   {
    "chapter": 6,
-   "text": "came back to a riverside village called Sootanootee.",
+   "text": "came back to a riverside village called Sutanuti.",
    "caps": "a village called *Sutanuti."
   },
   {
    "chapter": 6,
-   "text": "When a local zameendaar, Shobha Singh, rebelled in sixteen ninety-six,",
+   "text": "When a local zamindar, Sobha Singh, rebelled in sixteen ninety-six,",
    "caps": "a local *zamindar | rebelled in *1696,"
   },
   {
@@ -475,7 +505,7 @@
   },
   {
    "chapter": 6,
-   "text": "Sootanootee, Gobindapoor and Kalikata,",
+   "text": "Sutanuti, Gobindapur and Kalikata,",
    "caps": "Sutanuti, Gobindapur, *Kalikata,"
   },
   {
@@ -526,7 +556,7 @@
   },
   {
    "chapter": 7,
-   "text": "reached the court of Emperor Furrookh seeyaar.",
+   "text": "reached the court of Emperor Farrukhsiyar.",
    "caps": "the court of *Farrukhsiyar."
   },
   {
@@ -541,7 +571,7 @@
   },
   {
    "chapter": 7,
-   "text": "In seventeen seventeen, Furrookh seeyaar issued farmaans so generous",
+   "text": "In seventeen seventeen, Farrukhsiyar issued farmans so generous",
    "caps": "In *1717, | farmans so *generous"
   },
   {
@@ -590,9 +620,7 @@
   {
    "chapter": 8,
    "text": "But first, the English had one more rival to beat:",
-   "caps": "one more *rival:",
-   "break": true,
-   "gap": 0.25
+   "caps": "one more *rival:"
   },
   {
    "chapter": 8,
@@ -632,12 +660,12 @@
   },
   {
    "chapter": 9,
-   "text": "and after a defeat at Wandiwash, the French lost Pondi-cherry in seventeen sixty-one.",
+   "text": "and after a defeat at Wandiwash, the French lost Pondicherry in seventeen sixty-one.",
    "caps": "after *Wandiwash, | Pondicherry, *1761."
   },
   {
    "chapter": 9,
-   "text": "Meanwhile in Bengal, a young Nawab, Siraj ood-Dowla,",
+   "text": "Meanwhile in Bengal, a young Nawab, Siraj-ud-Daulah,",
    "caps": "a young *Nawab, | *Siraj-ud-Daulah,"
   },
   {
@@ -662,28 +690,33 @@
   },
   {
    "chapter": 9,
-   "text": "But Clive had made a secret deal with the Nawab's commander, Meer Jaafar.",
+   "text": "But Clive had made a secret deal with the Nawab's commander, Mir Jafar.",
    "caps": "a *secret deal | with Mir *Jafar."
   },
   {
    "chapter": 9,
-   "text": "Meer Jaafar's troops stood aside, and the battle was over in a single day.",
+   "text": "The banker Jagat Seth Mehtab Chand and other wealthy bankers helped to fund the plot.",
+   "caps": "banker Jagat *Seth | helped *fund the plot."
+  },
+  {
+   "chapter": 9,
+   "text": "Mir Jafar's troops stood aside, and the battle was over in a single day.",
    "caps": "Mir Jafar's *troops | stood *aside,"
   },
   {
    "chapter": 9,
-   "text": "Meer Jaafar was made Nawab, and the Company collected a fortune.",
+   "text": "Mir Jafar was made Nawab, and the Company collected a fortune.",
    "caps": "Mir *Jafar | made *Nawab, | a *fortune.",
    "gap": 1.65
   },
   {
    "chapter": 10,
-   "text": "The next Nawab, Meer Kassim, tried to rule on his own.",
+   "text": "The next Nawab, Mir Qasim, tried to rule on his own.",
    "caps": "Mir *Qasim | tried to rule *alone."
   },
   {
    "chapter": 10,
-   "text": "He joined the Nawab of Uh-wudh and the Mughal emperor, Shah Alam the Second,",
+   "text": "He joined the Nawab of Awadh and the Mughal emperor, Shah Alam the Second,",
    "caps": "the Nawab of *Awadh, | Emperor *Shah Alam"
   },
   {
@@ -693,7 +726,7 @@
   },
   {
    "chapter": 10,
-   "text": "The next year, at Allahabad, the emperor granted the Company the Deewaani",
+   "text": "The next year, at Allahabad, the emperor granted the Company the Diwani",
    "caps": "at *Allahabad, | the *Diwani"
   },
   {
@@ -739,7 +772,7 @@
   },
   {
    "chapter": 11,
-   "text": "Governor-General Wellsley pushed Indian rulers into a subsidiary alliance:",
+   "text": "Governor-General Wellesley pushed Indian rulers into a subsidiary alliance:",
    "caps": "a subsidiary *alliance:",
    "break": true,
    "gap": 0.25
@@ -804,7 +837,7 @@
   },
   {
    "chapter": 12,
-   "text": "where Rani Lukshmee-bai, who had lost her kingdom to the Doctrine of Lapse, became one of its leaders.",
+   "text": "where Rani Lakshmibai, who had lost her kingdom to the Doctrine of Lapse, became one of its leaders.",
    "caps": "Rani *Lakshmibai, | one of its *leaders."
   },
   {
@@ -909,7 +942,7 @@
   },
   {
    "chapter": 15,
-   "text": "In nineteen thirty, he walked about two hundred and forty miles to the sea at Daandee, to make salt and break the salt law.",
+   "text": "In nineteen thirty, he walked about two hundred and forty miles to the sea at Dandi, to make salt and break the salt law.",
    "caps": "In *1930, | to the sea at *Dandi, | to make *salt."
   },
   {
@@ -925,7 +958,7 @@
   },
   {
    "chapter": 16,
-   "text": "Almost all its leaders were jailed, while Subhaash Chandra Bose led the Indian National Army against the British from South-East Asia.",
+   "text": "Almost all its leaders were jailed, while Subhas Chandra Bose led the Indian National Army against the British from South-East Asia.",
    "caps": "leaders *jailed, | Subhas Chandra *Bose"
   },
   {

@@ -10,6 +10,7 @@ LINES = [
  (9, "Robert Clive sailed up from Madras and took it back.", "Robert *Clive | took it *back."),
  (9, "Then, on the twenty-third of June, seventeen fifty-seven, the two armies met at Plassey.", "23 June *1757, | at *Plassey."),
  (9, "But Clive had made a secret deal with the Nawab's commander, Mir Jafar.", "a *secret deal | with Mir *Jafar."),
+ (9, "The banker Jagat Seth Mehtab Chand and other wealthy bankers helped to fund the plot.", "banker Jagat *Seth | helped *fund the plot."),
  (9, "Mir Jafar's troops stood aside, and the battle was over in a single day.", "Mir Jafar's *troops | stood *aside,"),
  (9, "Mir Jafar was made Nawab, and the Company collected a fortune.", "Mir *Jafar | made *Nawab, | a *fortune."),
  (10, "The next Nawab, Mir Qasim, tried to rule on his own.", "Mir *Qasim | tried to rule *alone."),

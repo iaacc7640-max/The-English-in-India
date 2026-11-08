@@ -8,7 +8,7 @@ export function build(add, cue) {
   const i = first(2);   // 22
   add({ id: '2.01', at: at(i), note: 'Surat harbour: an East Indiaman arrives; Mughal customs house', draw: (lt, d, t) => K.suratHarbour({ t, pan: lerp(-60, 60, eio(clamp(lt / d))), shipX: lerp(200, 560, eio(clamp(lt / d))) }) });
   cue(at(i), 'waves', { dur: 2.2, gain: 0.6 });
-  { const s0 = at(i + 1), j0 = Wd('jahaangeer', i + 1) - s0;
+  { const s0 = at(i + 1), j0 = Wd('jahangir', i + 1) - s0;
     add({ id: '2.02', at: s0, note: 'Hawkins walks up with a sealed letter', draw: (lt, d, t) => { K.jharokha({ door: 1 }); K.cast('hawkins', { x: lerp(200, 640, eio(seg(lt, 0, j0 + 0.4))), y: 800, h: 420, walk: lt < j0 + 0.4 ? t * 7 : null }); } });
     add({ id: '2.02b', at: s0 + j0 + 0.5, note: 'Hawkins bows below Jahangir at the jharokha; 1609', draw: (lt, d, t) => { K.jharokha({ door: 1 }); K.cast('hawkins', { x: 640, y: 800, h: 420, bow: eio(seg(lt, 0, 0.6)) }); K.ribbon('1609', 520, 230, eob(seg(lt, 0.3, 0.7)), 80); } });
     cue(s0 + j0 + 0.6, 'cloth'); }
@@ -35,7 +35,7 @@ export function build(add, cue) {
   add({ id: '2.10', at: at(i + 9), note: 'map zooms to north and west India', draw: (lt, d, t) => K.realMap({ view: K.lerpView(K.VIEWS.india, K.VIEWS.north, eio(clamp(lt / d))), rings: ringsAt(t), ringLabels: false, pins: [['surat', 1]] }) });
   add({ id: '2.11', at: at(i + 10), note: 'three pins pop: Agra, Ahmedabad, Broach', draw: (lt, d, t) => {
     const w = (n) => { try { return Wd(n, i + 10) - at(i + 10); } catch { return 0.5; } };
-    K.realMap({ view: K.VIEWS.north, rings: ringsAt(t), ringLabels: false, pins: [['surat', 1], ['agra', seg(lt, w('agra') - 0.1, w('agra') + 0.2)], ['ahmedabad', seg(lt, w('ah') - 0.1, w('ah') + 0.2)], ['broach', seg(lt, w('brohch') - 0.1, w('brohch') + 0.2)]] });
+    K.realMap({ view: K.VIEWS.north, rings: ringsAt(t), ringLabels: false, pins: [['surat', 1], ['agra', seg(lt, w('agra') - 0.1, w('agra') + 0.2)], ['ahmedabad', seg(lt, w('ahmedabad') - 0.1, w('ahmedabad') + 0.2)], ['broach', seg(lt, w('broach') - 0.1, w('broach') + 0.2)]] });
   } });
-  for (const n of ['agra', 'ah', 'brohch']) { try { cue(Wd(n, i + 10), 'pop', { gain: 0.5 }); } catch {} }
+  for (const n of ['agra', 'ahmedabad', 'broach']) { try { cue(Wd(n, i + 10), 'pop', { gain: 0.5 }); } catch {} }
 }
