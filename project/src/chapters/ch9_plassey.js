@@ -29,8 +29,8 @@ export function build(add, cue) {
       const md = pr(80.27, 13.08), pd = pr(79.81, 11.94), ar = pr(79.37, 12.9);
       // French march north on Madras and fall back; Company troops march inland to Arcot and back to the coast
       const f = Math.sin(q * Math.PI * 2) * 0.5 + 0.5, e = Math.sin(q * Math.PI * 2 + 1.6) * 0.5 + 0.5;
-      K.armyToken(lerp(pd[0] - 60, md[0] - 120, f), lerp(pd[1] - 20, md[1] + 40, f), 'france', 0.9, t);
-      K.armyToken(lerp(md[0] - 140, ar[0], e), lerp(md[1] - 30, ar[1] - 20, e), 'eic', 0.9, t);
+      K.armyToken(lerp(pd[0] - 70, md[0] - 80, f), lerp(pd[1] - 10, md[1] + 80, f), 'france', 0.9, t);
+      K.armyToken(lerp(md[0] - 110, ar[0] - 20, e), lerp(md[1] - 80, ar[1] - 60, e), 'eic', 0.9, t);
       // ships off the coast
       K.eastIndiaman(lerp(pd[0] + 260, md[0] + 220, f), lerp(pd[1], md[1] + 60, f), 0.14, 0, t, 'france');
       K.eastIndiaman(lerp(md[0] + 300, pd[0] + 330, e), lerp(md[1] - 40, pd[1] + 40, e), 0.14, 0, t, 'eic');
@@ -42,9 +42,9 @@ export function build(add, cue) {
     add({ id: '9.04', at: s0, note: 'the Company army reaches Wandiwash; the French fall back; the French flag at Pondicherry comes down, the Company flag goes up', draw: (lt, d, t) => {
       const pr = map(t, { view: CV, pins: [['wandiwash', seg(lt, 0.1, 0.4)], ['pondicherry', 1], ['madras', 1]] });
       const md = pr(80.27, 13.08), wd2 = pr(79.6, 12.5), pd = pr(79.81, 11.94), m = eio(seg(lt, 0, p0 * 0.8));
-      K.armyToken(lerp(md[0] - 140, wd2[0] + 60, m), lerp(md[1] - 30, wd2[1] - 30, m), 'eic', 0.9, t);
+      K.armyToken(lerp(md[0] - 110, wd2[0] + 40, m), lerp(md[1] - 80, wd2[1] - 50, m), 'eic', 0.9, t);
       K.armyToken(lerp(wd2[0] + 160, pd[0] - 80, m), lerp(wd2[1] + 20, pd[1] - 40, m), 'france', 0.9, t, 1 - seg(lt, p0, p0 + 0.6));
-      const fl = eio(seg(lt, p0, p0 + 0.8)); K.flag('france', pd[0] + 20, pd[1], 200, 0.7, t, fl); if (fl > 0.6) K.flag('eic', pd[0] + 20, pd[1], 200 * eob(seg(lt, p0 + 0.5, p0 + 1.1)), 0.7, t);
+      const fl = eio(seg(lt, p0, p0 + 0.8)); K.flag('france', pd[0] + 30, pd[1] + 10, 170, 0.55, t, fl); if (fl > 0.6) K.flag('eic', pd[0] + 30, pd[1] + 10, 170 * eob(seg(lt, p0 + 0.5, p0 + 1.1)), 0.55, t);
       K.ribbon('1761', 1120, 230, eob(seg(lt, p0, p0 + 0.4)), 70);
     } });
     cue(s0 + 0.2, 'steps', { dur: 1.2, gain: 0.4 }); cue(s0 + p0 + 0.3, 'thud', { gain: 0.5 }); }

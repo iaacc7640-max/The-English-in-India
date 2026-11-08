@@ -22,9 +22,9 @@ export function build(add, cue) {
     add({ id: '12.01', at: s0, note: 'ANGER: a red wash rises behind a slip', draw: (lt, d, t) => { K.parchment(121); const r = eio(seg(lt, 0, d)); ctx.save(); ctx.globalAlpha = 0.35; ctx.fillStyle = P.crimson; ctx.fillRect(-400, H - r * 700, W + 800, 1400); ctx.restore(); K.slip('ANGER', 960, 440, eob(seg(lt, 0.1, 0.5)) * lerp(0.9, 1.2, r), -0.02, 90); } });
     add({ id: '12.01b', at: s0 + kg - 0.35, note: 'lost kingdoms: crowns fall off the states the Company annexed (Punjab, Satara, Jhansi, Nagpur, Awadh)', draw: (lt, d, t) => {
       const pr = map(t, { view: K.VIEWS.india });
-      ANNEX.forEach(([n, lo, la], k) => { const [x, y] = pr(lo, la), f = eio(seg(lt, 0.1 + k * 0.12, 0.6 + k * 0.12)); K.pin(x, y, { n, lx: 0, ly: -30 }, 1, { size: 0.55, label: false }); crownAt(x, y - 30 + f * 120, 0.5, f * 1.2, 1 - f); });
+      ANNEX.forEach(([n, lo, la], k) => { const [x, y] = pr(lo, la), f = eio(seg(lt, 0.1 + k * 0.13, 0.7 + k * 0.13)); K.pin(x, y, { n, lx: 0, ly: 46 }, 1, { size: 0.5 }); crownAt(x + f * 30, y - 40 + f * 30, 0.5, f * 1.6, 1 - 0.55 * f); });
     } });
-    add({ id: '12.01c', at: s0 + tx - 0.3, note: 'heavy taxes: a tax ledger fills with red figures', draw: (lt, d, t) => { K.parchment(122); K.ledger(960, 470, 0.95, seg(lt, 0, d), true); K.slip('LAND TAX', 960, 160, eob(seg(lt, 0.1, 0.4)), -0.02, 50); } });
+    add({ id: '12.01c', at: s0 + tx - 0.3, note: 'heavy taxes: a tax ledger fills with red figures', draw: (lt, d, t) => { K.parchment(122); K.ledger(960, 520, 0.9, seg(lt, 0, d), true); K.slip('LAND TAX', 960, 200, eob(seg(lt, 0.1, 0.4)), -0.02, 50); } });
     add({ id: '12.01d', at: s0 + ct - 0.3, note: 'new rifle cartridges: a sepoy looks at one in his palm', draw: (lt, d, t) => { K.parchment(121); K.cut(K.P_rr(-400, 800, W + 800, 400, 0), '#C9B48C', { shadow: 0, edge: 0 }); K.cast('sepoy', { x: 760, y: 800, h: 520, arm: 55 }); ctx.save(); ctx.translate(1080, 470); ctx.rotate(-0.2); K.cut(K.P_rr(-110, -30, 220, 60, 28), '#D9C49A', { shadow: 0.7, edge: 4 }); ctx.strokeStyle = P.ink; ctx.lineWidth = 3; ctx.strokeRect(-70, -30, 4, 60); ctx.fillStyle = 'rgba(62,44,30,0.25)'; ctx.fillRect(-100, -6, 200, 10); ctx.restore(); K.slip('NEW CARTRIDGES', 1180, 300, eob(seg(lt, 0.2, 0.5)), 0.03, 44); } });
     cue(s0 + kg, 'thud', { gain: 0.3 }); cue(s0 + tx, 'page'); }
   { const s0 = at(i + 1);
@@ -40,7 +40,7 @@ export function build(add, cue) {
   { const s0 = at(i + 7), r0 = wd('rangoon', i + 7, s0), e0 = wd('end', i + 7, s0);
     add({ id: '12.08', at: s0, note: 'the old emperor walks to a waiting boat', draw: (lt, d, t) => { K.sea({ t }, (k) => { if (k === 2) K.boat(1420, 720, 1.1, null, t); }); K.cut(K.P_poly([[-400, 760], [1180, 760], [1240, 800], [-400, 800]]), '#C9B48C', { shadow: 0.6, edge: 4 }); K.cut(K.P_rr(1100, 744, 260, 26, 4), '#7A5234', { shadow: 0.5, edge: 3 }); K.cast('zafar', { x: lerp(400, 1180, eio(seg(lt, 0, d))), y: 770, h: 400, walk: t * 4 }); } });
     add({ id: '12.08b', at: s0 + r0 - 0.4, note: 'map: exile route Delhi -> Allahabad -> Calcutta by land, then by sea to Rangoon; the Mughal flag at Delhi comes down', draw: (lt, d, t) => {
-      const pr = map(t, { view: { lon: 86.5, lat: 22.5, k: 46 }, pins: [['delhi', 1], ['calcutta', 1], ['rangoon', seg(lt, 0.9, 1.2)]] }), dd = e0 - r0 + 0.4;
+      const pr = map(t, { view: { lon: 86.5, lat: 22.5, k: 46 }, pins: [['delhi', 1, { lx: -90, ly: 20 }], ['calcutta', 1], ['rangoon', seg(lt, 0.9, 1.2), { lx: 120, ly: 20 }]] }), dd = e0 - r0 + 0.4;
       const land = [[77.21, 28.61], [79.5, 27.2], [81.85, 25.44], [85.1, 25.6], [87.3, 23.9], [88.36, 22.57]].map(([a, b]) => pr(a, b)), seaR = [[88.36, 22.57], [88.6, 21.3], [91, 19.5], [94.2, 17.2], [96.16, 16.84]].map(([a, b]) => pr(a, b));
       K.dashedRoute(land, eio(seg(lt, 0.05, dd * 0.45))); const h = K.dashedRoute(seaR, eio(seg(lt, dd * 0.45, dd * 0.9))); if (lt > dd * 0.45) K.boat(h[0], h[1], 0.3, null, t);
       const [x, y] = pr(77.21, 28.61); K.flag('mughal', x + 10, y, 180, 0.6, t, eio(seg(lt, dd - 0.1, dd + 0.8)));

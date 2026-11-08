@@ -42,7 +42,7 @@ export function build(add, cue) {
     add({ id: '1.11', at: s0, note: 'Indian textiles unroll: chintz, block print, muslin, a silk sari', draw: (lt, d, t) => K.indianTextiles(seg(lt, 0, 1.4), t) });
     add({ id: '1.11b', at: e0, note: 'map of India; the three empty gold rings', draw: (lt, d, t) => {
       K.realMap({ view: K.VIEWS.india, rings: ringsAt(t), ringLabels: false });
-      for (const id of ['madras', 'bombay', 'calcutta']) { const p = K.PLACES[id], [x, y] = K.proj(K.VIEWS.india)(p.lon, p.lat); if (lt > 0.6) K.tag(p.n, x + p.lx, y + p.ly, 0.62 * eob(seg(lt, 0.6, 0.9)), x, y); }
+      for (const id of ['madras', 'bombay', 'calcutta']) { const p = K.PLACES[id], [x, y] = K.proj(K.VIEWS.india)(p.lon, p.lat); K.tag(p.n, x + p.lx, y + p.ly, 0.62 * eob(seg(lt, 0.15, 0.45)), x, y); }
     } });
     cue(s0, 'cloth'); cue(e0 + 0.5, 'pop', { gain: 0.5 }); }
 }

@@ -83,7 +83,7 @@ export function pin(x, y, p, pop = 1, o = {}) {
 }
 /** a plain paper map tag (no pushpin, so the ink dot stays the only marker) with a faint leader line to (px, py) */
 export function tag(text, x, y, sc = 1, px = null, py = null) {
-  if (sc <= 0) return; const size = 34;
+  if (sc <= 0.03) return; const size = 34;
   ctx.font = `700 ${size}px Caladea`; const w = (ctx.measureText(text).width + 40) * sc, h = size * 1.35 * sc;
   if (px != null) { const ex = clamp(px, x - w / 2, x + w / 2), ey = clamp(py, y - h / 2, y + h / 2); line([[px, py], [ex, ey]], 'rgba(62,44,30,0.55)', 2.5); }
   ctx.save(); ctx.translate(x, y); ctx.rotate((rnd(x) - 0.5) * 0.04); ctx.scale(sc, sc);
