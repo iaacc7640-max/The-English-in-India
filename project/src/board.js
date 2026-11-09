@@ -37,6 +37,22 @@ const BOARDS = {
     const L = [['eic', 1650, 'COMPANY 1600–1706'], ['eic', 1750, 'COMPANY 1707–1800'], ['eic', 1858, 'COMPANY FROM 1801'], ['mughal', 1700, 'MUGHAL'], ['spain', 1600, 'SPAIN (ARMADA)'], ['portugal', 1600, 'PORTUGAL (1600s)'], ['golconda', 1632, 'GOLCONDA'], ['bengal', 1757, 'BENGAL SUBAH'], ['oudh', 1764, 'OUDH'], ['tiger', 1799, 'MYSORE'], ['maratha', 1818, 'MARATHA'], ['sikh', 1849, 'SIKH'], ['union', 1858, 'UNION'], ['india', 1947, 'INDIA'], ['france', 1757, 'FRANCE'], ['dutch', 1600, 'DUTCH']];
     L.forEach(([k, y, n], i) => { const x = 170 + (i % 6) * 300, yy = 380 + Math.floor(i / 6) * 330; K.FLAGS.year = y; K.flag(k, x, yy, 260, 1, 0); K.label(n, x + 100, yy + 30, 18); });
   },
+  thumb2() {
+    // LEFT: the merchants on their knees (1690). RIGHT: the map of India under Company flags. Big title strip at the bottom.
+    K.mughalCourt({ pan: 40, throne: 'aurangzeb', courtiers: false });
+    K.layer(40, 0.6, () => { K.envoy(0, { x: 520, y: 800, h: 460, bow: 1 }); K.envoy(1, { x: 730, y: 800, h: 470, bow: 0.95 }); });
+    ctx.save(); ctx.fillStyle = 'rgba(30,20,12,0.38)'; ctx.fillRect(0, 0, W, H); ctx.restore();
+    ctx.save(); ctx.translate(1060, 70); ctx.rotate(0.025); K.cut(K.P_rr(0, 0, 800, 760, 8), '#E9DCBC', { shadow: 1.6, edge: 8 });
+    ctx.beginPath(); ctx.rect(18, 18, 764, 724); ctx.clip(); ctx.translate(-626, -140); ctx.scale(1.05, 1.05);
+    const tp = K.realMap({ view: { lon: 81, lat: 21.5, k: 24 }, compass: false });
+    K.washes(tp, [['india', 0.9, 'rgba(179,57,47,0.30)']]);
+    const y0 = K.FLAGS.year; K.FLAGS.year = 1801;
+    for (const [lo, la, s] of [[74.35, 31.55, 0.55], [77.2, 28.6, 0.6], [80.95, 26.85, 0.5], [88.36, 22.57, 0.6], [72.88, 19.08, 0.6], [79.09, 21.15, 0.5], [76.69, 12.42, 0.5], [80.27, 13.08, 0.55]]) { const [x, y] = tp(lo, la); K.flag('eic', x, y, 190, s, lo); }
+    K.FLAGS.year = y0;
+    ctx.restore();
+    K.ribbon('1600        1947', 470, 170, 1.15, 112); ctx.save(); ctx.translate(470, 176); ctx.scale(1.15, 1.15); K.cut(K.P_poly([[-60, -10], [30, -10], [30, -30], [70, 0], [30, 30], [30, 10], [-60, 10]]), K.P.ink, { shadow: 0, edge: 0 }); ctx.restore();
+    K.slip('FROM MERCHANTS TO MASTERS', 960, 940, 1.18, -0.015, 86);
+  },
   thumb() {
     K.mughalCourt({ pan: 40, throne: 'aurangzeb' });
     K.layer(40, 0.6, () => { K.envoy(0, { x: 560, y: 800, h: 430, bow: 1 }); K.envoy(1, { x: 760, y: 800, h: 440, bow: 0.95 }); K.moneybag(960, 800, 0.55, '1,50,000'); });
