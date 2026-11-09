@@ -1,10 +1,18 @@
 // Kit boards (16:9): ?b=cast | props | map. Rendered with PAGE=board.html node tools/capture.mjs frames review/x "0"
 import { W, H, setCtx, ctx } from './core/lib.js';
 import * as K from './core/kit.js';
+import { turbanInHand } from './chapters/ch0_hook.js';
 const cv = document.getElementById('cv'); setCtx(cv.getContext('2d'));
 const b = new URLSearchParams(location.search).get('b') || 'cast';
 const OP = (window.OP = { ready: false });
 const YEARS = [1600, 1612, 1639, 1668, 1686, 1690, 1717, 1757];
+
+/** thumbnail text: heavy serif, thick dark outline, optional shadow */
+function bigText(t, x, y, size, fill = '#F6EEDB', align = 'center', stroke = '#2B1A10') {
+  ctx.save(); ctx.font = `700 ${size}px Caladea`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+  ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillText(t, x + 8, y + 10);
+  ctx.strokeStyle = stroke; ctx.lineWidth = size * 0.16; ctx.strokeText(t, x, y); ctx.fillStyle = fill; ctx.fillText(t, x, y); ctx.restore();
+}
 const BOARDS = {
   map() {
     K.realMap({ view: K.VIEWS.india, rings: { madras: 1, bombay: 1, calcutta: 0 }, tint: { region: 'bengal', a: 0.8 },
@@ -36,6 +44,35 @@ const BOARDS = {
     K.parchment(31); K.label('FLAGS (ROUND 2)', 960, 52, 34);
     const L = [['eic', 1650, 'COMPANY 1600–1706'], ['eic', 1750, 'COMPANY 1707–1800'], ['eic', 1858, 'COMPANY FROM 1801'], ['mughal', 1700, 'MUGHAL'], ['spain', 1600, 'SPAIN (ARMADA)'], ['portugal', 1600, 'PORTUGAL (1600s)'], ['golconda', 1632, 'GOLCONDA'], ['bengal', 1757, 'BENGAL SUBAH'], ['oudh', 1764, 'OUDH'], ['tiger', 1799, 'MYSORE'], ['maratha', 1818, 'MARATHA'], ['sikh', 1849, 'SIKH'], ['union', 1858, 'UNION'], ['india', 1947, 'INDIA'], ['france', 1757, 'FRANCE'], ['dutch', 1600, 'DUTCH']];
     L.forEach(([k, y, n], i) => { const x = 170 + (i % 6) * 300, yy = 380 + Math.floor(i / 6) * 330; K.FLAGS.year = y; K.flag(k, x, yy, 260, 1, 0); K.label(n, x + 100, yy + 30, 18); });
+  },
+  thumbA() {
+    // TRADERS -> RULERS: left, a merchant bowing in a dark court; right, a Company officer standing tall by the throne in gold light
+    K.mughalCourt({ pan: 0, throne: '', courtiers: false, seat: 'takht' });
+    K.layer(0, 0.6, () => { K.envoy(0, { x: 330, y: 800, h: 520, bow: 1 }); K.cast('clive', { x: 1300, y: 800, h: 600, arm: 70 }); });
+    ctx.save(); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(880, 0); ctx.lineTo(760, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fillStyle = 'rgba(20,12,8,0.55)'; ctx.fill(); ctx.restore();
+    ctx.save(); const g = ctx.createRadialGradient(1380, 380, 50, 1380, 380, 700); g.addColorStop(0, 'rgba(255,214,120,0.45)'); g.addColorStop(1, 'rgba(255,214,120,0)'); ctx.fillStyle = g; ctx.fillRect(820, 0, W, H); ctx.restore();
+    K.cut(K.P_poly([[870, -20], [910, -20], [790, H + 20], [750, H + 20]]), '#B3392F', { shadow: 0.8, edge: 4 });
+    bigText('TRADERS', 390, 930, 170, '#E9DCC0'); bigText('RULERS', 1420, 930, 190, '#F2C14E');
+    ctx.save(); ctx.translate(890, 935); K.cut(K.P_poly([[-50, -16], [20, -16], [20, -44], [70, 0], [20, 44], [20, 16], [-50, 16]]), '#F6EEDB', { shadow: 0.6, edge: 3 }); ctx.restore();
+    K.ribbon('1600 – 1947', 400, 150, 0.9, 90);
+  },
+  thumbB() {
+    // HOW A COMPANY TOOK INDIA: India glowing red on a dark sea, one giant Company flag planted in it, a tiny ship arriving
+    K.parchment(3); ctx.fillStyle = '#1E2A3A'; ctx.fillRect(0, 0, W, H);
+    const pr = K.realMap({ view: { lon: 72, lat: 21, k: 38 }, compass: false, rivers: false });
+    ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = '#5B6E8C'; ctx.fillRect(0, 0, W, H); ctx.restore();
+    K.washes(pr, [['india', 1, 'rgba(214,60,45,0.85)']]);
+    const y0 = K.FLAGS.year; K.FLAGS.year = 1801; const [fx, fy] = pr(79, 22); K.flag('eic', fx - 40, fy + 200, 300, 1.45, 0.7); K.FLAGS.year = y0;
+    K.eastIndiaman(1640, 930, 0.3, 0, 0, 'eic');
+    bigText('HOW A', 60, 190, 150, '#F6EEDB', 'left'); bigText('COMPANY', 60, 360, 170, '#F2C14E', 'left'); bigText('TOOK', 60, 540, 150, '#F6EEDB', 'left'); bigText('INDIA', 60, 720, 190, '#F6EEDB', 'left');
+    K.ribbon('1600 – 1947', 400, 940, 0.85, 84);
+  },
+  thumbC() {
+    // MERCHANTS MADE KINGS: close-up of the Bengal throne cushion; a Company hand lowers the crown-turban onto it
+    K.parchment(37); ctx.fillStyle = '#5E2A33'; ctx.fillRect(0, 0, W, H); ctx.save(); const g = ctx.createRadialGradient(1250, 620, 40, 1250, 620, 620); g.addColorStop(0, 'rgba(255,214,120,0.5)'); g.addColorStop(1, 'rgba(255,214,120,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.restore();
+    K.cushion(1380, 900, 1.9, false); turbanInHand(1530, 420, 1.9);
+    bigText('THEY CAME', 70, 260, 150, '#F6EEDB', 'left'); bigText('TO TRADE.', 70, 430, 150, '#F6EEDB', 'left');
+    bigText('THEY STAYED', 70, 650, 130, '#F2C14E', 'left'); bigText('TO RULE.', 70, 800, 170, '#F2C14E', 'left');
   },
   thumb2() {
     // LEFT: the merchants on their knees (1690). RIGHT: the map of India under Company flags. Big title strip at the bottom.
