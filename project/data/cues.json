@@ -1,0 +1,1009 @@
+{
+ "duration": 672.065,
+ "cues": [
+  {
+   "t": 0.05,
+   "type": "gong",
+   "gain": 0.55
+  },
+  {
+   "t": 2.06,
+   "type": "steps",
+   "dur": 1.8
+  },
+  {
+   "t": 7.7,
+   "type": "cloth"
+  },
+  {
+   "t": 9.56,
+   "type": "coins"
+  },
+  {
+   "t": 10.37,
+   "type": "scroll"
+  },
+  {
+   "t": 11.3,
+   "type": "seal"
+  },
+  {
+   "t": 11.95,
+   "type": "page"
+  },
+  {
+   "t": 15.786,
+   "type": "whoosh",
+   "dur": 1.2
+  },
+  {
+   "t": 17.986,
+   "type": "page"
+  },
+  {
+   "t": 19.66,
+   "type": "cloth"
+  },
+  {
+   "t": 24.872,
+   "type": "cloth",
+   "gain": 0.35
+  },
+  {
+   "t": 25.092,
+   "type": "cloth",
+   "gain": 0.35
+  },
+  {
+   "t": 25.312,
+   "type": "cloth",
+   "gain": 0.35
+  },
+  {
+   "t": 25.532,
+   "type": "cloth",
+   "gain": 0.35
+  },
+  {
+   "t": 25.752,
+   "type": "cloth",
+   "gain": 0.35
+  },
+  {
+   "t": 25.972,
+   "type": "cloth",
+   "gain": 0.35
+  },
+  {
+   "t": 26.394,
+   "type": "whoosh"
+  },
+  {
+   "t": 26.694,
+   "type": "page"
+  },
+  {
+   "t": 27.444,
+   "type": "seal"
+  },
+  {
+   "t": 28.214,
+   "type": "page"
+  },
+  {
+   "t": 28.964,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 29.814,
+   "type": "waves",
+   "dur": 2.4,
+   "gain": 0.6
+  },
+  {
+   "t": 38.3,
+   "type": "slide",
+   "dur": 1.2
+  },
+  {
+   "t": 42.56,
+   "type": "coins"
+  },
+  {
+   "t": 44.987,
+   "type": "page"
+  },
+  {
+   "t": 46.536,
+   "type": "page"
+  },
+  {
+   "t": 47.236,
+   "type": "quill",
+   "dur": 0.6
+  },
+  {
+   "t": 49.726,
+   "type": "quill",
+   "dur": 1.2
+  },
+  {
+   "t": 54.506,
+   "type": "seal"
+  },
+  {
+   "t": 55.256,
+   "type": "cloth"
+  },
+  {
+   "t": 58.127,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 58.327,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 58.527,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 58.727,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 62.327,
+   "type": "cloth"
+  },
+  {
+   "t": 64.899,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 65.319,
+   "type": "page"
+  },
+  {
+   "t": 66.069,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 66.819,
+   "type": "waves",
+   "dur": 2.2,
+   "gain": 0.6
+  },
+  {
+   "t": 72.14,
+   "type": "cloth"
+  },
+  {
+   "t": 75.905,
+   "type": "thud",
+   "gain": 0.5
+  },
+  {
+   "t": 76.285,
+   "type": "steps",
+   "dur": 1.4
+  },
+  {
+   "t": 82.04,
+   "type": "cannon",
+   "gain": 0.45
+  },
+  {
+   "t": 82.54,
+   "type": "cannon",
+   "gain": 0.35
+  },
+  {
+   "t": 83.14,
+   "type": "waves",
+   "dur": 1.2,
+   "gain": 0.5
+  },
+  {
+   "t": 85.722,
+   "type": "scroll"
+  },
+  {
+   "t": 86.172,
+   "type": "seal"
+  },
+  {
+   "t": 87.188,
+   "type": "whoosh"
+  },
+  {
+   "t": 93.351,
+   "type": "scroll"
+  },
+  {
+   "t": 97.861,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 98.26,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 99.72,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 100.452,
+   "type": "page"
+  },
+  {
+   "t": 101.202,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 105.52,
+   "type": "scroll"
+  },
+  {
+   "t": 110.54,
+   "type": "coins"
+  },
+  {
+   "t": 111.14,
+   "type": "coins",
+   "gain": 0.6
+  },
+  {
+   "t": 112.333,
+   "type": "whoosh"
+  },
+  {
+   "t": 120.64,
+   "type": "sparkle",
+   "gain": 0.5
+  },
+  {
+   "t": 122.497,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 122.797,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 123.097,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 123.397,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 123.697,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 123.997,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 127.77,
+   "type": "pop"
+  },
+  {
+   "t": 128.157,
+   "type": "page"
+  },
+  {
+   "t": 128.907,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 140.293,
+   "type": "slide",
+   "dur": 0.8
+  },
+  {
+   "t": 141.32,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 141.5,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 141.68,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 141.86,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 142.04,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 142.22,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 142.4,
+   "type": "pop",
+   "gain": 0.3
+  },
+  {
+   "t": 149.692,
+   "type": "coins",
+   "gain": 0.5
+  },
+  {
+   "t": 153.9,
+   "type": "whoosh"
+  },
+  {
+   "t": 155.781,
+   "type": "pop"
+  },
+  {
+   "t": 157.534,
+   "type": "page"
+  },
+  {
+   "t": 158.284,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 159.034,
+   "type": "page"
+  },
+  {
+   "t": 161.941,
+   "type": "scroll"
+  },
+  {
+   "t": 162.821,
+   "type": "seal"
+  },
+  {
+   "t": 164.921,
+   "type": "whoosh"
+  },
+  {
+   "t": 165.671,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 165.921,
+   "type": "coins"
+  },
+  {
+   "t": 166.621,
+   "type": "coins",
+   "gain": 0.6
+  },
+  {
+   "t": 168.251,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 168.777,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 169.302,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 169.828,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 171.244,
+   "type": "page"
+  },
+  {
+   "t": 175.68,
+   "type": "thud"
+  },
+  {
+   "t": 180.38,
+   "type": "cannon",
+   "gain": 0.45
+  },
+  {
+   "t": 183.06,
+   "type": "thud",
+   "gain": 0.5
+  },
+  {
+   "t": 184.642,
+   "type": "waves",
+   "dur": 2.4
+  },
+  {
+   "t": 189.102,
+   "type": "rice",
+   "dur": 1.2
+  },
+  {
+   "t": 191.623,
+   "type": "gong",
+   "gain": 0.35
+  },
+  {
+   "t": 193.5,
+   "type": "coins"
+  },
+  {
+   "t": 196.704,
+   "type": "scroll"
+  },
+  {
+   "t": 199.829,
+   "type": "page"
+  },
+  {
+   "t": 200.579,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 201.329,
+   "type": "scroll"
+  },
+  {
+   "t": 202.129,
+   "type": "seal"
+  },
+  {
+   "t": 203.889,
+   "type": "whoosh"
+  },
+  {
+   "t": 208.789,
+   "type": "waves",
+   "dur": 2,
+   "gain": 0.5
+  },
+  {
+   "t": 217.82,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 218.14,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 218.46,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 218.78,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 219.1,
+   "type": "brick",
+   "gain": 0.6
+  },
+  {
+   "t": 221.416,
+   "type": "pop",
+   "gain": 0.45
+  },
+  {
+   "t": 221.616,
+   "type": "pop",
+   "gain": 0.45
+  },
+  {
+   "t": 221.816,
+   "type": "pop",
+   "gain": 0.45
+  },
+  {
+   "t": 227.856,
+   "type": "coins"
+  },
+  {
+   "t": 232.68,
+   "type": "thud",
+   "gain": 0.6
+  },
+  {
+   "t": 235.48,
+   "type": "pop"
+  },
+  {
+   "t": 242.36,
+   "type": "thud"
+  },
+  {
+   "t": 246.42,
+   "type": "page"
+  },
+  {
+   "t": 247.17,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 254.48,
+   "type": "cloth"
+  },
+  {
+   "t": 259.38,
+   "type": "steps",
+   "dur": 1.2
+  },
+  {
+   "t": 272.24,
+   "type": "scroll",
+   "dur": 1
+  },
+  {
+   "t": 273.14,
+   "type": "seal"
+  },
+  {
+   "t": 276.894,
+   "type": "pop"
+  },
+  {
+   "t": 279.914,
+   "type": "pop"
+  },
+  {
+   "t": 281.734,
+   "type": "pop"
+  },
+  {
+   "t": 283.704,
+   "type": "pop"
+  },
+  {
+   "t": 284.454,
+   "type": "whoosh"
+  },
+  {
+   "t": 285.054,
+   "type": "coins",
+   "gain": 0.6
+  },
+  {
+   "t": 287.044,
+   "type": "page"
+  },
+  {
+   "t": 287.794,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 288.8,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 289.48,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 290.22,
+   "type": "pop",
+   "gain": 0.4
+  },
+  {
+   "t": 293.854,
+   "type": "slide",
+   "dur": 0.8
+  },
+  {
+   "t": 296.28,
+   "type": "page"
+  },
+  {
+   "t": 299.64,
+   "type": "whoosh"
+  },
+  {
+   "t": 302.98,
+   "type": "pop"
+  },
+  {
+   "t": 309.266,
+   "type": "thud",
+   "gain": 0.5
+  },
+  {
+   "t": 310.029,
+   "type": "page"
+  },
+  {
+   "t": 310.779,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 315.193,
+   "type": "steps",
+   "dur": 1.6,
+   "gain": 0.4
+  },
+  {
+   "t": 316.093,
+   "type": "waves",
+   "dur": 1.5,
+   "gain": 0.4
+  },
+  {
+   "t": 322.263,
+   "type": "steps",
+   "dur": 1.2,
+   "gain": 0.4
+  },
+  {
+   "t": 325.34,
+   "type": "thud",
+   "gain": 0.5
+  },
+  {
+   "t": 332.521,
+   "type": "brick",
+   "gain": 0.5
+  },
+  {
+   "t": 332.921,
+   "type": "brick",
+   "gain": 0.5
+  },
+  {
+   "t": 333.321,
+   "type": "brick",
+   "gain": 0.5
+  },
+  {
+   "t": 333.721,
+   "type": "brick",
+   "gain": 0.5
+  },
+  {
+   "t": 339.1,
+   "type": "thud",
+   "gain": 0.4
+  },
+  {
+   "t": 349.66,
+   "type": "gong",
+   "gain": 0.3
+  },
+  {
+   "t": 350.996,
+   "type": "cloth"
+  },
+  {
+   "t": 355.849,
+   "type": "coins",
+   "gain": 0.5
+  },
+  {
+   "t": 362.12,
+   "type": "steps",
+   "dur": 1.6,
+   "gain": 0.5
+  },
+  {
+   "t": 369.6,
+   "type": "cloth"
+  },
+  {
+   "t": 370.1,
+   "type": "coins"
+  },
+  {
+   "t": 370.831,
+   "type": "page"
+  },
+  {
+   "t": 371.581,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 376.549,
+   "type": "steps",
+   "dur": 2,
+   "gain": 0.45
+  },
+  {
+   "t": 381.679,
+   "type": "steps",
+   "dur": 1,
+   "gain": 0.4
+  },
+  {
+   "t": 385.54,
+   "type": "cannon",
+   "gain": 0.35
+  },
+  {
+   "t": 386.422,
+   "type": "scroll"
+  },
+  {
+   "t": 387.122,
+   "type": "seal"
+  },
+  {
+   "t": 390.529,
+   "type": "whoosh"
+  },
+  {
+   "t": 391.829,
+   "type": "coins",
+   "gain": 0.6
+  },
+  {
+   "t": 396.491,
+   "type": "quill",
+   "dur": 1.6
+  },
+  {
+   "t": 419.87,
+   "type": "page"
+  },
+  {
+   "t": 420.62,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 438.696,
+   "type": "steps",
+   "dur": 1.6
+  },
+  {
+   "t": 451.886,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 452.286,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 452.686,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 458.743,
+   "type": "slide",
+   "dur": 2
+  },
+  {
+   "t": 466.338,
+   "type": "page"
+  },
+  {
+   "t": 467.088,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 470.16,
+   "type": "thud",
+   "gain": 0.3
+  },
+  {
+   "t": 471.3,
+   "type": "page"
+  },
+  {
+   "t": 477.515,
+   "type": "steps",
+   "dur": 2
+  },
+  {
+   "t": 490.38,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 491.28,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 491.96,
+   "type": "pop",
+   "gain": 0.5
+  },
+  {
+   "t": 509.06,
+   "type": "waves",
+   "dur": 1.6,
+   "gain": 0.4
+  },
+  {
+   "t": 512.24,
+   "type": "thud",
+   "gain": 0.4
+  },
+  {
+   "t": 512.432,
+   "type": "page"
+  },
+  {
+   "t": 513.182,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 519.199,
+   "type": "scroll"
+  },
+  {
+   "t": 519.899,
+   "type": "seal"
+  },
+  {
+   "t": 522.479,
+   "type": "whoosh"
+  },
+  {
+   "t": 523.279,
+   "type": "scroll"
+  },
+  {
+   "t": 529.419,
+   "type": "page"
+  },
+  {
+   "t": 539.936,
+   "type": "coins",
+   "gain": 0.5
+  },
+  {
+   "t": 547.894,
+   "type": "page"
+  },
+  {
+   "t": 548.644,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 563.88,
+   "type": "slide",
+   "dur": 1
+  },
+  {
+   "t": 568.278,
+   "type": "seal"
+  },
+  {
+   "t": 579.656,
+   "type": "page"
+  },
+  {
+   "t": 580.406,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 590.646,
+   "type": "gong",
+   "gain": 0.3
+  },
+  {
+   "t": 600.327,
+   "type": "seal",
+   "gain": 0.5
+  },
+  {
+   "t": 600.927,
+   "type": "seal",
+   "gain": 0.5
+  },
+  {
+   "t": 601.527,
+   "type": "seal",
+   "gain": 0.5
+  },
+  {
+   "t": 606.416,
+   "type": "steps",
+   "dur": 2.4
+  },
+  {
+   "t": 614.469,
+   "type": "page"
+  },
+  {
+   "t": 615.069,
+   "type": "page",
+   "gain": 0.6
+  },
+  {
+   "t": 617.604,
+   "type": "page"
+  },
+  {
+   "t": 618.354,
+   "type": "seal",
+   "gain": 0.6
+  },
+  {
+   "t": 625.565,
+   "type": "thud",
+   "gain": 0.5
+  },
+  {
+   "t": 634.809,
+   "type": "scroll"
+  },
+  {
+   "t": 635.509,
+   "type": "seal"
+  },
+  {
+   "t": 640.405,
+   "type": "whoosh"
+  },
+  {
+   "t": 641.505,
+   "type": "slide",
+   "dur": 1.4
+  },
+  {
+   "t": 646.773,
+   "type": "gong",
+   "gain": 0.45
+  },
+  {
+   "t": 651.54,
+   "type": "cloth"
+  },
+  {
+   "t": 669.695,
+   "type": "page"
+  }
+ ]
+}

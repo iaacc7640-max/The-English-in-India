@@ -1,0 +1,97 @@
+// Boot: fonts → script + timing → captions → shots. Then draw(t) renders film time t (pure function of t).
+// window.OP is the API tools/capture.mjs drives: ready, bootError, duration(), draw(t), frame(t, q), cues(), shots().
+import { W, H, setCtx, ctx, clamp, eo, eio } from './core/lib.js';
+import { T, loadTiming } from './core/timing.js';
+import { buildCaptions, drawCaption, captionList } from './core/captions.js';
+import { buildShots } from './shots.js';
+import { loadGeo as K_loadGeo } from './core/kit-map.js';
+
+const cv = document.getElementById('cv');
+setCtx(cv.getContext('2d'));
+const OP = (window.OP = { ready: false });
+
+const mainC = ctx, off = document.createElement('canvas'); off.width = W; off.height = H; const offC = off.getContext('2d');
+const XF = 0.4;   // cross-fade length between shots (s)
+/** draw one shot (camera + art) into the current ctx */
+function scene(sh, lt, d, t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  // camera: a gentle settle on the cut + a slow push across the shot ("camera always moving")
+  const punch = 1 + 0.03 * (1 - eo(clamp(lt / 0.5)));
+  const drift = 1 + (sh.zoom ?? 0.06) * eio(clamp(lt / d));
+  // sh.camera(lt, d) -> { x, y, zoom } puts page point (x, y) at frame centre (parallax pans); else cam + slow push
+  const cam = sh.camera ? sh.camera(lt, d) : null;
+  ctx.save();
+  if (cam) { const z = (cam.zoom ?? 1) * punch; ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-cam.x, -cam.y); }
+  else { const [cx, cy] = sh.cam || [W / 2, H / 2]; ctx.translate(cx, cy); ctx.scale(punch * drift, punch * drift); ctx.translate(-cx, -cy); }
+  sh.draw(lt, d, t);
+  ctx.restore();
+  ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
+}
+function draw(t) {
+  t = clamp(t, 0, T.dur - 1e-4);
+  const S = OP._shots; let i = S.length - 1; while (i > 0 && S[i].at > t) i--;
+  const sh = S[i], end = i < S.length - 1 ? S[i + 1].at : T.dur, d = end - sh.at, lt = t - sh.at, prev = i > 0 ? S[i - 1] : null;
+  if (prev && lt < XF && !sh.card && !prev.card && !sh.noXfade) {
+    // cross-fade: the previous shot keeps moving underneath while the new one fades in
+    const pd = sh.at - prev.at; scene(prev, pd + lt, pd, t);
+    setCtx(offC); scene(sh, lt, d, t); setCtx(mainC);
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = eio(clamp(lt / XF)); ctx.drawImage(off, 0, 0); ctx.restore();
+  } else scene(sh, lt, d, t);
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+
+  if (sh.overlay) { ctx.save(); sh.overlay(lt, d, t); ctx.restore(); }   // screen-fixed layer (era bar, farman stack): no camera
+  if (!sh.card && !sh.noCaption) drawCaption(t);
+  // fade from / to black on the first and last 0.25 s (over everything)
+  const fade = Math.min(clamp(t / 0.25), clamp((T.dur - t) / 0.35));
+  if (fade < 1) { ctx.fillStyle = '#000'; ctx.globalAlpha = 1 - fade; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
+  if (GUIDES) guides();
+}
+const GUIDES = new URLSearchParams(location.search).has('guides');
+/** layout guides (?guides=1): title-safe box, caption band, era bar line, end-screen box */
+function guides() {
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.lineWidth = 3; ctx.setLineDash([14, 10]);
+  ctx.strokeStyle = '#0090FF'; ctx.strokeRect(96, 54, 1728, 972);
+  ctx.strokeStyle = '#FF00AA'; ctx.strokeRect(2, 860, W - 4, 150);
+  ctx.strokeStyle = '#00B050'; ctx.beginPath(); ctx.moveTo(0, 70); ctx.lineTo(W, 70); ctx.stroke();
+  ctx.strokeStyle = '#FF7A00'; ctx.strokeRect(1824 - 420, 1026 - 260, 420, 260);
+  ctx.setLineDash([]); ctx.font = '700 22px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = '#0090FF'; ctx.fillText('title-safe 96-1824 x 54-1026', 110, 120);
+  ctx.fillStyle = '#FF00AA'; ctx.fillText('no moving art: y 860-1010', 110, 852);
+  ctx.fillStyle = '#FF7A00'; ctx.fillText('end screen 420x260 (last 20 s)', 1414, 758);
+  ctx.restore();
+}
+
+(async () => {
+  try {
+    await document.fonts.load('900 100px Inter'); await document.fonts.load('700 100px Caladea');
+    const script = await (await fetch('script.json', { cache: 'no-store' })).json();
+    await loadTiming();
+    buildCaptions(script);
+    await K_loadGeo();
+    const { shots, cues, music, chStart } = buildShots(script);
+    shots.sort((a, b) => a.at - b.at);
+    OP._shots = shots; OP.script = script;
+    OP.duration = () => T.dur;
+    OP.draw = draw;
+    OP.frame = (t, q = 0.92) => { draw(t); return cv.toDataURL('image/jpeg', q); };
+    OP.shots = () => shots.map((s, i) => ({ id: s.id, at: +s.at.toFixed(3), end: +(i < shots.length - 1 ? shots[i + 1].at : T.dur).toFixed(3), note: s.note || '' }));
+    OP.captions = () => captionList().map((c) => ({ s: +c.s.toFixed(3), e: +c.e.toFixed(3), text: c.words.map((w) => (w.hi ? '*' : '') + w.txt).join(' ') }));
+    OP.cues = () => cues.slice().sort((a, b) => a.t - b.t);
+    OP.music = () => music || [];
+    OP.chapters = () => (chStart || []).map((t, i) => ({ chapter: i, start: +t.toFixed(3), title: script.chapters[i][1] }));
+    OP.ready = true;
+    // preview mode (not capture): play in real time, ?t=12.3 to hold a frame
+    const q = new URLSearchParams(location.search);
+    if (!q.has('capture')) {
+      if (q.has('t')) draw(+q.get('t'));
+      else {
+        const audio = new Audio('data/mix.wav'); let t0 = null;
+        const btn = document.getElementById('play'); btn.hidden = false;
+        btn.onclick = () => { btn.hidden = true; t0 = performance.now(); audio.currentTime = 0; audio.play().catch(() => {}); };
+        const loop = (now) => { const t = t0 == null ? 0 : (now - t0) / 1000; draw(t0 == null ? 0 : t); if (t0 != null && t > T.dur) { t0 = null; btn.hidden = false; } requestAnimationFrame(loop); };
+        requestAnimationFrame(loop);
+      }
+    }
+  } catch (e) { OP.bootError = String(e && e.stack || e); console.error(e); }
+})();

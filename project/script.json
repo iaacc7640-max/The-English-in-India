@@ -1,0 +1,1000 @@
+{
+ "title": "From Merchants to Masters: The English in India, 1600-1947",
+ "voice": "bm_george",
+ "speed": 0.95,
+ "lead": 0.4,
+ "outro": 2.2,
+ "gap": 0.27,
+ "music": "chapters",
+ "chapters": [
+  [
+   0,
+   "Cold open",
+   "tension"
+  ],
+  [
+   1,
+   "1600: A Queen's Charter",
+   "bed"
+  ],
+  [
+   2,
+   "1612: Knocking on Jahangir's Door",
+   "bed"
+  ],
+  [
+   3,
+   "1639: A Fort on the Sand",
+   "bed"
+  ],
+  [
+   4,
+   "1668: Ten Pounds for Bombay",
+   "bed"
+  ],
+  [
+   5,
+   "1686: The War They Lost",
+   "bed"
+  ],
+  [
+   6,
+   "1690: Three Villages",
+   "bed"
+  ],
+  [
+   7,
+   "1717: The Company's Magna Carta",
+   "bed"
+  ],
+  [
+   8,
+   "1757: Next, the French",
+   "bed"
+  ],
+  [
+   9,
+   "1757: Battle of Plassey",
+   "tension"
+  ],
+  [
+   10,
+   "1765: Buxar and the Diwani",
+   "bed"
+  ],
+  [
+   11,
+   "1799: The Company Conquers",
+   "bed"
+  ],
+  [
+   12,
+   "1857: The Great Revolt",
+   "tension"
+  ],
+  [
+   13,
+   "1858: The Crown Takes Over",
+   "bed"
+  ],
+  [
+   14,
+   "1885: A Voice for India",
+   "bed"
+  ],
+  [
+   15,
+   "1919: Gandhi's India",
+   "tension"
+  ],
+  [
+   16,
+   "1947: Freedom at Midnight",
+   "build"
+  ]
+ ],
+ "sources": [
+  "Rajiv Ahir, A Brief History of Modern India, ch. 3 'Advent of the Europeans in India', section on the English (Golden Farman 1632 and 500 pagodas; Shah Shuja's 1651 farman, Rs 3,000; Roe's factories at Agra, Ahmedabad, Broach; three villages bought for Rs 1,200 in 1698; Fort William 1700; the 1717 farmans as the Company's 'Magna Carta'; Bombay coins valid across the empire)",
+  "Wikipedia, 'Anglo-Mughal war (1686-1690)' (1686 fighting at Hooghly and the English withdrawal; 1689 Sidi Yaqub blockades Bombay; famine; 1690 envoys plead for pardon; fine of 150,000 rupees; promise of better behaviour)",
+  "Wikipedia, 'Job Charnock' (24 August 1690 return; 10 February 1691 grant to 'contentedly continue their trade'; 16 May 2003 Calcutta High Court ruling)",
+  "Wikipedia, 'William Hamilton (surgeon)' (Surman's mission in Delhi 1715; Hamilton treated Farrukhsiyar in 1715; farman issued April 1717)",
+  "Wikipedia, 'Francis Day (Madras)' (grant dated August 1639 from the local Nayak; land between the Cooum and Egmore rivers)",
+  "Wikipedia, 'History of Bombay under British rule (1661-1947)' (marriage treaty 23 June 1661; lease to the Company 27 March 1668 at GBP 10 a year)",
+  "Wikipedia, 'East India Company' (charter 31 December 1600; Battle of Swally 1612; Surat factory 1613; Roe 1615; merger 1708; Plassey 1757 and Mir Jafar made Nawab)",
+  "Wikipedia, 'Battle of Swally' (29-30 November 1612, Best's ships against a larger Portuguese force)",
+  "Wikipedia, 'Fort William, India' (begun 1696, named after William III in 1700); 'Farrukhsiyar' (1717 farman, duty-free trade in Bengal, dastaks)",
+  "GKToday and Banglapedia (Hawkins at Agra 1609-1611; Sobha Singh's revolt of 1696 let the English fortify; 9 November 1698 deed for the three villages; Bombay headquarters from 1687)",
+  "Wikipedia (part two): Carnatic wars; Siraj ud-Daulah; Battle of Plassey; Mir Qasim; Battle of Buxar; Treaty of Allahabad; Great Bengal famine of 1770; Regulating Act of 1773; Anglo-Mysore wars; Subsidiary alliance; Third Anglo-Maratha War; Second Anglo-Sikh War; Doctrine of lapse; Rail transport in India; Indian Rebellion of 1857; Bahadur Shah Zafar; Government of India Act 1858; East India Company (dissolved 1874); Delhi Durbar (1877, 1911); Dadabhai Naoroji; Indian National Congress; Partition of Bengal (1905); Champaran Satyagraha (Gandhi's return 1915); Jallianwala Bagh massacre; Non-cooperation movement (1919-1922); Salt March; Quit India Movement; Indian National Army; Indian Independence Act 1947; Partition of India",
+  "Map: Natural Earth 1:50m land and 1:10m rivers (public domain)"
+ ],
+ "phonemes": {
+  "Jahangir": "dʒəhˈɑːŋɡiːɹ",
+  "Ahmedabad": "ˈɑːmədɑːbˌɑːd",
+  "Broach": "bɹˈoːtʃ",
+  "Gobindapur": "ɡˈoːbɪndəpʊɹ",
+  "Kalikata": "kˈɑːlɪkɑːtɑː",
+  "Shah Alam": "ʃˈɑː ˈɑːləm",
+  "Thane": "tˈɑːneɪ",
+  "Sutanuti": "sˌuːtɑːnˈuːtiː",
+  "Hooghly": "hˈuːɡliː",
+  "Aurangzeb": "ˈɔːɹəŋzɛb",
+  "Surat": "sˈuːɹət",
+  "Nayak": "nˈɑːjək",
+  "zamindar": "zəmiːndˈɑːɹ",
+  "Sobha Singh": "ʃˈoːbɑː sˈɪŋ",
+  "Farrukhsiyar": "fəɹˈʊksɪjɑːɹ",
+  "Sidi Yaqub": "sˈɪdiː jɑːkˈuːb",
+  "Siraj-ud-Daulah": "sɪɹˈɑːdʒ ʊd dˈaʊlə",
+  "Mir Jafar": "mˈiːɹ dʒˈɑːfəɹ",
+  "Mir Qasim": "mˈiːɹ kˈɑːsɪm",
+  "Awadh": "ˈʌvəd",
+  "Diwani": "diːwˈɑːniː",
+  "Lakshmibai": "lˈʌkʃmiːbaːi",
+  "Dandi": "dˈɑːndiː",
+  "Subhas": "sʊbˈɑːʃ",
+  "Jagat Seth": "dʒˈʌɡət sˈeːt",
+  "Mehtab Chand": "mˈeːtɑːb tʃˈʌnd",
+  "farman": "fəɹmˈɑːn",
+  "farmans": "fəɹmˈɑːnz"
+ },
+ "lines": [
+  {
+   "chapter": 0,
+   "text": "In sixteen ninety,",
+   "caps": "In *1690,"
+  },
+  {
+   "chapter": 0,
+   "text": "envoys of the English East India Company",
+   "caps": "envoys of the *English | East India *Company"
+  },
+  {
+   "chapter": 0,
+   "text": "stood before the court of Emperor Aurangzeb,",
+   "caps": "before Emperor *Aurangzeb,"
+  },
+  {
+   "chapter": 0,
+   "text": "bowed to the ground,",
+   "caps": "bowed to the *ground,"
+  },
+  {
+   "chapter": 0,
+   "text": "paid a heavy fine,",
+   "caps": "paid a heavy *fine,"
+  },
+  {
+   "chapter": 0,
+   "text": "and begged for a pardon.",
+   "caps": "and begged for a *pardon."
+  },
+  {
+   "chapter": 0,
+   "text": "They had just lost a war against the Mughal Empire.",
+   "caps": "They had *lost | against the *Mughals."
+  },
+  {
+   "chapter": 0,
+   "text": "Yet less than seventy years later,",
+   "caps": "Less than *70 years later,"
+  },
+  {
+   "chapter": 0,
+   "text": "the same company would be choosing who ruled Bengal.",
+   "caps": "choosing who ruled *Bengal."
+  },
+  {
+   "chapter": 0,
+   "text": "So how did a group of traders on their knees",
+   "caps": "traders on their *knees"
+  },
+  {
+   "chapter": 0,
+   "text": "end up making kings?",
+   "caps": "making *kings?",
+   "gap": 4.0
+  },
+  {
+   "chapter": 1,
+   "text": "It began in London, full of confidence.",
+   "caps": "It began in *London,"
+  },
+  {
+   "chapter": 1,
+   "text": "Francis Drake had sailed around the world,",
+   "caps": "Drake sailed *around the world,"
+  },
+  {
+   "chapter": 1,
+   "text": "and in fifteen eighty-eight England had beaten the Spanish Armada.",
+   "caps": "In *1588, | the Spanish *Armada"
+  },
+  {
+   "chapter": 1,
+   "text": "English merchants heard how rich the Portuguese had grown in the East,",
+   "caps": "how *rich | the *Portuguese had grown"
+  },
+  {
+   "chapter": 1,
+   "text": "and wanted a share.",
+   "caps": "and wanted a *share."
+  },
+  {
+   "chapter": 1,
+   "text": "So on the last day of the year sixteen hundred,",
+   "caps": "on 31 December *1600,"
+  },
+  {
+   "chapter": 1,
+   "text": "Queen Elizabeth the First gave a group of London merchants a charter,",
+   "caps": "Queen *Elizabeth | gave a *charter,"
+  },
+  {
+   "chapter": 1,
+   "text": "and the sole right to trade with the East Indies.",
+   "caps": "the *sole right | to the *East Indies."
+  },
+  {
+   "chapter": 1,
+   "text": "The Dutch already held the Spice Islands,",
+   "caps": "The *Dutch | held the Spice *Islands,"
+  },
+  {
+   "chapter": 1,
+   "text": "so the English turned to India,",
+   "caps": "the English turned to *India,"
+  },
+  {
+   "chapter": 1,
+   "text": "and its cloth.",
+   "caps": "and its *cloth.",
+   "gap": 3.6
+  },
+  {
+   "chapter": 2,
+   "text": "The first steps were humbling.",
+   "caps": "The first *steps | were *humbling."
+  },
+  {
+   "chapter": 2,
+   "text": "Captain William Hawkins reached Emperor Jahangir's court in sixteen-oh-nine,",
+   "caps": "Hawkins reached *Jahangir | in *1609,"
+  },
+  {
+   "chapter": 2,
+   "text": "but the Portuguese blocked him,",
+   "caps": "the Portuguese *blocked him,"
+  },
+  {
+   "chapter": 2,
+   "text": "and he left with nothing.",
+   "caps": "he left with *nothing."
+  },
+  {
+   "chapter": 2,
+   "text": "Then, in sixteen twelve, Captain Thomas Best beat a Portuguese fleet off Surat,",
+   "caps": "In *1612, | Thomas *Best | beat a Portuguese *fleet"
+  },
+  {
+   "chapter": 2,
+   "text": "and an impressed Jahangir",
+   "caps": "an *impressed Jahangir"
+  },
+  {
+   "chapter": 2,
+   "text": "let the English open a factory there.",
+   "caps": "a *factory at Surat."
+  },
+  {
+   "chapter": 2,
+   "text": "In sixteen fifteen, King James sent a proper ambassador, Sir Thomas Roe.",
+   "caps": "In *1615, | ambassador Sir Thomas *Roe."
+  },
+  {
+   "chapter": 2,
+   "text": "He never got the treaty he wanted,",
+   "caps": "never got his *treaty,"
+  },
+  {
+   "chapter": 2,
+   "text": "but he won the right to set up factories",
+   "caps": "but he won *factories"
+  },
+  {
+   "chapter": 2,
+   "text": "at Agra, Ahmedabad and Broach.",
+   "caps": "at Agra, *Ahmedabad | and *Broach.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 3,
+   "text": "On the east coast,",
+   "caps": "On the *east coast,"
+  },
+  {
+   "chapter": 3,
+   "text": "the Sultan of Golconda gave them a golden farman in sixteen thirty-two:",
+   "caps": "a *golden farman | in *1632,",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 3,
+   "text": "free trade in his ports for five hundred gold pagodas a year.",
+   "caps": "free *trade | for *500 pagodas a year."
+  },
+  {
+   "chapter": 3,
+   "text": "Then, in sixteen thirty-nine,",
+   "caps": "Then, in *1639,"
+  },
+  {
+   "chapter": 3,
+   "text": "a Company merchant named Francis Day",
+   "caps": "merchant Francis *Day"
+  },
+  {
+   "chapter": 3,
+   "text": "got a local Nayak ruler to grant a strip of sandy coast.",
+   "caps": "a local *Nayak | a strip of *coast."
+  },
+  {
+   "chapter": 3,
+   "text": "There, the English built Fort Saint George.",
+   "caps": "Fort *St George."
+  },
+  {
+   "chapter": 3,
+   "text": "Around it grew a town called Madras.",
+   "caps": "a town called *Madras.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 4,
+   "text": "In the west, the luck came through a wedding.",
+   "caps": "the *luck came | through a *wedding."
+  },
+  {
+   "chapter": 4,
+   "text": "In sixteen sixty-two, King Charles the Second married a Portuguese princess,",
+   "caps": "In *1662, | Charles the Second *married"
+  },
+  {
+   "chapter": 4,
+   "text": "Catherine of Braganza,",
+   "caps": "Catherine of *Braganza,"
+  },
+  {
+   "chapter": 4,
+   "text": "and the islands of Bombay came as part of her dowry.",
+   "caps": "the islands of *Bombay | part of her *dowry."
+  },
+  {
+   "chapter": 4,
+   "text": "Charles had little use for them,",
+   "caps": "little *use for them,"
+  },
+  {
+   "chapter": 4,
+   "text": "so in sixteen sixty-eight, he rented Bombay to the Company",
+   "caps": "In *1668, | he *rented Bombay"
+  },
+  {
+   "chapter": 4,
+   "text": "for just ten pounds a year.",
+   "caps": "for just *£10 a year."
+  },
+  {
+   "chapter": 4,
+   "text": "By sixteen eighty-seven, Bombay had replaced Surat",
+   "caps": "By *1687, | Bombay replaced *Surat"
+  },
+  {
+   "chapter": 4,
+   "text": "as the Company's western headquarters.",
+   "caps": "the western *headquarters.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 5,
+   "text": "Bengal was the richest prize of all.",
+   "caps": "Bengal was the *richest | prize of *all."
+  },
+  {
+   "chapter": 5,
+   "text": "From sixteen fifty-one, the Company traded there",
+   "caps": "From *1651,"
+  },
+  {
+   "chapter": 5,
+   "text": "for a flat three thousand rupees a year,",
+   "caps": "flat *Rs 3,000 a year,"
+  },
+  {
+   "chapter": 5,
+   "text": "but local officials kept demanding tolls.",
+   "caps": "officials demanded *tolls."
+  },
+  {
+   "chapter": 5,
+   "text": "In London, the Company's governor, Josiah Child,",
+   "caps": "governor Josiah *Child,"
+  },
+  {
+   "chapter": 5,
+   "text": "decided to fight.",
+   "caps": "decided to *fight."
+  },
+  {
+   "chapter": 5,
+   "text": "It was a disaster.",
+   "caps": "It was a *disaster."
+  },
+  {
+   "chapter": 5,
+   "text": "In sixteen eighty-six, fighting broke out at Hooghly,",
+   "caps": "In *1686, | fighting at *Hooghly,"
+  },
+  {
+   "chapter": 5,
+   "text": "and the English were driven out of the town.",
+   "caps": "and the *English | were *driven out."
+  },
+  {
+   "chapter": 5,
+   "text": "Soon a Mughal admiral, Sidi Yaqub,",
+   "caps": "admiral Sidi *Yaqub"
+  },
+  {
+   "chapter": 5,
+   "text": "blockaded Bombay",
+   "caps": "*blockaded Bombay"
+  },
+  {
+   "chapter": 5,
+   "text": "until famine forced the English to give in.",
+   "caps": "until *famine | forced them to *give in."
+  },
+  {
+   "chapter": 5,
+   "text": "Peace came at a price:",
+   "caps": "Peace *came | at a *price:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 5,
+   "text": "a fine of one hundred and fifty thousand rupees,",
+   "caps": "a fine of *1,50,000 rupees,"
+  },
+  {
+   "chapter": 5,
+   "text": "a public apology, and a promise to behave.",
+   "caps": "a public *apology, | a promise to *behave.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 6,
+   "text": "Aurangzeb forgave them, and trade resumed.",
+   "caps": "Aurangzeb *forgave them, | and trade *resumed."
+  },
+  {
+   "chapter": 6,
+   "text": "In August sixteen ninety, the Company agent Job Charnock",
+   "caps": "In August *1690, | the agent Job *Charnock"
+  },
+  {
+   "chapter": 6,
+   "text": "came back to a riverside village called Sutanuti.",
+   "caps": "a village called *Sutanuti."
+  },
+  {
+   "chapter": 6,
+   "text": "When a local zamindar, Sobha Singh, rebelled in sixteen ninety-six,",
+   "caps": "a local *zamindar | rebelled in *1696,"
+  },
+  {
+   "chapter": 6,
+   "text": "the English used it as an excuse to build walls.",
+   "caps": "an *excuse | to build *walls."
+  },
+  {
+   "chapter": 6,
+   "text": "Two years later they bought the rights to three villages,",
+   "caps": "Two years *later, | *three villages,"
+  },
+  {
+   "chapter": 6,
+   "text": "Sutanuti, Gobindapur and Kalikata,",
+   "caps": "Sutanuti, Gobindapur, *Kalikata,"
+  },
+  {
+   "chapter": 6,
+   "text": "for twelve hundred rupees.",
+   "caps": "for *1,200 rupees."
+  },
+  {
+   "chapter": 6,
+   "text": "By seventeen hundred, the walls had a name, Fort William,",
+   "caps": "By *1700, | the walls had a *name: | Fort *William,"
+  },
+  {
+   "chapter": 6,
+   "text": "and the town around it became Calcutta.",
+   "caps": "the town became *Calcutta."
+  },
+  {
+   "chapter": 6,
+   "text": "Charnock is often called its founder,",
+   "caps": "often called its *founder,"
+  },
+  {
+   "chapter": 6,
+   "text": "though in two thousand and three, the Calcutta High Court ruled",
+   "caps": "though in *2003, | the High *Court ruled"
+  },
+  {
+   "chapter": 6,
+   "text": "that a thriving settlement was already there before him.",
+   "caps": "a *thriving settlement | was *already there.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 7,
+   "text": "Back in England, a rival company had been set up,",
+   "caps": "a *rival company"
+  },
+  {
+   "chapter": 7,
+   "text": "but it flopped, and in seventeen-oh-eight the two merged into one.",
+   "caps": "it *flopped, | in *1708 | the two *merged."
+  },
+  {
+   "chapter": 7,
+   "text": "Then, in seventeen fifteen, a Company mission led by John Surman",
+   "caps": "In *1715, | led by John *Surman"
+  },
+  {
+   "chapter": 7,
+   "text": "reached the court of Emperor Farrukhsiyar.",
+   "caps": "the court of *Farrukhsiyar."
+  },
+  {
+   "chapter": 7,
+   "text": "The mission's surgeon, William Hamilton,",
+   "caps": "surgeon William *Hamilton,"
+  },
+  {
+   "chapter": 7,
+   "text": "even treated the emperor's illness.",
+   "caps": "treated the emperor's *illness."
+  },
+  {
+   "chapter": 7,
+   "text": "In seventeen seventeen, Farrukhsiyar issued farmans so generous",
+   "caps": "In *1717, | farmans so *generous"
+  },
+  {
+   "chapter": 7,
+   "text": "that the Company called them its Magna Carta:",
+   "caps": "its *Magna Carta:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 7,
+   "text": "almost no customs duties in Bengal,",
+   "caps": "almost no *duties in Bengal,"
+  },
+  {
+   "chapter": 7,
+   "text": "its own transit passes,",
+   "caps": "its own *passes,"
+  },
+  {
+   "chapter": 7,
+   "text": "more land around Calcutta,",
+   "caps": "more *land | around *Calcutta,"
+  },
+  {
+   "chapter": 7,
+   "text": "and Bombay-minted coins valid across the empire.",
+   "caps": "Bombay-minted *coins | valid across the *empire.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 8,
+   "text": "Madras, Bombay and Calcutta,",
+   "caps": "Madras, Bombay, *Calcutta,"
+  },
+  {
+   "chapter": 8,
+   "text": "three small forts on three coasts,",
+   "caps": "three small *forts,"
+  },
+  {
+   "chapter": 8,
+   "text": "would become the three pillars of British India.",
+   "caps": "the three *pillars | of British *India."
+  },
+  {
+   "chapter": 8,
+   "text": "But first, the English had one more rival to beat:",
+   "caps": "one more *rival:"
+  },
+  {
+   "chapter": 8,
+   "text": "the French.",
+   "caps": "the *French."
+  },
+  {
+   "chapter": 8,
+   "text": "And in seventeen fifty-seven, at Plassey,",
+   "caps": "In *1757, | at *Plassey,"
+  },
+  {
+   "chapter": 8,
+   "text": "the traders who once knelt before the Mughals",
+   "caps": "who once *knelt"
+  },
+  {
+   "chapter": 8,
+   "text": "would put their own man on the throne of Bengal.",
+   "caps": "their own *man | on the *throne.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 9,
+   "text": "First, though, the English had to deal with the French.",
+   "caps": "deal with the *French."
+  },
+  {
+   "chapter": 9,
+   "text": "In the seventeen-forties and fifties, the two companies fought three wars in the south,",
+   "caps": "three *wars | in the *south,"
+  },
+  {
+   "chapter": 9,
+   "text": "the Carnatic Wars,",
+   "caps": "the *Carnatic Wars,"
+  },
+  {
+   "chapter": 9,
+   "text": "and after a defeat at Wandiwash, the French lost Pondicherry in seventeen sixty-one.",
+   "caps": "after *Wandiwash, | Pondicherry, *1761."
+  },
+  {
+   "chapter": 9,
+   "text": "Meanwhile in Bengal, a young Nawab, Siraj-ud-Daulah,",
+   "caps": "a young *Nawab, | *Siraj-ud-Daulah,"
+  },
+  {
+   "chapter": 9,
+   "text": "was angry that the English were fortifying Calcutta without his permission.",
+   "caps": "fortifying *Calcutta | without *permission."
+  },
+  {
+   "chapter": 9,
+   "text": "In seventeen fifty-six, he seized the town.",
+   "caps": "In *1756, | he *seized the town."
+  },
+  {
+   "chapter": 9,
+   "text": "Robert Clive sailed up from Madras and took it back.",
+   "caps": "Robert *Clive | took it *back."
+  },
+  {
+   "chapter": 9,
+   "text": "Then, on the twenty-third of June, seventeen fifty-seven, the two armies met at Plassey.",
+   "caps": "23 June *1757, | at *Plassey."
+  },
+  {
+   "chapter": 9,
+   "text": "But Clive had made a secret deal with the Nawab's commander, Mir Jafar.",
+   "caps": "a *secret deal | with Mir *Jafar."
+  },
+  {
+   "chapter": 9,
+   "text": "The banker Jagat Seth Mehtab Chand and other wealthy bankers helped to fund the plot.",
+   "caps": "banker Jagat *Seth | helped *fund the plot."
+  },
+  {
+   "chapter": 9,
+   "text": "Mir Jafar's troops stood aside, and the battle was over in a single day.",
+   "caps": "Mir Jafar's *troops | stood *aside,"
+  },
+  {
+   "chapter": 9,
+   "text": "Mir Jafar was made Nawab, and the Company collected a fortune.",
+   "caps": "Mir *Jafar | made *Nawab, | a *fortune.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 10,
+   "text": "The next Nawab, Mir Qasim, tried to rule on his own.",
+   "caps": "Mir *Qasim | tried to rule *alone."
+  },
+  {
+   "chapter": 10,
+   "text": "He joined the Nawab of Awadh and the Mughal emperor, Shah Alam the Second,",
+   "caps": "the Nawab of *Awadh, | Emperor *Shah Alam"
+  },
+  {
+   "chapter": 10,
+   "text": "but in seventeen sixty-four, the Company defeated all three at Buxar.",
+   "caps": "In *1764, | at *Buxar."
+  },
+  {
+   "chapter": 10,
+   "text": "The next year, at Allahabad, the emperor granted the Company the Diwani",
+   "caps": "at *Allahabad, | the *Diwani"
+  },
+  {
+   "chapter": 10,
+   "text": "of Bengal, Bihar and Orissa: the right to collect their land revenue.",
+   "caps": "Bengal, Bihar, *Orissa: | the right to *collect"
+  },
+  {
+   "chapter": 10,
+   "text": "The traders were now tax collectors for one of the richest regions on earth.",
+   "caps": "the *traders | were now *tax collectors"
+  },
+  {
+   "chapter": 10,
+   "text": "In seventeen seventy, famine struck Bengal.",
+   "caps": "In *1770, | *famine"
+  },
+  {
+   "chapter": 10,
+   "text": "Between seven and ten million people are thought to have died, and the Company did not reduce its taxes.",
+   "caps": "seven to ten *million | *died, | taxes not *reduced."
+  },
+  {
+   "chapter": 10,
+   "text": "In seventeen seventy-three, Parliament stepped in, and Warren Hastings became Governor-General of Bengal.",
+   "caps": "In *1773, | Warren *Hastings, | *Governor-General of Bengal.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 11,
+   "text": "From Calcutta, the Company now marched outward.",
+   "caps": "the *Company | marched *outward."
+  },
+  {
+   "chapter": 11,
+   "text": "In the south, it fought four wars against Mysore,",
+   "caps": "four *wars | against *Mysore,"
+  },
+  {
+   "chapter": 11,
+   "text": "until Tipu Sultan fell at Seringapatam in seventeen ninety-nine.",
+   "caps": "Tipu *Sultan | in *1799."
+  },
+  {
+   "chapter": 11,
+   "text": "Governor-General Wellesley pushed Indian rulers into a subsidiary alliance:",
+   "caps": "a subsidiary *alliance:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 11,
+   "text": "a Company army in your state, paid for by you.",
+   "caps": "a Company *army, | paid for by *you."
+  },
+  {
+   "chapter": 11,
+   "text": "The Marathas, the last great Indian power, were broken in eighteen eighteen,",
+   "caps": "the *Marathas | in *1818,"
+  },
+  {
+   "chapter": 11,
+   "text": "and the Sikh kingdom of Punjab fell in eighteen forty-nine.",
+   "caps": "the Sikh *kingdom | in *1849."
+  },
+  {
+   "chapter": 11,
+   "text": "Lord Dalhousie took over states whose rulers died without a natural heir:",
+   "caps": "Lord *Dalhousie | without an *heir:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 11,
+   "text": "the Doctrine of Lapse.",
+   "caps": "the Doctrine of *Lapse."
+  },
+  {
+   "chapter": 11,
+   "text": "He also brought railways: India's first passenger train ran from Bombay to Thane in eighteen fifty-three.",
+   "caps": "first *train | Bombay to *Thane, | in *1853.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 12,
+   "text": "But anger had been building: over lost kingdoms, heavy taxes, and new rifle cartridges",
+   "caps": "lost *kingdoms, | heavy *taxes,"
+  },
+  {
+   "chapter": 12,
+   "text": "rumoured to be greased with cow and pig fat.",
+   "caps": "*rumoured | to be *greased"
+  },
+  {
+   "chapter": 12,
+   "text": "On the tenth of May, eighteen fifty-seven, soldiers at Meerut rose up and marched to Delhi.",
+   "caps": "10 May *1857, | marched to *Delhi."
+  },
+  {
+   "chapter": 12,
+   "text": "They proclaimed the old emperor, Bahadur Shah Zafar, their leader.",
+   "caps": "Bahadur Shah *Zafar | their *leader."
+  },
+  {
+   "chapter": 12,
+   "text": "The revolt spread across the north: to Kanpur, Lucknow and Jhansi,",
+   "caps": "Kanpur, *Lucknow, | and *Jhansi,"
+  },
+  {
+   "chapter": 12,
+   "text": "where Rani Lakshmibai, who had lost her kingdom to the Doctrine of Lapse, became one of its leaders.",
+   "caps": "Rani *Lakshmibai, | one of its *leaders."
+  },
+  {
+   "chapter": 12,
+   "text": "It took the British more than a year to crush the revolt, and both sides committed atrocities against civilians.",
+   "caps": "more than a *year, | atrocities on both *sides."
+  },
+  {
+   "chapter": 12,
+   "text": "Bahadur Shah Zafar was exiled to Rangoon, and the Mughal dynasty came to an end.",
+   "caps": "exiled to *Rangoon, | the Mughal dynasty *ended.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 13,
+   "text": "In eighteen fifty-eight, Parliament took India away from the East India Company.",
+   "caps": "In *1858, | from the *Company."
+  },
+  {
+   "chapter": 13,
+   "text": "India was now ruled directly by the British Crown.",
+   "caps": "ruled by the British *Crown."
+  },
+  {
+   "chapter": 13,
+   "text": "That November, the British offered a pardon to all rebels not involved in murder.",
+   "caps": "a *pardon | for the *rebels."
+  },
+  {
+   "chapter": 13,
+   "text": "The old company itself was finally dissolved in eighteen seventy-four.",
+   "caps": "*dissolved | in *1874."
+  },
+  {
+   "chapter": 13,
+   "text": "In eighteen seventy-seven, Victoria was declared Empress of India.",
+   "caps": "In *1877, | *Empress of India."
+  },
+  {
+   "chapter": 13,
+   "text": "Railways and ports spread, but thinkers like Dadabhai Naoroji argued that India's wealth was being drained to Britain.",
+   "caps": "Dadabhai *Naoroji: | wealth *drained | to *Britain.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 14,
+   "text": "In eighteen eighty-five, educated Indians founded the Indian National Congress in Bombay.",
+   "caps": "In *1885, | the Indian National *Congress"
+  },
+  {
+   "chapter": 14,
+   "text": "At first, it asked for reforms with petitions and resolutions.",
+   "caps": "*petitions | and *resolutions."
+  },
+  {
+   "chapter": 14,
+   "text": "Then, in nineteen-oh-five, Viceroy Curzon split Bengal in two,",
+   "caps": "In *1905, | Curzon *split Bengal"
+  },
+  {
+   "chapter": 14,
+   "text": "and Bengal rose in protest.",
+   "caps": "Bengal rose in *protest."
+  },
+  {
+   "chapter": 14,
+   "text": "People boycotted British goods and bought Indian-made ones: Swadeshi.",
+   "caps": "*boycotted | British *goods: | *Swadeshi."
+  },
+  {
+   "chapter": 14,
+   "text": "In nineteen eleven, the partition was reversed, and the capital moved from Calcutta to Delhi.",
+   "caps": "In *1911, | capital to *Delhi.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 15,
+   "text": "In nineteen fifteen, Mohandas Gandhi came home from South Africa.",
+   "caps": "In *1915, | Mohandas *Gandhi"
+  },
+  {
+   "chapter": 15,
+   "text": "In April nineteen nineteen, at Jallianwala Bagh in Amritsar,",
+   "caps": "April *1919, | Jallianwala *Bagh"
+  },
+  {
+   "chapter": 15,
+   "text": "British troops fired on an unarmed crowd, and hundreds were killed.",
+   "caps": "an *unarmed crowd, | *hundreds killed."
+  },
+  {
+   "chapter": 15,
+   "text": "In nineteen twenty, Gandhi answered with non-violent non-cooperation:",
+   "caps": "In *1920, | *non-cooperation:",
+   "break": true,
+   "gap": 0.25
+  },
+  {
+   "chapter": 15,
+   "text": "Indians gave up foreign cloth, returned British titles and resigned from their posts.",
+   "caps": "foreign *cloth, | British *titles, | their *posts."
+  },
+  {
+   "chapter": 15,
+   "text": "In nineteen thirty, he walked about two hundred and forty miles to the sea at Dandi, to make salt and break the salt law.",
+   "caps": "In *1930, | to the sea at *Dandi, | to make *salt."
+  },
+  {
+   "chapter": 15,
+   "text": "Newspapers around the world reported it.",
+   "caps": "around the *world.",
+   "gap": 1.65
+  },
+  {
+   "chapter": 16,
+   "text": "In nineteen forty-two, during the Second World War, Congress told the British: Quit India.",
+   "caps": "In *1942, | *Quit India."
+  },
+  {
+   "chapter": 16,
+   "text": "Almost all its leaders were jailed, while Subhas Chandra Bose led the Indian National Army against the British from South-East Asia.",
+   "caps": "leaders *jailed, | Subhas Chandra *Bose"
+  },
+  {
+   "chapter": 16,
+   "text": "In July nineteen forty-seven, the British Parliament passed the Indian Independence Act.",
+   "caps": "July *1947: | the Independence *Act."
+  },
+  {
+   "chapter": 16,
+   "text": "British India was divided into two countries, India and Pakistan.",
+   "caps": "*divided | into India and *Pakistan."
+  },
+  {
+   "chapter": 16,
+   "text": "At midnight on the fifteenth of August, nineteen forty-seven, India became free.",
+   "caps": "15 August *1947, | India became *free."
+  },
+  {
+   "chapter": 16,
+   "text": "Partition drove between twelve and twenty million people from their homes.",
+   "caps": "12 to 20 *million | from their *homes."
+  },
+  {
+   "chapter": 16,
+   "text": "Three hundred and forty-seven years after a queen signed a charter for London merchants,",
+   "caps": "*347 years | after a *charter,"
+  },
+  {
+   "chapter": 16,
+   "text": "the story that began with traders on their knees",
+   "caps": "traders on their *knees"
+  },
+  {
+   "chapter": 16,
+   "text": "ended with a free India choosing its own way.",
+   "caps": "a *free India | its own *way."
+  }
+ ]
+}
